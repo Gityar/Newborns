@@ -1,0 +1,896 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Neonatal Nursing LMS</title>
+<style>
+:root{
+  --ink:#0d1f26; --ink-soft:#35525d; --muted:#54707c;
+  --brand:#0d7d76; --brand-600:#0a5f5a; --brand-50:#e7f4f3; --brand-100:#cfe9e6;
+  --ok:#166534; --ok-50:#dcfce7; --bad:#b91c1c; --bad-50:#fee2e2;
+  --warn:#b45309; --warn-50:#fef3e2;
+  --bg:#eef5f5; --card:#fff; --line:#d3e3e6; --line-soft:#e8f1f2;
+  --radius:18px; --radius-sm:12px;
+  --shadow:0 2px 4px rgba(13,31,38,.06),0 14px 40px rgba(13,31,38,.10);
+  --font:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+}
+*{box-sizing:border-box}
+body{margin:0;font-family:var(--font);font-size:17px;line-height:1.65;color:var(--ink);background:var(--bg)}
+h1,h2,h3,h4{line-height:1.25;margin:0 0 .5em}
+a{color:var(--brand-600)}
+button{font-family:inherit}
+:focus-visible{outline:3px solid #0e7490;outline-offset:2px;border-radius:6px}
+.hidden{display:none !important}
+
+/* ---- Top bar ---- */
+.topbar{
+  position:sticky;top:0;z-index:50;display:flex;align-items:center;gap:16px;
+  padding:14px 22px;background:linear-gradient(100deg,#0b2f38,#0d4551 55%,#0d7d76);
+  color:#eaf6f6;box-shadow:0 3px 14px rgba(11,47,56,.28);
+}
+.brand{display:flex;align-items:center;gap:12px}
+.brand .logo{width:42px;height:42px;display:grid;place-items:center;background:rgba(255,255,255,.15);border-radius:12px;font-size:22px}
+.brand h1{font-size:1.1rem;margin:0;color:#fff}
+.brand small{color:#a9cdcd;font-size:.78rem;text-transform:uppercase;letter-spacing:.05em}
+.spacer{flex:1}
+.user-chip{display:flex;align-items:center;gap:10px;background:rgba(255,255,255,.12);padding:7px 14px;border-radius:99px;font-size:.9rem;color:#fff}
+.user-chip b{font-weight:700}
+.btn{border:0;border-radius:10px;padding:11px 20px;font-weight:700;font-size:.95rem;cursor:pointer;transition:.15s}
+.btn.primary{background:var(--brand);color:#fff}
+.btn.primary:hover{background:var(--brand-600)}
+.btn.ghost{background:#eef6f6;color:var(--brand-600);border:1px solid var(--line)}
+.btn.ghost:hover{background:var(--brand-50)}
+.btn.small{padding:8px 14px;font-size:.85rem}
+.btn.danger{background:var(--bad);color:#fff}
+.btn.danger:hover{background:#991b1b}
+.btn.ok{background:var(--ok);color:#fff}
+
+/* ---- Layout ---- */
+.container{max-width:1200px;margin:0 auto;padding:26px 20px 60px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow);padding:26px}
+.card + .card{margin-top:18px}
+.card h2{font-size:1.5rem}
+.card h3{font-size:1.2rem;color:var(--brand-600);margin-top:1.4em}
+.card p{max-width:75ch}
+
+/* ---- Auth screen ---- */
+.auth-wrap{min-height:calc(100vh - 70px);display:grid;place-items:center;padding:30px 18px}
+.auth-card{width:100%;max-width:480px}
+.auth-card .logo-lg{width:64px;height:64px;margin:0 auto 14px;display:grid;place-items:center;background:var(--brand-50);border-radius:18px;font-size:32px}
+.auth-card h2{text-align:center;margin-bottom:4px}
+.auth-card .sub{text-align:center;color:var(--muted);margin-bottom:22px;font-size:.95rem}
+.field{margin-bottom:14px}
+.field label{display:block;font-weight:600;font-size:.9rem;margin-bottom:6px;color:var(--ink-soft)}
+.field input,.field select{
+  width:100%;padding:12px 14px;font-size:1rem;font-family:inherit;
+  border:2px solid var(--line);border-radius:10px;background:#fff;
+}
+.field input:focus,.field select:focus{outline:none;border-color:var(--brand);box-shadow:0 0 0 3px var(--brand-100)}
+.auth-links{display:flex;justify-content:space-between;margin-top:14px;font-size:.9rem}
+.auth-links a{color:var(--brand-600);text-decoration:none;font-weight:600}
+.auth-links a:hover{text-decoration:underline}
+.tab-switch{display:flex;gap:8px;margin-bottom:18px;background:#f1f7f7;padding:5px;border-radius:12px}
+.tab-switch button{flex:1;border:0;background:transparent;padding:9px;border-radius:8px;font-weight:700;font-size:.9rem;cursor:pointer;color:var(--muted)}
+.tab-switch button.active{background:#fff;color:var(--brand-600);box-shadow:0 1px 3px rgba(0,0,0,.08)}
+.alert{padding:12px 16px;border-radius:10px;margin-bottom:14px;font-size:.92rem;border-left:4px solid}
+.alert.error{background:var(--bad-50);border-color:var(--bad);color:var(--bad)}
+.alert.success{background:var(--ok-50);border-color:var(--ok);color:var(--ok)}
+.alert.info{background:var(--brand-50);border-color:var(--brand);color:var(--brand-600)}
+
+/* ---- Dashboard ---- */
+.hero{background:linear-gradient(135deg,#0b2f38,#0d7d76);color:#fff;padding:30px;border-radius:var(--radius);margin-bottom:20px}
+.hero h2{font-size:1.8rem;margin:0 0 6px;color:#fff}
+.hero p{color:#c9e7e7;margin:0;max-width:75ch}
+.stat-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:14px;margin:18px 0}
+.stat{background:#fff;border:1px solid var(--line);border-radius:var(--radius-sm);padding:18px}
+.stat .n{font-size:2rem;font-weight:800;color:var(--brand-600);line-height:1}
+.stat .l{font-size:.85rem;color:var(--muted);margin-top:6px;text-transform:uppercase;letter-spacing:.04em}
+.nav-tabs{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:18px;background:#fff;padding:6px;border-radius:12px;border:1px solid var(--line)}
+.nav-tabs button{border:0;background:transparent;padding:10px 16px;border-radius:8px;font-weight:700;font-size:.9rem;cursor:pointer;color:var(--muted)}
+.nav-tabs button.active{background:var(--brand);color:#fff}
+
+/* ---- Tables ---- */
+.tbl-scroll{overflow-x:auto;border:1px solid var(--line);border-radius:var(--radius-sm)}
+table{border-collapse:collapse;width:100%;font-size:.92rem;min-width:560px}
+th,td{padding:11px 14px;text-align:left;border-bottom:1px solid var(--line-soft);vertical-align:middle}
+thead th{background:#eef6f6;color:var(--brand-600);font-size:.78rem;letter-spacing:.05em;text-transform:uppercase;font-weight:800}
+tbody tr:last-child td{border-bottom:0}
+tbody tr:hover{background:#f7fbfb}
+.badge{display:inline-block;padding:3px 10px;border-radius:99px;font-size:.78rem;font-weight:700;text-transform:uppercase;letter-spacing:.03em}
+.badge.active{background:var(--ok-50);color:var(--ok)}
+.badge.pending{background:var(--warn-50);color:var(--warn)}
+.badge.suspended{background:var(--bad-50);color:var(--bad)}
+.badge.admin{background:#ede9fe;color:#5b21b6}
+.badge.instructor{background:#cffafe;color:#0e7490}
+.badge.learner{background:#f1f7f7;color:var(--muted)}
+select.inline{padding:6px 10px;font-size:.85rem;border:1px solid var(--line);border-radius:8px;background:#fff}
+
+/* ---- OSCE form ---- */
+.osce-domain{display:grid;grid-template-columns:1fr auto;gap:12px;align-items:center;padding:12px 14px;border:1px solid var(--line);border-radius:10px;margin-bottom:8px;background:#fbfefe}
+.osce-domain .label{font-weight:600;font-size:.92rem}
+.osce-domain .radios{display:flex;gap:6px}
+.osce-domain .radios label{
+  display:flex;align-items:center;gap:4px;padding:7px 12px;border:2px solid var(--line);
+  border-radius:8px;cursor:pointer;font-size:.85rem;font-weight:600;background:#fff;min-width:52px;justify-content:center;
+}
+.osce-domain .radios label:has(input:checked){border-color:var(--brand);background:var(--brand-50);color:var(--brand-600)}
+.osce-domain .radios input{accent-color:var(--brand)}
+.score-banner{padding:14px 20px;border-radius:12px;font-weight:700;text-align:center;font-size:1.1rem;margin:14px 0}
+.score-banner.pass{background:var(--ok-50);color:var(--ok)}
+.score-banner.fail{background:var(--bad-50);color:var(--bad)}
+
+/* ---- Certificate ---- */
+.cert{
+  background:linear-gradient(135deg,#fff,#f1f9f8);
+  border:3px solid var(--brand);border-radius:18px;padding:40px 34px;text-align:center;
+  position:relative;box-shadow:var(--shadow);
+}
+.cert::before{content:"";position:absolute;inset:10px;border:2px solid var(--brand-100);border-radius:12px;pointer-events:none}
+.cert .seal{width:80px;height:80px;margin:0 auto 14px;background:var(--brand);color:#fff;border-radius:50%;display:grid;place-items:center;font-size:34px}
+.cert h2{font-size:1.8rem;color:var(--brand-600);letter-spacing:.06em;text-transform:uppercase;margin-bottom:6px}
+.cert .cert-sub{color:var(--muted);font-size:.9rem;text-transform:uppercase;letter-spacing:.15em;margin-bottom:20px}
+.cert .name{font-size:2rem;font-weight:800;color:var(--ink);margin:14px 0 4px;font-family:Georgia,serif}
+.cert .desc{max-width:540px;margin:14px auto;color:var(--ink-soft);font-size:.98rem}
+.cert .meta{display:flex;flex-wrap:wrap;gap:14px;justify-content:center;margin-top:22px;font-size:.82rem;color:var(--muted)}
+.cert .meta div{background:#fff;border:1px solid var(--line);border-radius:8px;padding:8px 14px}
+.cert .meta b{display:block;color:var(--brand-600);font-size:.92rem;margin-top:2px}
+
+/* ---- Toast ---- */
+.toast{
+  position:fixed;left:50%;bottom:26px;transform:translate(-50%,26px);
+  background:#0b2f38;color:#e8f5f5;padding:14px 24px;border-radius:99px;
+  font-size:.92rem;font-weight:600;box-shadow:var(--shadow);opacity:0;pointer-events:none;
+  transition:.28s;z-index:90;
+}
+.toast.show{opacity:1;transform:translate(-50%,0)}
+
+/* ---- Misc ---- */
+.empty{text-align:center;padding:40px 20px;color:var(--muted)}
+.empty .icon{font-size:2.6rem;margin-bottom:8px;opacity:.5}
+.row{display:flex;gap:12px;flex-wrap:wrap;align-items:center}
+@media print{
+  .topbar,.nav-tabs,.btn,footer{display:none!important}
+  body{background:#fff}
+  .card{box-shadow:none;border:0;padding:0}
+  .cert{box-shadow:none}
+}
+@media (max-width:600px){
+  .topbar{padding:12px 14px;gap:10px}
+  .brand h1{font-size:.95rem}
+  .brand small{display:none}
+  .user-chip{font-size:.78rem;padding:6px 10px}
+  .container{padding:18px 12px 40px}
+  .card{padding:18px}
+  .osce-domain{grid-template-columns:1fr}
+}
+</style>
+</head>
+<body>
+
+<div id="app"></div>
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<script src="config.js"></script>
+<script>
+/* =============================================================
+   Neonatal Nursing LMS — Front-end
+   ============================================================= */
+const API = window.LMS_CONFIG?.API_URL || '';
+const PASS_THRESHOLD = window.LMS_CONFIG?.PASS_THRESHOLD || 80;
+
+/* ---------- Helpers ---------- */
+const $  = (s, r=document) => r.querySelector(s);
+const $$ = (s, r=document) => Array.from(r.querySelectorAll(s));
+const esc = s => String(s ?? '').replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const fmt = d => d ? new Date(d).toLocaleString() : '—';
+
+function toast(msg, ms=2400){
+  const t = $('#toast');
+  t.textContent = msg; t.classList.add('show');
+  clearTimeout(t._t); t._t = setTimeout(()=>t.classList.remove('show'), ms);
+}
+
+async function api(action, payload={}){
+  if(!API || API.includes('PASTE')) throw new Error('config.js is missing your Apps Script URL.');
+  const body = Object.assign({action}, payload);
+  const res = await fetch(API, {
+    method:'POST', headers:{'Content-Type':'text/plain;charset=utf-8'},
+    body: JSON.stringify(body)
+  });
+  const data = await res.json();
+  if(!data.ok) throw new Error(data.error || 'Request failed');
+  return data.data;
+}
+
+/* ---------- Session ---------- */
+const SESSION_KEY = 'nn_lms_session';
+function getSession(){ try { return JSON.parse(localStorage.getItem(SESSION_KEY)); } catch { return null; } }
+function setSession(s){ localStorage.setItem(SESSION_KEY, JSON.stringify(s)); }
+function clearSession(){ localStorage.removeItem(SESSION_KEY); }
+function currentUser(){ return getSession()?.user || null; }
+function currentToken(){ return getSession()?.token || ''; }
+
+/* =============================================================
+   STATE
+   ============================================================= */
+const STATE = {
+  route: 'auth',
+  authTab: 'login',
+  view: 'overview',
+  users: [], osceRecords: [], certs: [], audits: [],
+  scorePreview: 0
+};
+
+/* =============================================================
+   RENDER ROOT
+   ============================================================= */
+function render(){
+  const u = currentUser();
+  if(!u){ renderAuth(); return; }
+  renderApp();
+}
+
+/* ---------- Top bar ---------- */
+function topbar(){
+  const u = currentUser();
+  return `
+    <header class="topbar">
+      <div class="brand">
+        <div class="logo">👶</div>
+        <div>
+          <h1>Neonatal Nursing LMS</h1>
+          <small>Interactive Course · OSCE · Certification</small>
+        </div>
+      </div>
+      <div class="spacer"></div>
+      <div class="user-chip">
+        <span>👤 <b>${esc(u.name)}</b></span>
+        <span class="badge ${esc(u.role)}">${esc(u.role)}</span>
+      </div>
+      <button class="btn ghost small" onclick="logout()">Logout</button>
+    </header>
+  `;
+}
+
+/* =============================================================
+   AUTH SCREEN
+   ============================================================= */
+function renderAuth(){
+  const t = STATE.authTab;
+  $('#app').innerHTML = `
+    ${''}
+    <div class="auth-wrap">
+      <div class="auth-card card">
+        <div class="logo-lg">👶</div>
+        <h2>Neonatal Nursing LMS</h2>
+        <p class="sub">Interactive course, OSCE assessment &amp; certification</p>
+
+        <div class="tab-switch">
+          <button class="${t==='login'?'active':''}" onclick="switchAuth('login')">Login</button>
+          <button class="${t==='register'?'active':''}" onclick="switchAuth('register')">Register</button>
+          <button class="${t==='forgot'?'active':''}" onclick="switchAuth('forgot')">Forgot</button>
+        </div>
+
+        <div id="auth-alert"></div>
+        ${t==='login'    ? authLoginForm()    : ''}
+        ${t==='register' ? authRegisterForm() : ''}
+        ${t==='forgot'   ? authForgotForm()   : ''}
+
+        <p style="text-align:center;margin-top:18px;font-size:.8rem;color:var(--muted)">
+          Default admin: <code>admin@lms.local</code> / <code>Admin@12345</code> (change after first login)
+        </p>
+      </div>
+    </div>
+  `;
+  const form = $('#auth-form');
+  if(form) form.addEventListener('submit', handleAuthSubmit);
+}
+
+function authLoginForm(){
+  return `
+    <form id="auth-form" data-mode="login">
+      <div class="field"><label>Email</label><input type="email" name="email" required autocomplete="username"></div>
+      <div class="field"><label>Password</label><input type="password" name="password" required autocomplete="current-password"></div>
+      <button type="submit" class="btn primary" style="width:100%;margin-top:6px">Sign in</button>
+      <div class="auth-links">
+        <a href="#" onclick="switchAuth('register');return false">Create account</a>
+        <a href="#" onclick="switchAuth('forgot');return false">Forgot password?</a>
+      </div>
+    </form>
+  `;
+}
+
+function authRegisterForm(){
+  return `
+    <form id="auth-form" data-mode="register">
+      <div class="field"><label>Full name</label><input type="text" name="name" required></div>
+      <div class="field"><label>Email</label><input type="email" name="email" required autocomplete="email"></div>
+      <div class="field"><label>Password (min 8 chars)</label><input type="password" name="password" required minlength="8" autocomplete="new-password"></div>
+      <div class="field"><label>Register as</label>
+        <select name="role">
+          <option value="learner">Learner</option>
+          <option value="instructor">Instructor</option>
+          <option value="admin">Administrator</option>
+        </select>
+      </div>
+      <p style="font-size:.82rem;color:var(--muted);margin:0 0 10px">
+        Instructor and admin accounts require approval by an existing administrator.
+      </p>
+      <button type="submit" class="btn primary" style="width:100%">Create account</button>
+    </form>
+  `;
+}
+
+function authForgotForm(){
+  return `
+    <form id="auth-form" data-mode="forgot">
+      <div class="field"><label>Email address</label><input type="email" name="email" required></div>
+      <button type="submit" class="btn primary" style="width:100%">Request reset token</button>
+      <div class="auth-links"><a href="#" onclick="switchAuth('login');return false">← Back to login</a></div>
+    </form>
+  `;
+}
+
+function switchAuth(tab){
+  STATE.authTab = tab;
+  renderAuth();
+}
+
+async function handleAuthSubmit(e){
+  e.preventDefault();
+  const mode = e.target.dataset.mode;
+  const form = new FormData(e.target);
+  const alert = $('#auth-alert');
+  alert.innerHTML = '';
+
+  try {
+    if(mode === 'login'){
+      const data = await api('login', {
+        email: form.get('email'), password: form.get('password')
+      });
+      setSession({ token: data.token, user: data.user });
+      toast('Welcome, ' + data.user.name);
+      STATE.view = 'overview';
+      render();
+    } else if(mode === 'register'){
+      const data = await api('register', {
+        name: form.get('name'), email: form.get('email'),
+        password: form.get('password'), role: form.get('role')
+      });
+      alert.innerHTML = `<div class="alert success">
+        Account created (${esc(data.status)}). ${data.status==='pending' ? 'Awaiting admin approval — you will be able to log in once approved.' : 'You may now log in.'}
+      </div>`;
+      if(data.status === 'active') setTimeout(()=>switchAuth('login'), 1600);
+    } else if(mode === 'forgot'){
+      const data = await api('forgot', { email: form.get('email') });
+      alert.innerHTML = `<div class="alert info">
+        If the account exists, a reset token has been issued.
+        ${data.demoToken ? `<br><br><b>Demo token (paste in Reset):</b><br><code style="word-break:break-all">${esc(data.demoToken)}</code>` : ''}
+      </div>`;
+    }
+  } catch(err){
+    alert.innerHTML = `<div class="alert error">${esc(err.message)}</div>`;
+  }
+}
+
+async function logout(){
+  try { await api('logout', { token: currentToken() }); } catch {}
+  clearSession();
+  STATE.route = 'auth'; STATE.authTab='login';
+  render();
+}
+
+/* =============================================================
+   APP SHELL (logged in)
+   ============================================================= */
+function renderApp(){
+  const u = currentUser();
+  const tabs = [
+    { id:'overview', label:'🏠 Overview' },
+    { id:'course',   label:'📚 Course' },
+  ];
+  if(u.role === 'learner'){
+    tabs.push({ id:'myOsce', label:'🎯 My OSCE' });
+    tabs.push({ id:'myCerts', label:'🏆 My Certificates' });
+  }
+  if(u.role === 'instructor' || u.role === 'admin'){
+    tabs.push({ id:'osceEntry', label:'📝 Score OSCE' });
+    tabs.push({ id:'records',   label:'📊 OSCE Records' });
+    tabs.push({ id:'certs',     label:'🏆 Certificates' });
+  }
+  if(u.role === 'admin'){
+    tabs.push({ id:'users', label:'👥 Users' });
+    tabs.push({ id:'audit', label:'📜 Audit Log' });
+  }
+
+  $('#app').innerHTML = `
+    ${topbar()}
+    <div class="container">
+      <div class="nav-tabs">
+        ${tabs.map(t=>`<button class="${STATE.view===t.id?'active':''}" onclick="setView('${t.id}')">${t.label}</button>`).join('')}
+      </div>
+      <div id="view-root"></div>
+    </div>
+  `;
+  renderView();
+}
+
+function setView(v){ STATE.view = v; render(); }
+
+function renderView(){
+  const root = $('#view-root');
+  switch(STATE.view){
+    case 'overview':  root.innerHTML = viewOverview(); break;
+    case 'course':    root.innerHTML = viewCourse();   break;
+    case 'myOsce':    root.innerHTML = viewMyOsce();   loadMyOsce(); break;
+    case 'myCerts':   root.innerHTML = viewMyCerts();  loadMyCerts(); break;
+    case 'osceEntry': root.innerHTML = viewOsceEntry(); break;
+    case 'records':   root.innerHTML = viewRecords();  loadRecords(); break;
+    case 'certs':     root.innerHTML = viewCerts();    loadCerts(); break;
+    case 'users':     root.innerHTML = viewUsers();    loadUsers(); break;
+    case 'audit':     root.innerHTML = viewAudit();    loadAudit(); break;
+  }
+}
+
+/* =============================================================
+   VIEWS — Overview / Course
+   ============================================================= */
+function viewOverview(){
+  const u = currentUser();
+  return `
+    <div class="hero">
+      <h2>Welcome back, ${esc(u.name)}</h2>
+      <p>Continue the Neonatal Nursing interactive course. Complete the units, then take the 10-domain OSCE assessment to earn your certificate — you need 80% or higher (16 of 20 points).</p>
+    </div>
+    <div class="stat-grid">
+      <div class="stat"><div class="n">6</div><div class="l">Modules</div></div>
+      <div class="stat"><div class="n">10</div><div class="l">OSCE Domains</div></div>
+      <div class="stat"><div class="n">${PASS_THRESHOLD}%</div><div class="l">Pass mark</div></div>
+      <div class="stat"><div class="n">160h</div><div class="l">Practicum</div></div>
+    </div>
+    <div class="card">
+      <h2>Quick actions</h2>
+      <div class="row" style="margin-top:12px">
+        <button class="btn primary" onclick="setView('course')">📚 Open course</button>
+        ${u.role==='learner'?`<button class="btn ghost" onclick="setView('myCerts')">🏆 My certificates</button>`:''}
+        ${(u.role==='instructor'||u.role==='admin')?`<button class="btn ghost" onclick="setView('osceEntry')">📝 Score an OSCE</button>`:''}
+        ${u.role==='admin'?`<button class="btn ghost" onclick="setView('users')">👥 Manage users</button>`:''}
+      </div>
+    </div>
+  `;
+}
+
+function viewCourse(){
+  return `
+    <div class="card">
+      <h2>Neonatal Nursing — Course Modules</h2>
+      <p>The full interactive course consists of six modules. Module content is delivered through your programme's OpenEdX instance; use the LMS for registration, OSCE assessment and certification.</p>
+      <div class="tbl-scroll" style="margin-top:16px">
+        <table>
+          <thead><tr><th>Module</th><th>Title</th><th>Focus</th></tr></thead>
+          <tbody>
+            <tr><td>1</td><td>Foundations of Neonatology, Physiology &amp; Classification</td><td>Introduction, roles, epidemiology; fetal-to-neonatal transition; classification</td></tr>
+            <tr><td>2</td><td>Immediate Care, Assessment &amp; Neonatal Resuscitation (NRP)</td><td>APGAR, essential newborn care, Golden Minute, NRP algorithm, calculations, drills</td></tr>
+            <tr><td>3</td><td>Birth Injuries, Respiratory, Hematological &amp; Metabolic Disorders</td><td>Birth trauma, RDS/TTN/MAS, jaundice, HIE, hypoglycaemia, NAS</td></tr>
+            <tr><td>4</td><td>Infections, Congenital Anomalies &amp; High-Risk Nutrition</td><td>Sepsis, NEC, anomalies, prematurity, TPN, KMC, EPI immunization</td></tr>
+            <tr><td>5</td><td>Guided Clinical Practice &amp; Practicum (160 Hours)</td><td>NICU rotation (120 h) + postnatal/community rotation (40 h)</td></tr>
+            <tr><td>6</td><td>Final Assessments, OSCE Evaluation &amp; Continuous Improvement</td><td>Midterm, OSCE, portfolio defence, feedback, accessibility</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  `;
+}
+
+/* =============================================================
+   VIEWS — Learner: My OSCE & My Certificates
+   ============================================================= */
+function viewMyOsce(){
+  return `
+    <div class="card">
+      <h2>🎯 My OSCE Assessment</h2>
+      <p>Your OSCE results are recorded by an instructor or administrator. The OSCE has 10 domains, each worth 2 points (max 20). You need <strong>${PASS_THRESHOLD}% or higher (16/20)</strong> for a certificate.</p>
+      <div id="my-osce-list" class="empty"><div class="icon">⏳</div>Loading…</div>
+    </div>
+  `;
+}
+
+async function loadMyOsce(){
+  try {
+    const d = await api('listOsce', { token: currentToken() });
+    const el = $('#my-osce-list');
+    if(!d.records.length){ el.innerHTML = `<div class="empty"><div class="icon">📋</div>No OSCE records yet.</div>`; return; }
+    el.innerHTML = `
+      <div class="tbl-scroll">
+        <table>
+          <thead><tr><th>Date</th><th>Assessor</th><th>Score</th><th>%</th><th>Outcome</th></tr></thead>
+          <tbody>
+            ${d.records.map(r=>`
+              <tr>
+                <td>${fmt(r.Timestamp)}</td>
+                <td>${esc(r.AssessorEmail)}</td>
+                <td>${esc(r.TotalScore)}/20</td>
+                <td><b>${esc(r.Percentage)}%</b></td>
+                <td><span class="badge ${r.Outcome==='PASS'?'active':'suspended'}">${esc(r.Outcome)}</span></td>
+              </tr>`).join('')}
+          </tbody>
+        </table>
+      </div>
+    `;
+  } catch(e){ $('#my-osce-list').innerHTML = `<div class="alert error">${esc(e.message)}</div>`; }
+}
+
+function viewMyCerts(){
+  return `
+    <div class="card">
+      <h2>🏆 My Certificates</h2>
+      <p>Certificates are issued automatically once you pass the OSCE with ${PASS_THRESHOLD}% or above.</p>
+      <div id="my-certs-list" class="empty"><div class="icon">⏳</div>Loading…</div>
+    </div>
+  `;
+}
+
+async function loadMyCerts(){
+  try {
+    const d = await api('listCertificates', { token: currentToken() });
+    const el = $('#my-certs-list');
+    if(!d.certificates.length){ el.innerHTML = `<div class="empty"><div class="icon">🎓</div>No certificates yet — pass the OSCE to earn one.</div>`; return; }
+    el.innerHTML = d.certificates.map(c => renderCertificate(c)).join('');
+  } catch(e){ $('#my-certs-list').innerHTML = `<div class="alert error">${esc(e.message)}</div>`; }
+}
+
+function renderCertificate(c){
+  return `
+    <div class="cert" style="margin-bottom:18px">
+      <div class="seal">🏅</div>
+      <h2>Certificate of Achievement</h2>
+      <div class="cert-sub">Neonatal Nursing · OSCE Assessment</div>
+      <div>This is to certify that</div>
+      <div class="name">${esc(c.Name)}</div>
+      <div class="desc">has successfully completed the Neonatal Nursing OSCE Assessment with a score of <b>${esc(c.Percentage)}%</b>, meeting the required standard of ${PASS_THRESHOLD}%.</div>
+      <div class="meta">
+        <div>Certificate Code<b>${esc(c.CertCode)}</b></div>
+        <div>Issued<b>${fmt(c.IssuedAt)}</b></div>
+        <div>Valid until<b>${fmt(c.ValidUntil)}</b></div>
+      </div>
+      <div class="row" style="justify-content:center;margin-top:22px">
+        <button class="btn primary" onclick='downloadCertificate(${JSON.stringify(c).replace(/'/g,"&#39;")})'>⬇ Download (print / PDF)</button>
+      </div>
+    </div>
+  `;
+}
+
+function downloadCertificate(c){
+  const html = `<!DOCTYPE html><html><head><meta charset="utf-8"><title>Certificate — ${esc(c.Name)}</title>
+    <style>body{font-family:system-ui,sans-serif;background:#fff;padding:40px;margin:0}
+    .cert{max-width:800px;margin:0 auto;border:4px solid #0d7d76;border-radius:20px;padding:48px 40px;text-align:center;position:relative}
+    .cert::before{content:"";position:absolute;inset:14px;border:2px solid #cfe9e6;border-radius:12px}
+    .seal{width:90px;height:90px;margin:0 auto 18px;background:#0d7d76;color:#fff;border-radius:50%;display:grid;place-items:center;font-size:40px}
+    h2{font-size:2rem;color:#0a5f5a;letter-spacing:.08em;text-transform:uppercase;margin:0}
+    .sub{color:#54707c;text-transform:uppercase;letter-spacing:.15em;font-size:.85rem;margin:6px 0 24px}
+    .name{font-size:2.4rem;font-weight:800;font-family:Georgia,serif;margin:18px 0 6px}
+    .desc{max-width:560px;margin:18px auto;color:#35525d;font-size:1rem}
+    .meta{display:flex;gap:16px;justify-content:center;margin-top:26px;font-size:.85rem;color:#54707c}
+    .meta div{border:1px solid #d3e3e6;border-radius:10px;padding:10px 16px;background:#f9fcfc}
+    .meta b{display:block;color:#0a5f5a;font-size:.95rem;margin-top:3px}
+    </style></head><body>
+    <div class="cert">
+      <div class="seal">🏅</div>
+      <h2>Certificate of Achievement</h2>
+      <div class="sub">Neonatal Nursing · OSCE Assessment</div>
+      <div>This is to certify that</div>
+      <div class="name">${esc(c.Name)}</div>
+      <div class="desc">has successfully completed the Neonatal Nursing OSCE Assessment with a score of <b>${esc(c.Percentage)}%</b>, meeting the required standard of ${PASS_THRESHOLD}%.</div>
+      <div class="meta">
+        <div>Certificate Code<b>${esc(c.CertCode)}</b></div>
+        <div>Issued<b>${new Date(c.IssuedAt).toLocaleDateString()}</b></div>
+        <div>Valid Until<b>${new Date(c.ValidUntil).toLocaleDateString()}</b></div>
+      </div>
+    </div>
+    <script>window.onload=()=>setTimeout(()=>window.print(),300)<\/script>
+    </body></html>`;
+  const w = window.open('', '_blank');
+  w.document.write(html);
+  w.document.close();
+}
+
+/* =============================================================
+   VIEWS — Instructor/Admin: OSCE Entry & Records & Certs
+   ============================================================= */
+const OSCE_DOMAINS = [
+  { n:1, label:'Domain 1 — Preparation & Infection Control' },
+  { n:2, label:'Domain 2 — Initial Thermal & Airway Management' },
+  { n:3, label:'Domain 3 — Rapid Assessment & APGAR Evaluation' },
+  { n:4, label:'Domain 4 — Positive Pressure Ventilation (PPV) Execution' },
+  { n:5, label:'Domain 5 — Corrective Measures (MR. SOPA)' },
+  { n:6, label:'Domain 6 — Chest Compressions at 3:1 Ratio' },
+  { n:7, label:'Domain 7 — Medication Preparation & Administration' },
+  { n:8, label:'Domain 8 — Team Communication & Closed-Loop Practice' },
+  { n:9, label:'Domain 9 — Documentation & Timekeeping' },
+  { n:10,label:'Domain 10 — Professionalism, Safety & Family Communication' }
+];
+
+function viewOsceEntry(){
+  return `
+    <div class="card">
+      <h2>📝 OSCE Assessment — Enter Scores</h2>
+      <p>Each of the 10 domains is scored 0–2 points. The total is 20. A learner passing ${PASS_THRESHOLD}% or higher is automatically issued a certificate.</p>
+      <form id="osce-form" style="margin-top:16px">
+        <div class="field">
+          <label>Learner email</label>
+          <input type="email" name="learnerEmail" required placeholder="learner@example.com">
+        </div>
+        <div id="domain-list" style="margin:18px 0"></div>
+        <div class="field">
+          <label>Assessor notes (optional)</label>
+          <input type="text" name="notes" placeholder="e.g. Strong airway management, review MR. SOPA sequence">
+        </div>
+        <div class="score-banner" id="score-banner">Score: 0 / 20 · 0%</div>
+        <button type="submit" class="btn primary" style="width:100%">Submit OSCE</button>
+      </form>
+      <div id="osce-result"></div>
+    </div>
+  `;
+  renderDomainInputs();
+  $('#osce-form').addEventListener('submit', submitOsce);
+}
+
+function renderDomainInputs(){
+  const el = $('#domain-list');
+  el.innerHTML = OSCE_DOMAINS.map(d => `
+    <div class="osce-domain">
+      <div class="label">${d.label}</div>
+      <div class="radios">
+        ${[0,1,2].map(v => `
+          <label><input type="radio" name="d${d.n}" value="${v}" ${v===0?'checked':''} onchange="updateScore()"> ${v}</label>
+        `).join('')}
+      </div>
+    </div>
+  `).join('');
+}
+
+function updateScore(){
+  let total = 0;
+  for(let i=1;i<=10;i++){
+    const v = document.querySelector(`input[name="d${i}"]:checked`);
+    total += v ? Number(v.value) : 0;
+  }
+  const pct = Math.round((total/20)*1000)/10;
+  const pass = pct >= PASS_THRESHOLD;
+  const banner = $('#score-banner');
+  banner.className = 'score-banner ' + (pass?'pass':'fail');
+  banner.textContent = `Score: ${total} / 20 · ${pct}% ${pass?'✓ PASS':'✗ FAIL'}`;
+  STATE.scorePreview = total;
+}
+
+async function submitOsce(e){
+  e.preventDefault();
+  const f = new FormData(e.target);
+  const payload = { token: currentToken(), learnerEmail: f.get('learnerEmail'), notes: f.get('notes') || '' };
+  for(let i=1;i<=10;i++) payload['d'+i] = Number(f.get('d'+i));
+  const resultEl = $('#osce-result');
+  resultEl.innerHTML = '<div class="alert info">Submitting…</div>';
+  try{
+    const d = await api('submitOsce', payload);
+    resultEl.innerHTML = `
+      <div class="alert ${d.pass?'success':'error'}" style="margin-top:16px">
+        <b>Score: ${d.total}/20 (${d.percentage}%) — ${d.pass?'PASS':'FAIL'}</b><br>
+        ${d.pass && d.certificate ? `Certificate issued: <b>${esc(d.certificate.CertCode)}</b> for ${esc(d.certificate.Name)}.` : (d.pass?'Certificate already issued.':'Learner did not reach the pass mark; no certificate issued.')}
+      </div>
+    `;
+    e.target.reset();
+    renderDomainInputs();
+    updateScore();
+  } catch(err){
+    resultEl.innerHTML = `<div class="alert error" style="margin-top:16px">${esc(err.message)}</div>`;
+  }
+}
+
+function viewRecords(){
+  return `
+    <div class="card">
+      <h2>📊 OSCE Records</h2>
+      <div id="records-list" class="empty"><div class="icon">⏳</div>Loading…</div>
+    </div>
+  `;
+}
+
+async function loadRecords(){
+  try {
+    const d = await api('listOsce', { token: currentToken() });
+    const el = $('#records-list');
+    if(!d.records.length){ el.innerHTML = `<div class="empty"><div class="icon">📋</div>No OSCE records yet.</div>`; return; }
+    el.innerHTML = `
+      <div class="tbl-scroll">
+        <table>
+          <thead><tr><th>Date</th><th>Learner</th><th>Assessor</th><th>Score</th><th>%</th><th>Outcome</th></tr></thead>
+          <tbody>
+            ${d.records.map(r=>`
+              <tr>
+                <td>${fmt(r.Timestamp)}</td>
+                <td>${esc(r.LearnerEmail)}</td>
+                <td>${esc(r.AssessorEmail)}</td>
+                <td>${esc(r.TotalScore)}/20</td>
+                <td><b>${esc(r.Percentage)}%</b></td>
+                <td><span class="badge ${r.Outcome==='PASS'?'active':'suspended'}">${esc(r.Outcome)}</span></td>
+              </tr>`).join('')}
+          </tbody>
+        </table>
+      </div>
+    `;
+  } catch(e){ $('#records-list').innerHTML = `<div class="alert error">${esc(e.message)}</div>`; }
+}
+
+function viewCerts(){
+  return `
+    <div class="card">
+      <h2>🏆 Issued Certificates</h2>
+      <div id="certs-list" class="empty"><div class="icon">⏳</div>Loading…</div>
+    </div>
+  `;
+}
+
+async function loadCerts(){
+  try {
+    const d = await api('listCertificates', { token: currentToken() });
+    const el = $('#certs-list');
+    if(!d.certificates.length){ el.innerHTML = `<div class="empty"><div class="icon">🎓</div>No certificates issued yet.</div>`; return; }
+    el.innerHTML = `
+      <div class="tbl-scroll">
+        <table>
+          <thead><tr><th>Name</th><th>Email</th><th>Score</th><th>Code</th><th>Issued</th><th>Valid until</th></tr></thead>
+          <tbody>
+            ${d.certificates.map(c=>`
+              <tr>
+                <td><b>${esc(c.Name)}</b></td>
+                <td>${esc(c.Email)}</td>
+                <td>${esc(c.Percentage)}%</td>
+                <td><code>${esc(c.CertCode)}</code></td>
+                <td>${fmt(c.IssuedAt)}</td>
+                <td>${fmt(c.ValidUntil)}</td>
+              </tr>`).join('')}
+          </tbody>
+        </table>
+      </div>
+    `;
+  } catch(e){ $('#certs-list').innerHTML = `<div class="alert error">${esc(e.message)}</div>`; }
+}
+
+/* =============================================================
+   VIEWS — Admin: Users & Audit
+   ============================================================= */
+function viewUsers(){
+  return `
+    <div class="card">
+      <h2>👥 User Management</h2>
+      <p>Approve new instructor/admin registrations, edit roles and statuses, or delete accounts. Learners are auto-approved.</p>
+      <div id="users-list" class="empty"><div class="icon">⏳</div>Loading…</div>
+    </div>
+  `;
+}
+
+async function loadUsers(){
+  try {
+    const d = await api('listUsers', { token: currentToken() });
+    STATE.users = d.users;
+    const el = $('#users-list');
+    if(!d.users.length){ el.innerHTML = `<div class="empty"><div class="icon">👤</div>No users yet.</div>`; return; }
+    el.innerHTML = `
+      <div class="tbl-scroll">
+        <table>
+          <thead><tr><th>Name</th><th>Email</th><th>Role</th><th>Status</th><th>Created</th><th>Actions</th></tr></thead>
+          <tbody>
+            ${d.users.map(u=>`
+              <tr>
+                <td><b>${esc(u.Name)}</b></td>
+                <td>${esc(u.Email)}</td>
+                <td>
+                  <select class="inline" onchange="changeRole('${esc(u.Email)}', this.value)">
+                    ${['learner','instructor','admin'].map(r=>`<option value="${r}" ${u.Role===r?'selected':''}>${r}</option>`).join('')}
+                  </select>
+                </td>
+                <td>
+                  <select class="inline" onchange="changeStatus('${esc(u.Email)}', this.value)">
+                    ${['active','pending','suspended'].map(s=>`<option value="${s}" ${u.Status===s?'selected':''}>${s}</option>`).join('')}
+                  </select>
+                </td>
+                <td>${fmt(u.CreatedAt)}</td>
+                <td>
+                  <button class="btn danger small" onclick="deleteUser('${esc(u.Email)}')">Delete</button>
+                </td>
+              </tr>`).join('')}
+          </tbody>
+        </table>
+      </div>
+    `;
+  } catch(e){ $('#users-list').innerHTML = `<div class="alert error">${esc(e.message)}</div>`; }
+}
+
+async function changeRole(email, role){
+  try{
+    await api('updateUser', { token: currentToken(), email, role });
+    toast('Role updated for ' + email);
+    loadUsers();
+  } catch(e){ toast(e.message); }
+}
+
+async function changeStatus(email, status){
+  try{
+    await api('updateUser', { token: currentToken(), email, status });
+    toast('Status updated for ' + email);
+    loadUsers();
+  } catch(e){ toast(e.message); }
+}
+
+async function deleteUser(email){
+  if(!confirm('Delete user ' + email + '? This cannot be undone.')) return;
+  try{
+    await api('deleteUser', { token: currentToken(), email });
+    toast('User deleted');
+    loadUsers();
+  } catch(e){ toast(e.message); }
+}
+
+function viewAudit(){
+  return `
+    <div class="card">
+      <h2>📜 Audit Log</h2>
+      <p>The last 300 actions recorded in the system.</p>
+      <div id="audit-list" class="empty"><div class="icon">⏳</div>Loading…</div>
+    </div>
+  `;
+}
+
+async function loadAudit(){
+  try{
+    const d = await api('listAudit', { token: currentToken() });
+    const el = $('#audit-list');
+    if(!d.logs.length){ el.innerHTML = `<div class="empty">No audit entries yet.</div>`; return; }
+    el.innerHTML = `
+      <div class="tbl-scroll">
+        <table>
+          <thead><tr><th>Time</th><th>User</th><th>Action</th><th>Details</th></tr></thead>
+          <tbody>
+            ${d.logs.map(l=>`
+              <tr>
+                <td style="white-space:nowrap">${fmt(l.Timestamp)}</td>
+                <td>${esc(l.Email)}</td>
+                <td><b>${esc(l.Action)}</b></td>
+                <td>${esc(l.Details)}</td>
+              </tr>`).join('')}
+          </tbody>
+        </table>
+      </div>
+    `;
+  } catch(e){ $('#audit-list').innerHTML = `<div class="alert error">${esc(e.message)}</div>`; }
+}
+
+/* =============================================================
+   BOOT
+   ============================================================= */
+(async function boot(){
+  const s = getSession();
+  if(s?.token){
+    try{
+      const d = await api('me', { token: s.token });
+      setSession({ token: s.token, user: d.user });
+    } catch {
+      clearSession();
+    }
+  }
+  render();
+})();
+
+/* Expose helpers used by inline event handlers */
+window.switchAuth = switchAuth;
+window.setView    = setView;
+window.logout     = logout;
+window.updateScore= updateScore;
+window.changeRole = changeRole;
+window.changeStatus = changeStatus;
+window.deleteUser = deleteUser;
+window.downloadCertificate = downloadCertificate;
+</script>
+</body>
+</html>
