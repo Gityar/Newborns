@@ -25,7 +25,6 @@ button{font-family:inherit}
 .hidden{display:none!important}
 code{background:#eef6f6;padding:2px 6px;border-radius:4px;font-family:var(--mono);font-size:.92em}
 
-/* Top bar */
 .topbar{position:sticky;top:0;z-index:50;display:flex;align-items:center;gap:16px;padding:14px 22px;background:linear-gradient(100deg,#0b2f38,#0d4551 55%,#0d7d76);color:#eaf6f6;box-shadow:0 3px 14px rgba(11,47,56,.28)}
 .brand{display:flex;align-items:center;gap:12px}
 .brand .logo{width:42px;height:42px;display:grid;place-items:center;background:rgba(255,255,255,.15);border-radius:12px;font-size:22px}
@@ -46,7 +45,6 @@ code{background:#eef6f6;padding:2px 6px;border-radius:4px;font-family:var(--mono
 .spinner{width:16px;height:16px;border:2px solid rgba(255,255,255,.35);border-top-color:#fff;border-radius:50%;animation:spin .7s linear infinite;display:inline-block}
 @keyframes spin{to{transform:rotate(360deg)}}
 
-/* Layout */
 .container{max-width:1280px;margin:0 auto;padding:26px 20px 60px}
 .card{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow);padding:26px}
 .card + .card{margin-top:18px}
@@ -56,7 +54,6 @@ code{background:#eef6f6;padding:2px 6px;border-radius:4px;font-family:var(--mono
 .row{display:flex;gap:12px;flex-wrap:wrap;align-items:center}
 .between{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap}
 
-/* Auth */
 .auth-wrap{min-height:calc(100vh - 70px);display:grid;place-items:center;padding:30px 18px}
 .auth-card{width:100%;max-width:500px}
 .auth-card .logo-lg{width:64px;height:64px;margin:0 auto 14px;display:grid;place-items:center;background:var(--brand-50);border-radius:18px;font-size:32px}
@@ -86,7 +83,6 @@ details.code-block summary:hover{color:var(--brand-600)}
 details.code-block .code-inner{margin-top:10px;display:flex;align-items:center;gap:10px}
 details.code-block .code-inner code{font-size:1.4rem;letter-spacing:.3em;font-weight:800;color:var(--brand-600);background:var(--brand-50);padding:8px 16px;border-radius:8px;flex:1;text-align:center}
 
-/* Dashboard */
 .hero{background:linear-gradient(135deg,#0b2f38,#0d7d76);color:#fff;padding:30px;border-radius:var(--radius);margin-bottom:20px}
 .hero h2{font-size:1.8rem;margin:0 0 6px;color:#fff}
 .hero p{color:#c9e7e7;margin:0;max-width:75ch}
@@ -99,7 +95,6 @@ details.code-block .code-inner code{font-size:1.4rem;letter-spacing:.3em;font-we
 .nav-tabs button:hover{background:var(--brand-50)}
 .nav-tabs button.active{background:var(--brand);color:#fff}
 
-/* Tables (dashboard) */
 .tbl-scroll{overflow-x:auto;border:1px solid var(--line);border-radius:var(--radius-sm)}
 table{border-collapse:collapse;width:100%;font-size:.92rem;min-width:560px}
 th,td{padding:11px 14px;text-align:left;border-bottom:1px solid var(--line-soft);vertical-align:middle}
@@ -115,7 +110,6 @@ tbody tr:hover{background:#f7fbfb}
 .badge.learner{background:#f1f7f7;color:var(--muted)}
 select.inline{padding:6px 10px;font-size:.85rem;border:1px solid var(--line);border-radius:8px;background:#fff}
 
-/* Content manager */
 .module-card{border:1px solid var(--line);border-radius:var(--radius-sm);padding:16px;margin-bottom:12px;background:#fff;transition:.15s}
 .module-card:hover{border-color:var(--brand-100);box-shadow:var(--shadow-sm)}
 .module-card h4{margin:0 0 4px;font-size:1.1rem}
@@ -128,7 +122,6 @@ select.inline{padding:6px 10px;font-size:.85rem;border:1px solid var(--line);bor
 .quiz-row .opts{font-size:.85rem;color:var(--muted);margin-top:6px;line-height:1.6}
 .quiz-row .opts b{color:var(--ok)}
 
-/* Course player */
 .player-grid{display:grid;grid-template-columns:320px 1fr;gap:20px}
 .player-side{background:#fff;border:1px solid var(--line);border-radius:var(--radius-sm);padding:14px;position:sticky;top:90px;max-height:calc(100vh - 110px);overflow-y:auto}
 .player-side h3{font-size:.9rem;text-transform:uppercase;letter-spacing:.05em;color:var(--muted);margin:0 0 10px}
@@ -141,7 +134,7 @@ select.inline{padding:6px 10px;font-size:.85rem;border:1px solid var(--line);bor
 .player-main{background:#fff;border:1px solid var(--line);border-radius:var(--radius-sm);padding:28px;min-height:400px}
 .player-main h2{font-size:1.6rem;margin-bottom:10px}
 
-/* ---- LESSON CONTENT STYLES ---- */
+/* ---- Lesson Content ---- */
 .lesson-content{font-size:1rem;line-height:1.7;color:var(--ink)}
 .lesson-content h2{font-size:1.35rem;color:var(--brand-600);margin-top:1.4em}
 .lesson-content h3{font-size:1.15rem;color:var(--brand-600);margin-top:1.4em}
@@ -151,13 +144,10 @@ select.inline{padding:6px 10px;font-size:.85rem;border:1px solid var(--line);bor
 .lesson-content strong{font-weight:700}
 .lesson-content code{background:#eef6f6;padding:2px 6px;border-radius:4px;font-family:var(--mono);font-size:.9em}
 .lesson-content img{max-width:100%;border-radius:8px}
-
 .lesson-content .lesson-lead{font-size:1.08rem;color:var(--ink-soft);border-left:5px solid var(--brand);padding-left:16px;margin-bottom:1.5em;line-height:1.65}
 .lesson-content .lesson-h{font-size:1.15rem;color:var(--brand-600);margin:1.8em 0 .7em;display:flex;align-items:center;gap:10px}
 .lesson-content .lesson-h::before{content:"";width:6px;height:20px;background:var(--brand);border-radius:3px;flex:0 0 auto}
 .lesson-content .lesson-html{margin-bottom:1.2em}
-
-/* Callouts */
 .lesson-content .lesson-callout{border-radius:var(--radius-sm);padding:16px 20px;margin:1.4em 0;border:1px solid var(--line);background:#f7fbfb;border-left:5px solid var(--brand)}
 .lesson-content .lesson-callout h4{margin:0 0 .4em;font-size:.92rem;letter-spacing:.03em;text-transform:uppercase;color:var(--brand-600)}
 .lesson-content .lesson-callout p:last-child,.lesson-content .lesson-callout ul:last-child,.lesson-content .lesson-callout ol:last-child{margin-bottom:0}
@@ -168,8 +158,6 @@ select.inline{padding:6px 10px;font-size:.85rem;border:1px solid var(--line);bor
 .lesson-content .lesson-callout.danger h4{color:var(--bad)}
 .lesson-content .lesson-callout.ok{background:var(--ok-50);border-left-color:var(--ok)}
 .lesson-content .lesson-callout.ok h4{color:var(--ok)}
-
-/* Lesson tables */
 .lesson-content .lesson-tbl{margin:1.4em 0}
 .lesson-content .lesson-tbl figcaption{font-size:.9rem;color:var(--muted);margin-bottom:8px;font-weight:700}
 .lesson-content .lesson-tbl-scroll{overflow-x:auto;border:1px solid var(--line);border-radius:var(--radius-sm)}
@@ -177,28 +165,20 @@ select.inline{padding:6px 10px;font-size:.85rem;border:1px solid var(--line);bor
 .lesson-content .lesson-tbl-scroll th,.lesson-content .lesson-tbl-scroll td{padding:11px 14px;font-size:.93rem}
 .lesson-content .lesson-tbl-scroll thead th{background:#eef6f6;color:var(--brand-600);font-size:.8rem;text-transform:uppercase;letter-spacing:.04em}
 .lesson-content .lesson-tbl-scroll tbody th{background:#fafcfc;width:28%}
-
-/* Lesson cards */
 .lesson-content .lesson-cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:14px;margin:1.6em 0}
 .lesson-content .lesson-card{border:1px solid var(--line);border-radius:var(--radius-sm);padding:16px;background:linear-gradient(180deg,#fff,#f9fcfc);box-shadow:var(--shadow-sm);transition:.15s}
 .lesson-content .lesson-card:hover{transform:translateY(-3px);box-shadow:var(--shadow);border-color:var(--brand-100)}
 .lesson-content .card-num{display:inline-grid;place-items:center;min-width:30px;height:30px;padding:0 8px;border-radius:9px;background:var(--brand);color:#fff;font-size:.85rem;font-weight:800;margin-bottom:10px}
 .lesson-content .lesson-card h4{margin:0 0 6px;font-size:1rem}
 .lesson-content .lesson-card p{margin:0;font-size:.92rem;color:var(--muted);line-height:1.55}
-
-/* Lesson video */
 .lesson-content .lesson-video{margin:1.6em 0;border:1px solid var(--line);border-radius:var(--radius-sm);overflow:hidden;background:#0b2f38}
 .lesson-content .video-frame{aspect-ratio:16/9;display:grid;place-items:center;gap:10px;text-align:center;background:radial-gradient(circle at 50% 40%,#12525e,#0b2f38 72%);color:#cfe9e6;padding:22px}
 .lesson-content .video-play{width:60px;height:60px;border-radius:50%;display:grid;place-items:center;background:rgba(94,234,212,.16);border:2px solid #5eead4;color:#5eead4;font-size:1.4rem;margin:0 auto 6px}
 .lesson-content .video-frame strong{display:block;color:#fff;font-size:1rem}
 .lesson-content .video-frame small{color:#9dc4c7;font-size:.82rem;max-width:44ch}
-
-/* Lesson formula */
 .lesson-content .lesson-formula{margin:1.4em 0;padding:18px 22px;border-radius:var(--radius-sm);background:#0b2f38;color:#e8f5f5;font-family:var(--mono);font-size:.95rem;line-height:1.9;overflow-x:auto}
 .lesson-content .lesson-formula .fx-label{display:block;font-family:var(--font);font-size:.78rem;letter-spacing:.1em;text-transform:uppercase;color:#5eead4;margin-bottom:8px;font-weight:800}
 .lesson-content .lesson-formula b{color:#fbbf24}
-
-/* Lesson calc */
 .lesson-content .lesson-calc{margin:1.6em 0;border:1px solid var(--line);border-radius:var(--radius-sm);padding:20px;background:linear-gradient(180deg,#f9fdfd,#fff)}
 .lesson-content .calc-q{font-weight:600;margin-bottom:14px;font-size:1.02rem}
 .lesson-content .calc-row{display:flex;flex-wrap:wrap;align-items:center;gap:10px}
@@ -212,23 +192,17 @@ select.inline{padding:6px 10px;font-size:.85rem;border:1px solid var(--line);bor
 .lesson-content .lesson-btn{border:0;border-radius:8px;padding:10px 16px;font-weight:700;font-size:.88rem;cursor:pointer;transition:.15s}
 .lesson-content .lesson-btn.primary{background:var(--brand);color:#fff}
 .lesson-content .lesson-btn.primary:hover{background:var(--brand-600)}
-
-/* Lesson discussion */
 .lesson-content .lesson-discuss{margin:1.6em 0;border:1px solid #d9e7ea;border-left:5px solid #0e7490;border-radius:var(--radius-sm);padding:20px;background:#f4fbfd}
 .lesson-content .lesson-discuss h4{margin:0 0 8px;font-size:1rem;color:#0e7490;display:flex;gap:8px;align-items:center}
 .lesson-content .discuss-prompt{font-size:.98rem;margin-bottom:12px;line-height:1.6}
 .lesson-content .lesson-discuss textarea{width:100%;min-height:110px;resize:vertical;padding:12px 14px;font-family:inherit;font-size:.98rem;border:2px solid var(--line);border-radius:var(--radius-sm);background:#fff;line-height:1.6}
 .lesson-content .lesson-discuss textarea:focus{outline:none;border-color:#0e7490;box-shadow:0 0 0 3px #cffafe}
 .lesson-content .note-status{font-size:.82rem;color:var(--muted);margin-top:6px;min-height:1em;font-weight:600}
-
-/* Lesson PBL */
 .lesson-content .lesson-pbl{margin:1.6em 0;border:1px solid #f0d8b8;border-radius:var(--radius-sm);overflow:hidden;background:#fffdf8}
 .lesson-content .pbl-header{background:linear-gradient(100deg,#b45309,#d97706);color:#fff;padding:14px 20px;font-weight:800;font-size:.95rem;letter-spacing:.02em;display:flex;align-items:center;gap:10px}
 .lesson-content .pbl-body{padding:18px 20px}
 .lesson-content .pbl-scenario{background:#fff;border:2px dashed #e7c9a0;border-radius:var(--radius-sm);padding:16px;margin-bottom:14px;font-size:.98rem;line-height:1.65}
 .lesson-content .pbl-body ol{margin-bottom:0;font-size:.98rem}
-
-/* Lesson checklist */
 .lesson-content .lesson-checklist{margin:1.6em 0;border:1px solid var(--line);border-radius:var(--radius-sm);padding:20px;background:#fbfefe}
 .lesson-content .lesson-checklist h4{margin:0 0 12px;font-size:1rem;color:var(--brand-600)}
 .lesson-content .lesson-checklist label{display:flex;gap:12px;align-items:flex-start;padding:10px 12px;border-radius:8px;cursor:pointer;font-size:.97rem;transition:background .15s;line-height:1.5}
@@ -236,33 +210,58 @@ select.inline{padding:6px 10px;font-size:.85rem;border:1px solid var(--line);bor
 .lesson-content .lesson-checklist input{width:20px;height:20px;margin-top:1px;accent-color:var(--brand);flex:0 0 auto;cursor:pointer}
 .lesson-content .lesson-checklist input:checked + span{color:var(--muted);text-decoration:line-through}
 
-/* Quiz taking */
-.quiz-take{background:#fbfefe;border:1px solid var(--line);border-radius:12px;padding:22px}
-.quiz-take .qtext{font-weight:600;font-size:1.1rem;margin-bottom:16px}
-.quiz-take .option{display:flex;gap:14px;align-items:flex-start;padding:14px 16px;border:2px solid var(--line);border-radius:10px;margin-bottom:10px;cursor:pointer;background:#fff;transition:.15s;width:100%;text-align:left;font-size:1rem;color:var(--ink)}
-.quiz-take .option:hover:not(:disabled){border-color:var(--brand);background:var(--brand-50);transform:translateX(3px)}
-.quiz-take .option .key{flex:0 0 28px;height:28px;display:grid;place-items:center;background:#eef6f6;color:var(--brand-600);font-weight:800;border-radius:8px;font-size:.9rem}
-.quiz-take .option.correct{border-color:var(--ok);background:var(--ok-50)}
-.quiz-take .option.correct .key{background:var(--ok);color:#fff}
-.quiz-take .option.wrong{border-color:var(--bad);background:var(--bad-50)}
-.quiz-take .option.wrong .key{background:var(--bad);color:#fff}
-.quiz-take .option:disabled{cursor:default;opacity:1}
-.quiz-take .option.dim{opacity:.5}
-.quiz-feedback{margin-top:16px;padding:14px 18px;border-radius:10px;border-left:4px solid var(--brand);background:var(--brand-50);font-size:.98rem;animation:slideIn .3s}
-.quiz-feedback.good{border-left-color:var(--ok);background:var(--ok-50)}
-.quiz-feedback.bad{border-left-color:var(--bad);background:var(--bad-50)}
-.quiz-feedback strong{display:block;margin-bottom:4px}
+/* ---- Quiz Group ---- */
+.quiz-group{margin-top:20px}
+.quiz-group-head{margin-bottom:20px}
+.quiz-group-head h2{margin-bottom:6px}
+.quiz-group-list{display:flex;flex-direction:column;gap:16px}
+.quiz-item{border:2px solid var(--line);border-radius:var(--radius-sm);padding:20px;background:#fbfefe;transition:.15s}
+.quiz-item.correct{border-color:var(--ok);background:linear-gradient(180deg,#fff,var(--ok-50))}
+.quiz-item.wrong{border-color:var(--bad);background:linear-gradient(180deg,#fff,var(--bad-50))}
+.quiz-num{font-size:.82rem;font-weight:800;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);margin-bottom:8px}
+.quiz-item.correct .quiz-num{color:var(--ok)}
+.quiz-item.wrong .quiz-num{color:var(--bad)}
+.quiz-q{font-weight:600;font-size:1.08rem;margin-bottom:16px;line-height:1.6;color:var(--ink)}
+.quiz-options{display:grid;gap:10px}
+.quiz-opt{
+  display:flex;align-items:flex-start;gap:14px;padding:14px 16px;
+  border:2px solid var(--line);border-radius:10px;background:#fff;
+  cursor:pointer;transition:.15s;width:100%;text-align:left;font-size:1rem;color:var(--ink);
+}
+.quiz-opt:hover{border-color:var(--brand);background:var(--brand-50)}
+.quiz-opt input[type="radio"]{display:none}
+.quiz-opt:has(input:checked){border-color:var(--brand);background:var(--brand-50)}
+.quiz-opt:has(input:checked) .key{background:var(--brand);color:#fff}
+.quiz-opt .key{
+  flex:0 0 30px;height:30px;display:grid;place-items:center;
+  background:#eef6f6;color:var(--brand-600);font-weight:800;
+  border-radius:8px;font-size:.9rem;transition:.15s;
+}
+.quiz-opt .opt-text{flex:1;line-height:1.5}
 
-/* Forms */
-.form-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}
-.form-grid .full{grid-column:1 / -1}
-@media (max-width:720px){.form-grid{grid-template-columns:1fr}}
-.radio-row{display:flex;gap:8px;flex-wrap:wrap}
-.radio-row label{display:flex;align-items:center;gap:6px;padding:9px 16px;border:2px solid var(--line);border-radius:8px;cursor:pointer;font-weight:600;background:#fff;transition:.15s}
-.radio-row label:has(input:checked){border-color:var(--brand);background:var(--brand-50);color:var(--brand-600)}
-.radio-row input{accent-color:var(--brand)}
+/* Locked / graded states */
+.quiz-item.graded .quiz-opt{cursor:default}
+.quiz-item.graded .quiz-opt:hover{border-color:var(--line);background:#fff}
+.quiz-item.graded .quiz-opt.correct-answer{border-color:var(--ok);background:var(--ok-50);font-weight:600}
+.quiz-item.graded .quiz-opt.correct-answer .key{background:var(--ok);color:#fff}
+.quiz-item.graded .quiz-opt.wrong-answer{border-color:var(--bad);background:var(--bad-50)}
+.quiz-item.graded .quiz-opt.wrong-answer .key{background:var(--bad);color:#fff}
+.quiz-item.graded .quiz-opt.chosen-wrong{opacity:.8}
+.quiz-explanation{margin-top:14px;padding:14px 18px;border-radius:10px;background:var(--brand-50);border-left:4px solid var(--brand);font-size:.96rem;line-height:1.6}
+.quiz-explanation strong{display:block;margin-bottom:4px;color:var(--brand-600)}
 
-/* OSCE */
+.quiz-group-actions{margin-top:24px;display:flex;justify-content:center}
+.quiz-group-actions .btn{padding:14px 32px;font-size:1.02rem}
+.quiz-group-results{margin-top:24px}
+.quiz-result-summary{padding:24px;border-radius:var(--radius-sm);text-align:center;border:2px solid var(--brand);background:var(--brand-50)}
+.quiz-result-summary h3{font-size:1.6rem;margin:0 0 8px;color:var(--brand-600)}
+.quiz-result-summary p{margin:0;color:var(--ink-soft)}
+.quiz-result-summary.pass{border-color:var(--ok);background:var(--ok-50)}
+.quiz-result-summary.pass h3{color:var(--ok)}
+.quiz-result-summary.fail{border-color:var(--bad);background:var(--bad-50)}
+.quiz-result-summary.fail h3{color:var(--bad)}
+
+/* ---- OSCE ---- */
 .osce-domain{display:grid;grid-template-columns:1fr auto;gap:12px;align-items:center;padding:12px 14px;border:1px solid var(--line);border-radius:10px;margin-bottom:8px;background:#fbfefe}
 .osce-domain .label{font-weight:600;font-size:.92rem}
 .osce-domain .radios{display:flex;gap:6px}
@@ -272,7 +271,7 @@ select.inline{padding:6px 10px;font-size:.85rem;border:1px solid var(--line);bor
 .score-banner.pass{background:var(--ok-50);color:var(--ok)}
 .score-banner.fail{background:var(--bad-50);color:var(--bad)}
 
-/* Certificate */
+/* ---- Certificate (with signature) ---- */
 .cert{background:linear-gradient(135deg,#fff,#f1f9f8);border:3px solid var(--brand);border-radius:18px;padding:40px 34px;text-align:center;position:relative;box-shadow:var(--shadow)}
 .cert::before{content:"";position:absolute;inset:10px;border:2px solid var(--brand-100);border-radius:12px;pointer-events:none}
 .cert .seal{width:80px;height:80px;margin:0 auto 14px;background:var(--brand);color:#fff;border-radius:50%;display:grid;place-items:center;font-size:34px}
@@ -280,15 +279,19 @@ select.inline{padding:6px 10px;font-size:.85rem;border:1px solid var(--line);bor
 .cert .cert-sub{color:var(--muted);font-size:.9rem;text-transform:uppercase;letter-spacing:.15em;margin-bottom:20px}
 .cert .name{font-size:2rem;font-weight:800;color:var(--ink);margin:14px 0 4px;font-family:Georgia,serif}
 .cert .desc{max-width:540px;margin:14px auto;color:var(--ink-soft);font-size:.98rem}
-.cert .meta{display:flex;flex-wrap:wrap;gap:14px;justify-content:center;margin-top:22px;font-size:.82rem;color:var(--muted)}
+.cert .cert-signature{margin:32px auto 8px;display:flex;flex-direction:column;align-items:center;gap:2px}
+.cert .sig-line{width:260px;border-top:2px solid var(--ink);margin-bottom:10px}
+.cert .sig-name{font-family:Georgia,serif;font-style:italic;font-size:1.35rem;color:var(--ink);font-weight:600;line-height:1.3}
+.cert .sig-title{font-size:.78rem;color:var(--muted);text-transform:uppercase;letter-spacing:.12em;margin-top:4px}
+.cert .meta{display:flex;flex-wrap:wrap;gap:14px;justify-content:center;margin-top:26px;font-size:.82rem;color:var(--muted)}
 .cert .meta div{background:#fff;border:1px solid var(--line);border-radius:8px;padding:8px 14px}
 .cert .meta b{display:block;color:var(--brand-600);font-size:.92rem;margin-top:2px}
 
-/* Toast */
 .toast{position:fixed;left:50%;bottom:26px;transform:translate(-50%,26px);background:#0b2f38;color:#e8f5f5;padding:14px 24px;border-radius:99px;font-size:.92rem;font-weight:600;box-shadow:var(--shadow);opacity:0;pointer-events:none;transition:.28s;z-index:90}
 .toast.show{opacity:1;transform:translate(-50%,0)}
 .empty{text-align:center;padding:40px 20px;color:var(--muted)}
 .empty .icon{font-size:2.6rem;margin-bottom:8px;opacity:.5}
+
 @media (max-width:900px){.player-grid{grid-template-columns:1fr}.player-side{position:static;max-height:none}}
 @media (max-width:600px){.topbar{padding:12px 14px;gap:10px}.brand h1{font-size:.95rem}.brand small{display:none}.user-chip{font-size:.78rem;padding:6px 10px}.container{padding:18px 12px 40px}.card{padding:18px}.osce-domain{grid-template-columns:1fr}}
 @media print{.topbar,.nav-tabs,.btn,footer,.player-side,.toast{display:none!important}body{background:#fff}.card,.player-main{box-shadow:none;border:0;padding:0}.cert{box-shadow:none}}
@@ -299,9 +302,6 @@ select.inline{padding:6px 10px;font-size:.85rem;border:1px solid var(--line);bor
 <div class="toast" id="toast" role="status" aria-live="polite"></div>
 <script src="config.js"></script>
 <script>
-/* ============================================================
-   CONFIG & HELPERS
-   ============================================================ */
 const API = window.LMS_CONFIG?.API_URL || '';
 const PASS_THRESHOLD = window.LMS_CONFIG?.PASS_THRESHOLD || 80;
 if (!API || API.includes('PASTE')) console.error('[LMS] config.js missing Apps Script URL.');
@@ -311,106 +311,58 @@ const $$ = (s, r=document) => Array.from(r.querySelectorAll(s));
 const esc = s => String(s ?? '').replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 const fmt = d => d ? new Date(d).toLocaleString() : '—';
 
-let toastQueue = [];
-let toastTimer = null;
-function toast(msg){
-  toastQueue.push(msg);
-  if(toastTimer) return;
-  flushToast();
-}
+let toastQueue = [], toastTimer = null;
+function toast(msg){ toastQueue.push(msg); if(toastTimer) return; flushToast(); }
 function flushToast(){
   const t = $('#toast');
   if(!toastQueue.length){ t.classList.remove('show'); toastTimer = null; return; }
   t.textContent = toastQueue.shift();
   t.classList.add('show');
-  toastTimer = setTimeout(() => {
-    t.classList.remove('show');
-    setTimeout(() => { toastTimer = null; flushToast(); }, 300);
-  }, 1800);
+  toastTimer = setTimeout(() => { t.classList.remove('show'); setTimeout(() => { toastTimer = null; flushToast(); }, 300); }, 1800);
 }
 
 async function api(action, payload={}){
   if(!API || API.includes('PASTE')) throw new Error('config.js is missing your Apps Script URL.');
   const res = await fetch(API, {
-    method:'POST',
-    headers:{'Content-Type':'text/plain;charset=utf-8'},
+    method:'POST', headers:{'Content-Type':'text/plain;charset=utf-8'},
     body: JSON.stringify(Object.assign({action}, payload))
   });
   const data = await res.json();
   if(!data.ok){
-    if(data.code === 401){
-      clearSession();
-      render();
-      throw new Error('Session expired. Please log in again.');
-    }
+    if(data.code === 401){ clearSession(); render(); throw new Error('Session expired. Please log in again.'); }
     throw new Error(data.error || 'Request failed');
   }
   return data.data;
 }
 
-/* ============================================================
-   SESSION
-   ============================================================ */
-const SK = 'nn_lms_session_v3';
+const SK = 'nn_lms_session_v4';
 const getSession = () => { try { return JSON.parse(localStorage.getItem(SK)); } catch { return null; } };
 const setSession = s => localStorage.setItem(SK, JSON.stringify(s));
 const clearSession = () => localStorage.removeItem(SK);
 const currentUser = () => getSession()?.user || null;
 const currentToken = () => getSession()?.token || '';
 
-/* ============================================================
-   CONTENT CACHE
-   ============================================================ */
-const CK = 'nn_lms_content_v3';
-const CK_EXP = 'nn_lms_content_exp_v3';
+const CK = 'nn_lms_content_v4', CK_EXP = 'nn_lms_content_exp_v4';
 function getCachedContent(){
   try {
     if(Number(localStorage.getItem(CK_EXP)||0) < Date.now()) return null;
     return JSON.parse(localStorage.getItem(CK)||'null');
   } catch { return null; }
 }
-function setCachedContent(c){
-  try {
-    localStorage.setItem(CK, JSON.stringify(c));
-    localStorage.setItem(CK_EXP, String(Date.now() + 3*60*1000));
-  } catch {}
-}
-function clearCachedContent(){
-  try { localStorage.removeItem(CK); localStorage.removeItem(CK_EXP); } catch {}
-}
+function setCachedContent(c){ try { localStorage.setItem(CK, JSON.stringify(c)); localStorage.setItem(CK_EXP, String(Date.now() + 3*60*1000)); } catch {} }
+function clearCachedContent(){ try { localStorage.removeItem(CK); localStorage.removeItem(CK_EXP); } catch {} }
 
-/* ============================================================
-   STATE
-   ============================================================ */
 const STATE = {
-  authTab: 'login',
-  authEmail: '',
-  view: 'overview',
-  content: null,
-  contentFresh: false,
-  cpModuleId: null,
-  cpLessonId: null,
-  cpQuizId: null,
-  cmModuleId: null,
-  editingLesson: null,
-  editingQuiz: null,
-  editingModule: null,
-  resetInfo: null,
-  userData: {} // DataKey -> DataValue for the current user
+  authTab: 'login', authEmail: '', view: 'overview',
+  content: null, contentFresh: false,
+  cpModuleId: null, cpLessonId: null, cpQuizGroup: null,
+  cmModuleId: null, editingLesson: null, editingQuiz: null, editingModule: null,
+  resetInfo: null, userData: {}
 };
 
-/* ============================================================
-   ROOT
-   ============================================================ */
-function render(){
-  const u = currentUser();
-  if(!u){ renderAuth(); return; }
-  renderApp();
-}
+function render(){ const u = currentUser(); if(!u){ renderAuth(); return; } renderApp(); }
 
-/* ============================================================
-   AUTH
-   ============================================================ */
+/* ---------- AUTH ---------- */
 function renderAuth(){
   const t = STATE.authTab;
   const tabs = [['login','Login'],['register','Register'],['forgot','Forgot'],['reset','Reset']];
@@ -429,11 +381,9 @@ function renderAuth(){
         ${t==='forgot'   ? authForgotForm()   : ''}
         ${t==='reset'    ? authResetForm()    : ''}
       </div>
-    </div>
-  `;
+    </div>`;
   $('#auth-form').addEventListener('submit', handleAuthSubmit);
 }
-
 function authLoginForm(){
   return `<form id="auth-form" data-mode="login">
     <div class="field"><label>Email</label><input type="email" name="email" required autocomplete="username" value="${esc(STATE.authEmail)}"></div>
@@ -451,9 +401,7 @@ function authRegisterForm(){
     <div class="field"><label>Email</label><input type="email" name="email" required autocomplete="email"></div>
     <div class="field"><label>Password (min 8 chars)</label><input type="password" name="password" required minlength="8" autocomplete="new-password"></div>
     <div class="field"><label>Register as</label><select name="role">
-      <option value="learner">Learner</option>
-      <option value="instructor">Instructor</option>
-      <option value="admin">Administrator</option>
+      <option value="learner">Learner</option><option value="instructor">Instructor</option><option value="admin">Administrator</option>
     </select></div>
     <p style="font-size:.82rem;color:var(--muted);margin:0 0 12px">Instructor and admin accounts require approval by an existing administrator.</p>
     <button type="submit" class="btn primary" style="width:100%">Create account</button>
@@ -461,11 +409,7 @@ function authRegisterForm(){
 }
 function authForgotForm(){
   return `<form id="auth-form" data-mode="forgot">
-    <div class="field">
-      <label>Email address</label>
-      <input type="email" name="email" required value="${esc(STATE.authEmail)}" autocomplete="email">
-      <div class="hint">We'll send a 6-digit code. It expires in 30 minutes.</div>
-    </div>
+    <div class="field"><label>Email address</label><input type="email" name="email" required value="${esc(STATE.authEmail)}" autocomplete="email"><div class="hint">We'll send a 6-digit code. It expires in 30 minutes.</div></div>
     <button type="submit" class="btn primary" style="width:100%">Send reset code</button>
     <div class="auth-links"><a href="#" onclick="switchAuth('login');return false">← Back to login</a></div>
   </form>`;
@@ -476,26 +420,15 @@ function authResetForm(){
   const showCodeBlock = info?.code
     ? `<details class="code-block" ${!info.emailed ? 'open' : ''}>
          <summary>${info.emailed ? 'Having trouble receiving the email? Show code' : 'Email service unavailable — use this code'}</summary>
-         <div class="code-inner">
-           <code id="reset-code-display">${esc(info.code)}</code>
-           <button type="button" class="btn ghost small" onclick="copyText('${esc(info.code)}')">Copy</button>
-         </div>
-       </details>`
-    : '';
+         <div class="code-inner"><code>${esc(info.code)}</code><button type="button" class="btn ghost small" onclick="copyText('${esc(info.code)}')">Copy</button></div>
+       </details>` : '';
   return `<form id="auth-form" data-mode="reset">
-    <div class="field"><label>Email address</label><input type="email" name="email" required value="${esc(info?.email || STATE.authEmail)}" autocomplete="email"></div>
-    <div class="field">
-      <label>6-digit reset code</label>
-      <input type="text" name="code" required pattern="[0-9]{6}" maxlength="6" inputmode="numeric" autocomplete="one-time-code" placeholder="123456" value="${esc(initialCode)}">
-      ${info ? `<div class="hint">Code expires in ${info.expiresInMinutes || 30} minutes.</div>` : ''}
-    </div>
-    <div class="field"><label>New password (min 8 chars)</label><input type="password" name="password" required minlength="8" autocomplete="new-password"></div>
+    <div class="field"><label>Email address</label><input type="email" name="email" required value="${esc(info?.email || STATE.authEmail)}"></div>
+    <div class="field"><label>6-digit reset code</label><input type="text" name="code" required pattern="[0-9]{6}" maxlength="6" inputmode="numeric" value="${esc(initialCode)}"><div class="hint">${info ? 'Code expires in ' + (info.expiresInMinutes || 30) + ' minutes.' : ''}</div></div>
+    <div class="field"><label>New password (min 8 chars)</label><input type="password" name="password" required minlength="8"></div>
     <button type="submit" class="btn primary" style="width:100%">Reset password</button>
     ${showCodeBlock}
-    <div class="auth-links">
-      <a href="#" onclick="resendCode();return false">Resend code</a>
-      <a href="#" onclick="switchAuth('login');return false">← Back to login</a>
-    </div>
+    <div class="auth-links"><a href="#" onclick="resendCode();return false">Resend code</a><a href="#" onclick="switchAuth('login');return false">← Back to login</a></div>
   </form>`;
 }
 function copyText(txt){ navigator.clipboard?.writeText(txt).then(()=>toast('Copied')).catch(()=>toast('Copy failed')); }
@@ -509,31 +442,29 @@ async function handleAuthSubmit(e){
   alert.innerHTML = '';
   const btn = e.target.querySelector('button[type=submit]');
   const orig = btn.innerHTML;
-  btn.disabled = true;
-  btn.innerHTML = '<span class="spinner"></span> Please wait…';
+  btn.disabled = true; btn.innerHTML = '<span class="spinner"></span> Please wait…';
   try {
     if(mode === 'login'){
-      const email = String(form.get('email') || '').trim().toLowerCase();
+      const email = String(form.get('email')||'').trim().toLowerCase();
       STATE.authEmail = email;
       const d = await api('login', { email, password: form.get('password') });
       setSession({ token: d.token, user: d.user, issued: Date.now() });
       toast('Welcome back, ' + d.user.name);
-      STATE.view = 'overview';
-      STATE.userData = {};
+      STATE.view = 'overview'; STATE.userData = {};
       render();
     } else if(mode === 'register'){
       const d = await api('register', { name: form.get('name'), email: form.get('email'), password: form.get('password'), role: form.get('role') });
       alert.innerHTML = `<div class="alert success">Account created (${esc(d.status)}). ${d.status==='pending' ? 'Awaiting admin approval.' : 'You may now log in.'}</div>`;
       if(d.status === 'active') setTimeout(()=>switchAuth('login'), 1500);
     } else if(mode === 'forgot'){
-      const email = String(form.get('email') || '').trim().toLowerCase();
+      const email = String(form.get('email')||'').trim().toLowerCase();
       STATE.authEmail = email;
       const d = await api('forgot', { email });
       STATE.resetInfo = { email, code: d.code || '', emailed: d.emailed, expiresInMinutes: d.expiresInMinutes || 30 };
       alert.innerHTML = `<div class="alert info">${esc(d.message)}</div>`;
       setTimeout(()=>switchAuth('reset'), 900);
     } else if(mode === 'reset'){
-      const email = String(form.get('email') || '').trim().toLowerCase();
+      const email = String(form.get('email')||'').trim().toLowerCase();
       STATE.authEmail = email;
       const d = await api('reset', { email, code: form.get('code'), password: form.get('password') });
       alert.innerHTML = `<div class="alert success">${esc(d.message)}</div>`;
@@ -542,12 +473,8 @@ async function handleAuthSubmit(e){
     }
   } catch(err){
     alert.innerHTML = `<div class="alert error">${esc(err.message)}</div>`;
-  } finally {
-    btn.disabled = false;
-    btn.innerHTML = orig;
-  }
+  } finally { btn.disabled = false; btn.innerHTML = orig; }
 }
-
 async function resendCode(){
   const email = STATE.resetInfo?.email || STATE.authEmail;
   if(!email){ toast('Enter your email first'); return; }
@@ -558,7 +485,6 @@ async function resendCode(){
     renderAuth();
   } catch(e){ toast(e.message); }
 }
-
 async function logout(){
   try { await api('logout', { token: currentToken() }); } catch {}
   clearSession();
@@ -567,18 +493,14 @@ async function logout(){
   render();
 }
 
-/* ============================================================
-   APP SHELL
-   ============================================================ */
+/* ---------- APP SHELL ---------- */
 function renderApp(){
   const u = currentUser();
   const tabs = [['overview','🏠 Overview'],['course','📚 Course']];
   if(u.role === 'learner'){ tabs.push(['myOsce','🎯 My OSCE']); tabs.push(['myCerts','🏆 My Certificates']); }
   if(u.role === 'instructor' || u.role === 'admin'){
-    tabs.push(['contentMgr','✏️ Content Manager']);
-    tabs.push(['osceEntry','📝 Score OSCE']);
-    tabs.push(['records','📊 OSCE Records']);
-    tabs.push(['certs','🏆 Certificates']);
+    tabs.push(['contentMgr','✏️ Content Manager']); tabs.push(['osceEntry','📝 Score OSCE']);
+    tabs.push(['records','📊 OSCE Records']); tabs.push(['certs','🏆 Certificates']);
   }
   if(u.role === 'admin'){ tabs.push(['users','👥 Users']); tabs.push(['audit','📜 Audit']); }
   $('#app').innerHTML = `
@@ -588,8 +510,7 @@ function renderApp(){
         ${tabs.map(([k,l])=>`<button class="${STATE.view===k?'active':''}" onclick="setView('${k}')">${l}</button>`).join('')}
       </div>
       <div id="view-root"></div>
-    </div>
-  `;
+    </div>`;
   renderView();
 }
 function topbar(){
@@ -601,11 +522,7 @@ function topbar(){
     <button class="btn ghost small" onclick="logout()">Logout</button>
   </header>`;
 }
-function setView(v){
-  STATE.view = v;
-  if(v === 'contentMgr') STATE.cmModuleId = null;
-  render();
-}
+function setView(v){ STATE.view = v; if(v === 'contentMgr') STATE.cmModuleId = null; render(); }
 function renderView(){
   const root = $('#view-root');
   switch(STATE.view){
@@ -622,9 +539,6 @@ function renderView(){
   }
 }
 
-/* ============================================================
-   OVERVIEW
-   ============================================================ */
 function viewOverview(){
   const u = currentUser();
   const c = STATE.content?.modules || getCachedContent()?.modules || [];
@@ -632,14 +546,14 @@ function viewOverview(){
   const totalQuizzes = c.reduce((a,m)=>a+m.Quizzes.length,0);
   return `<div class="hero">
     <h2>Welcome back, ${esc(u.name)}</h2>
-    <p>${u.role === 'learner' ? 'Continue the course, take quizzes, and complete the OSCE to earn your certificate (80% required).' :
+    <p>${u.role === 'learner' ? 'Continue the course, take grouped quizzes, and complete the OSCE to earn your certificate (80% required).' :
       u.role === 'instructor' ? 'Manage course content, score OSCE assessments, and track learner progress.' :
       'Full administrative access: manage users, content, assessments, certificates, and audit logs.'}</p>
   </div>
   <div class="stat-grid">
     <div class="stat"><div class="n">${c.length}</div><div class="l">Modules</div></div>
     <div class="stat"><div class="n">${totalLessons}</div><div class="l">Lessons</div></div>
-    <div class="stat"><div class="n">${totalQuizzes}</div><div class="l">Quizzes</div></div>
+    <div class="stat"><div class="n">${totalQuizzes}</div><div class="l">Quiz Questions</div></div>
     <div class="stat"><div class="n">${PASS_THRESHOLD}%</div><div class="l">OSCE Pass Mark</div></div>
   </div>
   <div class="card">
@@ -654,21 +568,17 @@ function viewOverview(){
   </div>`;
 }
 
-/* ============================================================
-   COURSE PLAYER
-   ============================================================ */
+/* ---------- COURSE PLAYER ---------- */
 function viewCourse(){
   return `<div class="card">
     <div class="between" style="margin-bottom:18px">
       <div>
         <h2 style="margin:0">📚 Course Player</h2>
-        <p style="margin:4px 0 0;color:var(--muted);font-size:.92rem">Browse modules, read lessons, answer quizzes, save reflections.</p>
+        <p style="margin:4px 0 0;color:var(--muted);font-size:.92rem">Browse modules, read lessons, take grouped module quizzes.</p>
       </div>
       <button class="btn ghost small" onclick="loadContent('course', true)">↻ Refresh</button>
     </div>
-    <div id="course-body">
-      <div class="empty"><div class="icon">⏳</div>Loading content…</div>
-    </div>
+    <div id="course-body"><div class="empty"><div class="icon">⏳</div>Loading content…</div></div>
   </div>`;
 }
 
@@ -693,7 +603,7 @@ function renderCourseBody(){
           <a href="#" class="mod-link ${m.ModuleID===STATE.cpModuleId?'active':''}" onclick="openCpModule('${esc(m.ModuleID)}');return false">${esc(m.Title)}</a>
           ${m.ModuleID===STATE.cpModuleId ? `
             ${m.Lessons.map(l => `<a class="lesson-link ${l.LessonID===STATE.cpLessonId?'active':''}" onclick="openCpLesson('${esc(l.LessonID)}');return false">📖 ${esc(l.Title)}</a>`).join('')}
-            ${m.Quizzes.map((q,i) => `<a class="quiz-link ${q.QuizID===STATE.cpQuizId?'active':''}" onclick="openCpQuiz('${esc(q.QuizID)}');return false">📝 Quiz ${i+1}</a>`).join('')}
+            ${m.Quizzes.length ? `<a class="quiz-link ${STATE.cpQuizGroup===m.ModuleID?'active':''}" onclick="openCpQuizGroup('${esc(m.ModuleID)}');return false">📝 Module Quizzes (${m.Quizzes.length})</a>` : ''}
           ` : ''}
         `).join('')}
       </aside>
@@ -701,20 +611,20 @@ function renderCourseBody(){
     </div>
   `;
 
-  /* Bind lesson interactions AFTER the HTML is inserted */
   if(STATE.cpLessonId && curMod){
     const lesson = curMod.Lessons.find(l => l.LessonID === STATE.cpLessonId);
     if(lesson){
-      setTimeout(() => {
-        bindLessonInteractions(lesson.LessonID);
-        loadUserDataForLesson(lesson.LessonID);
-      }, 0);
+      setTimeout(() => { bindLessonInteractions(lesson.LessonID); loadUserDataForLesson(lesson.LessonID); }, 0);
     }
   }
 }
 
 function renderPlayerMain(mod){
   if(!mod) return `<div class="empty"><div class="icon">👈</div>Select a module from the left to begin.</div>`;
+
+  if(STATE.cpQuizGroup && STATE.cpQuizGroup === mod.ModuleID){
+    return renderQuizGroup(mod);
+  }
   if(STATE.cpLessonId){
     const lesson = mod.Lessons.find(l => l.LessonID === STATE.cpLessonId);
     if(lesson){
@@ -722,10 +632,7 @@ function renderPlayerMain(mod){
         <div class="lesson-content">${lesson.ContentHTML || '<p><em>No content yet.</em></p>'}</div>`;
     }
   }
-  if(STATE.cpQuizId){
-    const quiz = mod.Quizzes.find(q => q.QuizID === STATE.cpQuizId);
-    if(quiz) return renderQuizTake(quiz);
-  }
+
   return `<h2>${esc(mod.Title)}</h2>
     <p style="color:var(--muted)">${esc(mod.Description || '')}</p>
     <h3>Lessons (${mod.Lessons.length})</h3>
@@ -733,54 +640,140 @@ function renderPlayerMain(mod){
       <div class="info"><h5>📖 ${esc(l.Title)}</h5></div>
       <button class="btn ghost small" onclick="openCpLesson('${esc(l.LessonID)}')">Read</button>
     </div>`).join('') : '<p><em>No lessons yet.</em></p>'}
-    <h3>Quizzes (${mod.Quizzes.length})</h3>
-    ${mod.Quizzes.length ? mod.Quizzes.map((q,i) => `<div class="quiz-row">
-      <div class="info"><h5>📝 Quiz ${i+1}: ${esc(q.Question)}</h5></div>
-      <button class="btn ghost small" onclick="openCpQuiz('${esc(q.QuizID)}')">Take</button>
-    </div>`).join('') : '<p><em>No quizzes yet.</em></p>'}`;
-}
-
-function renderQuizTake(quiz){
-  const opts = ['A','B','C','D'].map((k,i) => ({ key: k, text: quiz['Option'+k], idx: i }));
-  return `<h2>📝 Knowledge check</h2>
-    <div class="quiz-take" data-quiz="${esc(quiz.QuizID)}">
-      <div class="qtext">${esc(quiz.Question)}</div>
-      <div class="options-list">
-        ${opts.map(o => `<button class="option" type="button" data-opt="${o.idx}" onclick="submitQuizAttempt('${esc(quiz.QuizID)}', ${o.idx}, this)">
-          <span class="key">${o.key}</span><span>${esc(o.text)}</span>
-        </button>`).join('')}
+    <h3>Module Quiz (${mod.Quizzes.length} questions)</h3>
+    ${mod.Quizzes.length ? `<div class="lesson-row">
+      <div class="info">
+        <h5>📝 Take all ${mod.Quizzes.length} questions together</h5>
+        <small>Answer every question, submit once, then see your score and explanations.</small>
       </div>
-      <div class="feedback-slot"></div>
-    </div>
-    <div style="margin-top:16px">
-      <button class="btn ghost small" onclick="openCpModule('${esc(STATE.cpModuleId)}')">← Back to module</button>
+      <button class="btn primary small" onclick="openCpQuizGroup('${esc(mod.ModuleID)}')">Start Module Quiz</button>
+    </div>` : '<p><em>No quizzes yet.</em></p>'}`;
+}
+
+/* ---------- QUIZ GROUP ---------- */
+function renderQuizGroup(mod){
+  return `<h2>📝 ${esc(mod.Title)} — Module Quiz</h2>
+    <p style="color:var(--muted);margin-bottom:20px">Answer all <strong>${mod.Quizzes.length}</strong> questions below, then click <strong>Submit all answers</strong> to see your score, correct answers, and explanations.</p>
+    <div class="quiz-group" data-module-id="${esc(mod.ModuleID)}">
+      <div class="quiz-group-list">
+        ${mod.Quizzes.map((q, i) => `
+          <div class="quiz-item" data-quiz-id="${esc(q.QuizID)}">
+            <div class="quiz-num">Question ${i+1} of ${mod.Quizzes.length}</div>
+            <div class="quiz-q">${esc(q.Question)}</div>
+            <div class="quiz-options">
+              ${['A','B','C','D'].map((k, oi) => `
+                <label class="quiz-opt">
+                  <input type="radio" name="q_${esc(q.QuizID)}" value="${oi}">
+                  <span class="key">${k}</span>
+                  <span class="opt-text">${esc(q['Option'+k])}</span>
+                </label>
+              `).join('')}
+            </div>
+          </div>
+        `).join('')}
+      </div>
+      <div class="quiz-group-actions">
+        <button class="btn primary" id="quizSubmitBtn" type="button" onclick="submitQuizGroup('${esc(mod.ModuleID)}')">Submit all answers</button>
+      </div>
+      <div class="quiz-group-results" hidden></div>
     </div>`;
 }
 
-async function submitQuizAttempt(quizId, idx, btn){
-  const wrap = btn.closest('.quiz-take');
-  if(!wrap) return;
-  wrap.querySelectorAll('.option').forEach(b => b.disabled = true);
+async function submitQuizGroup(moduleId){
+  const group = $('.quiz-group');
+  if(!group) return;
+  const items = group.querySelectorAll('.quiz-item');
+  const answers = [];
+  let firstUnanswered = null;
+
+  items.forEach(item => {
+    const quizId = item.dataset.quizId;
+    const checked = item.querySelector('input[type="radio"]:checked');
+    if(!checked){
+      if(!firstUnanswered) firstUnanswered = item;
+    } else {
+      answers.push({ quizId, chosenIndex: Number(checked.value) });
+    }
+  });
+
+  if(firstUnanswered){
+    toast('Please answer all questions first');
+    firstUnanswered.scrollIntoView({behavior: 'smooth', block: 'center'});
+    return;
+  }
+
+  const btn = $('#quizSubmitBtn');
+  const orig = btn.innerHTML;
+  btn.disabled = true;
+  btn.innerHTML = '<span class="spinner"></span> Grading…';
+
   try {
-    const d = await api('submitQuiz', { token: currentToken(), quizId, chosenIndex: idx });
-    wrap.querySelectorAll('.option').forEach(b => {
-      const i = Number(b.dataset.opt);
-      if(i === d.correctIndex) b.classList.add('correct');
-      else if(i === idx) b.classList.add('wrong');
-      else b.classList.add('dim');
-    });
-    wrap.querySelector('.feedback-slot').innerHTML = `<div class="quiz-feedback ${d.correct?'good':'bad'}">
-      <strong>${d.correct ? '✓ Correct!' : '✗ Not quite'}</strong>${esc(d.explanation || '')}
-    </div>`;
+    const d = await api('submitQuizGroup', { token: currentToken(), moduleId, answers });
+    renderQuizGroupResults(d);
   } catch(e){
     toast(e.message);
-    wrap.querySelectorAll('.option').forEach(b => b.disabled = false);
+  } finally {
+    btn.disabled = false;
+    btn.innerHTML = orig;
   }
 }
 
-function openCpModule(id){ STATE.cpModuleId = id; STATE.cpLessonId = null; STATE.cpQuizId = null; renderCourseBody(); }
-function openCpLesson(id){ STATE.cpLessonId = id; STATE.cpQuizId = null; renderCourseBody(); }
-function openCpQuiz(id){ STATE.cpQuizId = id; STATE.cpLessonId = null; renderCourseBody(); }
+function renderQuizGroupResults(d){
+  const group = $('.quiz-group');
+  if(!group) return;
+
+  // Apply graded state per quiz
+  group.querySelectorAll('.quiz-item').forEach((item, idx) => {
+    const r = d.results[idx];
+    if(!r) return;
+
+    item.classList.add('graded');
+    item.classList.add(r.correct ? 'correct' : 'wrong');
+
+    const options = item.querySelectorAll('.quiz-opt');
+    options.forEach((opt, oi) => {
+      opt.classList.add('locked');
+      // Disable radios
+      const radio = opt.querySelector('input[type="radio"]');
+      if(radio) radio.disabled = true;
+
+      if(oi === r.correctIndex) opt.classList.add('correct-answer');
+      if(oi === r.chosenIndex && !r.correct){
+        opt.classList.add('wrong-answer');
+        opt.classList.add('chosen-wrong');
+      }
+    });
+
+    if(r.explanation){
+      const ex = document.createElement('div');
+      ex.className = 'quiz-explanation';
+      ex.innerHTML = `<strong>Explanation</strong>${esc(r.explanation)}`;
+      item.appendChild(ex);
+    }
+  });
+
+  // Summary banner
+  const pass = d.percentage >= 60;
+  const resultsEl = group.querySelector('.quiz-group-results');
+  resultsEl.hidden = false;
+  resultsEl.innerHTML = `<div class="quiz-result-summary ${pass ? 'pass' : 'fail'}">
+    <h3>Your Score: ${d.score} / ${d.total} (${d.percentage}%)</h3>
+    <p>${pass ? '✓ Well done — review the explanations below to consolidate your learning.' : 'Review the explanations below and retake when ready.'}</p>
+  </div>`;
+
+  // Replace submit button with retake option
+  const actionsEl = group.querySelector('.quiz-group-actions');
+  if(actionsEl) {
+    actionsEl.innerHTML = `<button class="btn ghost" type="button" onclick="openCpQuizGroup('${esc(STATE.cpQuizGroup)}')">↻ Retake quiz</button>`;
+  }
+
+  // Scroll to top of results
+  resultsEl.scrollIntoView({behavior: 'smooth', block: 'start'});
+}
+
+function openCpModule(id){ STATE.cpModuleId = id; STATE.cpLessonId = null; STATE.cpQuizGroup = null; renderCourseBody(); }
+function openCpLesson(id){ STATE.cpLessonId = id; STATE.cpQuizGroup = null; renderCourseBody(); }
+function openCpQuizGroup(moduleId){ STATE.cpModuleId = moduleId; STATE.cpLessonId = null; STATE.cpQuizGroup = moduleId; renderCourseBody(); }
 
 async function loadContent(mode, force){
   const cached = getCachedContent();
@@ -802,15 +795,11 @@ async function loadContent(mode, force){
   }
 }
 
-/* ============================================================
-   LESSON INTERACTIONS (calculators, discussions, checklists)
-   ============================================================ */
-
+/* ---------- LESSON INTERACTIONS ---------- */
 function bindLessonInteractions(lessonId){
   const root = $('.lesson-content');
   if(!root) return;
 
-  // Calculation check buttons
   root.querySelectorAll('.lesson-calc').forEach(box => {
     const btn = box.querySelector('[data-calc-check]');
     if(!btn || btn.dataset.bound) return;
@@ -825,17 +814,16 @@ function bindLessonInteractions(lessonId){
       fb.hidden = false;
       if(isNaN(val)){
         fb.className = 'calc-feedback bad';
-        fb.innerHTML = '<strong>Enter a number</strong>Please type your calculated answer before checking.';
+        fb.innerHTML = '<strong>Enter a number</strong>Please type your calculated answer.';
         return;
       }
       const ok = Math.abs(val - answer) <= tol;
       fb.className = 'calc-feedback ' + (ok ? 'good' : 'bad');
       fb.innerHTML = `<strong>${ok ? '✓ Correct' : '✗ Try again'}</strong>` +
-        (ok ? solution : 'Recheck your units and order of operations, then try once more.');
+        (ok ? solution : 'Recheck your units and order of operations.');
     });
   });
 
-  // Discussion textareas — autosave to backend
   root.querySelectorAll('textarea[data-note-key]').forEach(ta => {
     if(ta.dataset.bound) return;
     ta.dataset.bound = '1';
@@ -850,27 +838,21 @@ function bindLessonInteractions(lessonId){
         try {
           await api('saveUserData', { token: currentToken(), dataType: 'note', dataKey: key, dataValue: ta.value });
           if(status) status.textContent = '✓ Saved';
-        } catch(e){
-          if(status) status.textContent = '⚠ Could not save';
-        }
+        } catch(e){ if(status) status.textContent = '⚠ Could not save'; }
       }, 700);
     });
   });
 
-  // Checklists — save on change
   root.querySelectorAll('input[data-check-key]').forEach(cb => {
     if(cb.dataset.bound) return;
     cb.dataset.bound = '1';
     cb.addEventListener('change', async () => {
       const key = cb.dataset.checkKey;
       STATE.userData[key] = cb.checked ? 'true' : 'false';
-      try {
-        await api('saveUserData', { token: currentToken(), dataType: 'checklist', dataKey: key, dataValue: cb.checked ? 'true' : 'false' });
-      } catch(e){ /* silent */ }
+      try { await api('saveUserData', { token: currentToken(), dataType: 'checklist', dataKey: key, dataValue: cb.checked ? 'true' : 'false' }); } catch(e){}
     });
   });
 }
-
 async function loadUserDataForLesson(lessonId){
   try {
     const d = await api('getUserData', { token: currentToken(), prefix: lessonId + ':' });
@@ -881,19 +863,14 @@ async function loadUserDataForLesson(lessonId){
       const cb = document.querySelector(`input[data-check-key="${key}"]`);
       if(cb) cb.checked = value === 'true';
     });
-  } catch(e){ /* silent */ }
+  } catch(e){}
 }
 
-/* ============================================================
-   CONTENT MANAGER (instructor + admin)
-   ============================================================ */
+/* ---------- CONTENT MANAGER ---------- */
 function viewContentMgr(){
   return `<div class="card">
     <div class="between" style="margin-bottom:18px">
-      <div>
-        <h2 style="margin:0">✏️ Content Manager</h2>
-        <p style="margin:4px 0 0;color:var(--muted);font-size:.92rem">Create, edit, delete modules, lessons, and quizzes.</p>
-      </div>
+      <div><h2 style="margin:0">✏️ Content Manager</h2><p style="margin:4px 0 0;color:var(--muted);font-size:.92rem">Create, edit, delete modules, lessons, and quizzes.</p></div>
       <div class="row">
         <button class="btn ghost small" onclick="loadContent('cm', true)">↻ Refresh</button>
         <button class="btn primary" onclick="openModuleEditor()">+ New Module</button>
@@ -936,20 +913,21 @@ function renderCmBody(){
         </div>`).join('') : '<p><em>No lessons yet.</em></p>'}
       </div>
       <div class="between" style="margin-top:24px">
-        <h4 style="margin:0">Quizzes (${m.Quizzes.length})</h4>
-        <button class="btn primary small" onclick="openQuizEditor(null, '${esc(m.ModuleID)}')">+ Add Quiz</button>
+        <h4 style="margin:0">Quiz Questions (${m.Quizzes.length})</h4>
+        <button class="btn primary small" onclick="openQuizEditor(null, '${esc(m.ModuleID)}')">+ Add Question</button>
       </div>
+      <p style="color:var(--muted);font-size:.85rem;margin:6px 0 0">All questions appear together for learners as one grouped module quiz.</p>
       <div style="margin-top:10px">
         ${m.Quizzes.length ? m.Quizzes.map((q,i) => `<div class="quiz-row">
           <div class="info">
-            <h5>📝 Q${i+1}: ${esc(q.Question)}</h5>
+            <h5>Q${i+1}: ${esc(q.Question)}</h5>
             <div class="opts">${['A','B','C','D'].map((k,idx) => `${idx===q.CorrectIndex ? `<b>${k}: ${esc(q['Option'+k])}</b>` : `${k}: ${esc(q['Option'+k])}`}`).join(' · ')}</div>
           </div>
           <div class="row">
             <button class="btn ghost small" onclick="openQuizEditor('${esc(q.QuizID)}', '${esc(m.ModuleID)}')">Edit</button>
             <button class="btn danger small" onclick="deleteQuiz('${esc(q.QuizID)}')">Delete</button>
           </div>
-        </div>`).join('') : '<p><em>No quizzes yet.</em></p>'}
+        </div>`).join('') : '<p><em>No quiz questions yet.</em></p>'}
       </div>`;
     return;
   }
@@ -959,7 +937,7 @@ function renderCmBody(){
           <div style="flex:1;min-width:0">
             <h4>${esc(m.Title)}</h4>
             <p class="desc">${esc(m.Description || '')}</p>
-            <div class="meta">${m.Lessons.length} lessons · ${m.Quizzes.length} quizzes</div>
+            <div class="meta">${m.Lessons.length} lessons · ${m.Quizzes.length} quiz questions</div>
           </div>
           <div class="row">
             <button class="btn primary small" onclick="cmOpen('${esc(m.ModuleID)}')">Manage</button>
@@ -968,9 +946,7 @@ function renderCmBody(){
           </div>
         </div>
       </div>`).join('')
-    : `<div class="empty"><div class="icon">📭</div>
-        <p>No modules yet. Click "+ New Module" or run <code>seedCourseContent()</code> in Apps Script.</p>
-      </div>`;
+    : `<div class="empty"><div class="icon">📭</div><p>No modules yet. Click "+ New Module" or run <code>seedCourseContent()</code> in Apps Script.</p></div>`;
 }
 
 function cmOpen(id){ STATE.cmModuleId = id; renderCmBody(); }
@@ -980,9 +956,7 @@ function openModuleEditor(id){
   if(id && STATE.content){
     const m = STATE.content.modules.find(x => x.ModuleID === id);
     STATE.editingModule = m ? { moduleId: id, title: m.Title, description: m.Description || '', sortOrder: m.SortOrder || 0 } : null;
-  } else {
-    STATE.editingModule = { moduleId: null, title: '', description: '', sortOrder: 0 };
-  }
+  } else { STATE.editingModule = { moduleId: null, title: '', description: '', sortOrder: 0 }; }
   renderCmBody();
 }
 function renderModuleEditor(){
@@ -990,9 +964,9 @@ function renderModuleEditor(){
   return `<button class="btn ghost small" onclick="STATE.editingModule=null;renderCmBody()">← Cancel</button>
     <h3 style="margin-top:16px">${e.moduleId ? 'Edit module' : 'New module'}</h3>
     <form onsubmit="saveModule(event)">
-      <div class="form-grid">
-        <div class="field full"><label>Title *</label><input name="title" required value="${esc(e.title)}"></div>
-        <div class="field full"><label>Description</label><input name="description" value="${esc(e.description)}"></div>
+      <div class="form-grid" style="display:grid;grid-template-columns:1fr 1fr;gap:14px">
+        <div class="field" style="grid-column:1/-1"><label>Title *</label><input name="title" required value="${esc(e.title)}"></div>
+        <div class="field" style="grid-column:1/-1"><label>Description</label><input name="description" value="${esc(e.description)}"></div>
         <div class="field"><label>Sort order</label><input name="sortOrder" type="number" value="${esc(e.sortOrder)}"></div>
       </div>
       <div class="row" style="margin-top:16px">
@@ -1011,8 +985,7 @@ async function saveModule(ev){
       toast('Module updated');
     } else {
       const d = await api('createModule', { token: currentToken(), title: f.get('title'), description: f.get('description'), sortOrder: Number(f.get('sortOrder'))||0 });
-      toast('Module created');
-      STATE.cmModuleId = d.ModuleID;
+      toast('Module created'); STATE.cmModuleId = d.ModuleID;
     }
     STATE.editingModule = null; clearCachedContent(); STATE.content = null;
     await loadContent('cm');
@@ -1024,8 +997,7 @@ async function deleteModule(id){
     await api('deleteModule', { token: currentToken(), moduleId: id });
     toast('Module deleted');
     if(STATE.cmModuleId === id) STATE.cmModuleId = null;
-    clearCachedContent(); STATE.content = null;
-    await loadContent('cm');
+    clearCachedContent(); STATE.content = null; await loadContent('cm');
   } catch(e){ toast(e.message); }
 }
 
@@ -1034,9 +1006,7 @@ function openLessonEditor(lessonId, moduleId){
   if(lessonId){
     const l = mod.Lessons.find(x => x.LessonID === lessonId);
     STATE.editingLesson = l ? { lessonId, moduleId, title: l.Title, content: l.ContentHTML || '', sortOrder: l.SortOrder || 0 } : null;
-  } else {
-    STATE.editingLesson = { lessonId: null, moduleId, title: '', content: '', sortOrder: mod.Lessons.length };
-  }
+  } else { STATE.editingLesson = { lessonId: null, moduleId, title: '', content: '', sortOrder: mod.Lessons.length }; }
   renderCmBody();
 }
 function renderLessonEditor(){
@@ -1044,13 +1014,9 @@ function renderLessonEditor(){
   return `<button class="btn ghost small" onclick="STATE.editingLesson=null;renderCmBody()">← Cancel</button>
     <h3 style="margin-top:16px">${e.lessonId ? 'Edit lesson' : 'New lesson'}</h3>
     <form onsubmit="saveLesson(event)">
-      <div class="form-grid">
-        <div class="field full"><label>Title *</label><input name="title" required value="${esc(e.title)}"></div>
-        <div class="field full">
-          <label>Content (HTML allowed)</label>
-          <textarea name="content" rows="16">${esc(e.content)}</textarea>
-          <div class="hint">Tip: use &lt;h2&gt;, &lt;p&gt;, &lt;ul&gt;, &lt;table&gt;, &lt;aside class="lesson-callout"&gt;, &lt;div class="lesson-calc"&gt;, &lt;div class="lesson-discuss"&gt;, &lt;div class="lesson-checklist"&gt;.</div>
-        </div>
+      <div class="form-grid" style="display:grid;grid-template-columns:1fr 1fr;gap:14px">
+        <div class="field" style="grid-column:1/-1"><label>Title *</label><input name="title" required value="${esc(e.title)}"></div>
+        <div class="field" style="grid-column:1/-1"><label>Content (HTML allowed)</label><textarea name="content" rows="16">${esc(e.content)}</textarea><div class="hint">Tip: use &lt;h2&gt;, &lt;p&gt;, &lt;ul&gt;, &lt;table&gt;, &lt;aside class="lesson-callout"&gt;, &lt;div class="lesson-calc"&gt;, &lt;div class="lesson-discuss"&gt;, &lt;div class="lesson-checklist"&gt;.</div></div>
         <div class="field"><label>Sort order</label><input name="sortOrder" type="number" value="${esc(e.sortOrder)}"></div>
       </div>
       <div class="row" style="margin-top:16px">
@@ -1071,8 +1037,7 @@ async function saveLesson(ev){
       await api('createLesson', { token: currentToken(), moduleId: e.moduleId, title: f.get('title'), content: f.get('content'), sortOrder: Number(f.get('sortOrder'))||0 });
       toast('Lesson created');
     }
-    STATE.editingLesson = null; clearCachedContent(); STATE.content = null;
-    await loadContent('cm');
+    STATE.editingLesson = null; clearCachedContent(); STATE.content = null; await loadContent('cm');
   } catch(err){ toast(err.message); }
 }
 async function deleteLesson(id){
@@ -1097,21 +1062,21 @@ function openQuizEditor(quizId, moduleId){
 function renderQuizEditor(){
   const e = STATE.editingQuiz;
   return `<button class="btn ghost small" onclick="STATE.editingQuiz=null;renderCmBody()">← Cancel</button>
-    <h3 style="margin-top:16px">${e.quizId ? 'Edit quiz' : 'New quiz'}</h3>
+    <h3 style="margin-top:16px">${e.quizId ? 'Edit quiz question' : 'New quiz question'}</h3>
     <form onsubmit="saveQuiz(event)">
       <div class="field"><label>Question *</label><input name="question" required value="${esc(e.question)}"></div>
-      <div class="form-grid">
+      <div class="form-grid" style="display:grid;grid-template-columns:1fr 1fr;gap:14px">
         ${['A','B','C','D'].map(k => `<div class="field"><label>Option ${k} *</label><input name="Option${k}" required value="${esc(e['Option'+k])}"></div>`).join('')}
       </div>
       <div class="field">
         <label>Correct answer</label>
-        <div class="radio-row">
-          ${['A','B','C','D'].map((k,i) => `<label><input type="radio" name="correctIndex" value="${i}" ${e.correctIndex===i?'checked':''}> ${k}</label>`).join('')}
+        <div class="radio-row" style="display:flex;gap:8px;flex-wrap:wrap">
+          ${['A','B','C','D'].map((k,i) => `<label style="display:flex;align-items:center;gap:6px;padding:9px 16px;border:2px solid var(--line);border-radius:8px;cursor:pointer;font-weight:600;background:#fff"><input type="radio" name="correctIndex" value="${i}" ${e.correctIndex===i?'checked':''}> ${k}</label>`).join('')}
         </div>
       </div>
-      <div class="field"><label>Explanation</label><textarea name="explanation" rows="3">${esc(e.explanation)}</textarea></div>
+      <div class="field"><label>Explanation (shown after submission)</label><textarea name="explanation" rows="3">${esc(e.explanation)}</textarea></div>
       <div class="row" style="margin-top:16px">
-        <button type="submit" class="btn primary">${e.quizId ? 'Save changes' : 'Create quiz'}</button>
+        <button type="submit" class="btn primary">${e.quizId ? 'Save changes' : 'Create question'}</button>
         <button type="button" class="btn ghost" onclick="STATE.editingQuiz=null;renderCmBody()">Cancel</button>
       </div>
     </form>`;
@@ -1128,12 +1093,11 @@ async function saveQuiz(ev){
   try {
     if(e.quizId){ await api('updateQuiz', { ...payload, quizId: e.quizId }); toast('Quiz updated'); }
     else { await api('createQuiz', { ...payload, moduleId: e.moduleId }); toast('Quiz created'); }
-    STATE.editingQuiz = null; clearCachedContent(); STATE.content = null;
-    await loadContent('cm');
+    STATE.editingQuiz = null; clearCachedContent(); STATE.content = null; await loadContent('cm');
   } catch(err){ toast(err.message); }
 }
 async function deleteQuiz(id){
-  if(!confirm('Delete this quiz?')) return;
+  if(!confirm('Delete this quiz question?')) return;
   try {
     await api('deleteQuiz', { token: currentToken(), quizId: id });
     toast('Quiz deleted');
@@ -1141,9 +1105,7 @@ async function deleteQuiz(id){
   } catch(e){ toast(e.message); }
 }
 
-/* ============================================================
-   LEARNER: My OSCE, My Certs
-   ============================================================ */
+/* ---------- LEARNER: My OSCE / My Certs ---------- */
 function viewMyOsce(){
   return `<div class="card"><h2>🎯 My OSCE Assessment</h2>
     <p>Your OSCE results (10 domains × 2 points = 20). Pass mark: <strong>${PASS_THRESHOLD}%</strong>.</p>
@@ -1176,7 +1138,9 @@ async function loadMyCerts(){
     el.innerHTML = d.certificates.map(c => renderCertificate(c)).join('');
   } catch(e){ $('#my-certs-list').innerHTML = `<div class="alert error">${esc(e.message)}</div>`; }
 }
+
 function renderCertificate(c){
+  const assessorName = c.AssessorName || 'OSCE Assessor';
   return `<div class="cert" style="margin-bottom:18px">
     <div class="seal">🏅</div>
     <h2>Certificate of Achievement</h2>
@@ -1184,6 +1148,11 @@ function renderCertificate(c){
     <div>This is to certify that</div>
     <div class="name">${esc(c.Name)}</div>
     <div class="desc">has successfully completed the Neonatal Nursing OSCE Assessment with a score of <b>${esc(c.Percentage)}%</b>, meeting the required standard of ${PASS_THRESHOLD}%.</div>
+    <div class="cert-signature">
+      <div class="sig-line"></div>
+      <div class="sig-name">${esc(assessorName)}</div>
+      <div class="sig-title">OSCE Assessor</div>
+    </div>
     <div class="meta">
       <div>Certificate Code<b>${esc(c.CertCode)}</b></div>
       <div>Issued<b>${fmt(c.IssuedAt)}</b></div>
@@ -1194,16 +1163,22 @@ function renderCertificate(c){
     </div>
   </div>`;
 }
+
 function downloadCertificate(c){
+  const assessorName = c.AssessorName || 'OSCE Assessor';
   const html = `<!DOCTYPE html><html><head><meta charset="utf-8"><title>Certificate</title>
   <style>body{font-family:system-ui,sans-serif;background:#fff;padding:40px;margin:0}
-  .cert{max-width:800px;margin:0 auto;border:4px solid #0d7d76;border-radius:20px;padding:48px 40px;text-align:center;position:relative}
+  .cert{max-width:800px;margin:0 auto;border:4px solid #0d7d76;border-radius:20px;padding:48px 40px 40px;text-align:center;position:relative}
   .cert::before{content:"";position:absolute;inset:14px;border:2px solid #cfe9e6;border-radius:12px}
   .seal{width:90px;height:90px;margin:0 auto 18px;background:#0d7d76;color:#fff;border-radius:50%;display:grid;place-items:center;font-size:40px}
   h2{font-size:2rem;color:#0a5f5a;letter-spacing:.08em;text-transform:uppercase;margin:0}
   .sub{color:#54707c;text-transform:uppercase;letter-spacing:.15em;font-size:.85rem;margin:6px 0 24px}
   .name{font-size:2.4rem;font-weight:800;font-family:Georgia,serif;margin:18px 0 6px}
   .desc{max-width:560px;margin:18px auto;color:#35525d;font-size:1rem}
+  .sig{margin:32px auto 8px;display:flex;flex-direction:column;align-items:center;gap:2px}
+  .sig-line{width:260px;border-top:2px solid #0d1f26;margin-bottom:10px}
+  .sig-name{font-family:Georgia,serif;font-style:italic;font-size:1.35rem;font-weight:600;color:#0d1f26;line-height:1.3}
+  .sig-title{font-size:.78rem;color:#54707c;text-transform:uppercase;letter-spacing:.12em;margin-top:4px}
   .meta{display:flex;gap:16px;justify-content:center;margin-top:26px;font-size:.85rem;color:#54707c}
   .meta div{border:1px solid #d3e3e6;border-radius:10px;padding:10px 16px;background:#f9fcfc}
   .meta b{display:block;color:#0a5f5a;font-size:.95rem;margin-top:3px}
@@ -1215,6 +1190,11 @@ function downloadCertificate(c){
     <div>This is to certify that</div>
     <div class="name">${esc(c.Name)}</div>
     <div class="desc">has successfully completed the Neonatal Nursing OSCE Assessment with a score of <b>${esc(c.Percentage)}%</b>, meeting the required standard of ${PASS_THRESHOLD}%.</div>
+    <div class="sig">
+      <div class="sig-line"></div>
+      <div class="sig-name">${esc(assessorName)}</div>
+      <div class="sig-title">OSCE Assessor</div>
+    </div>
     <div class="meta">
       <div>Certificate Code<b>${esc(c.CertCode)}</b></div>
       <div>Issued<b>${new Date(c.IssuedAt).toLocaleDateString()}</b></div>
@@ -1227,9 +1207,7 @@ function downloadCertificate(c){
   w.document.write(html); w.document.close();
 }
 
-/* ============================================================
-   INSTRUCTOR/ADMIN: OSCE entry, records, certs
-   ============================================================ */
+/* ---------- INSTRUCTOR/ADMIN: OSCE, Records, Certs ---------- */
 const OSCE_DOMAINS = [
   'Domain 1 — Preparation & Infection Control',
   'Domain 2 — Initial Thermal & Airway Management',
@@ -1245,7 +1223,7 @@ const OSCE_DOMAINS = [
 function viewOsceEntry(){
   return `<div class="card">
     <h2>📝 OSCE Assessment</h2>
-    <p>Score each of the 10 domains (0, 1 or 2). Learners scoring ${PASS_THRESHOLD}%+ receive a certificate automatically.</p>
+    <p>Score each of the 10 domains (0, 1 or 2). Learners scoring ${PASS_THRESHOLD}%+ receive a certificate automatically, signed by you.</p>
     <form id="osce-form" style="margin-top:16px" onsubmit="submitOsce(event)">
       <div class="field"><label>Learner email</label><input type="email" name="learnerEmail" required placeholder="learner@example.com"></div>
       <div id="domain-list" style="margin:18px 0"></div>
@@ -1292,12 +1270,14 @@ async function submitOsce(ev){
   r.innerHTML = '';
   try {
     const d = await api('submitOsce', payload);
+    const certInfo = d.pass && d.certificate
+      ? `<br><br>Certificate issued: <b>${esc(d.certificate.CertCode)}</b><br>Signed by: <b>${esc(d.certificate.AssessorName || '')}</b>`
+      : (d.pass ? '<br>Certificate already on file.' : '');
     r.innerHTML = `<div class="alert ${d.pass?'success':'error'}" style="margin-top:16px">
-      <b>Score: ${d.total}/20 (${d.percentage}%) — ${d.pass?'PASS':'FAIL'}</b><br>
-      ${d.pass && d.certificate ? `Certificate: <b>${esc(d.certificate.CertCode)}</b> for ${esc(d.certificate.Name)}.` : (d.pass ? 'Certificate already issued.' : 'No certificate issued.')}
+      <b>Score: ${d.total}/20 (${d.percentage}%) — ${d.pass?'PASS':'FAIL'}</b>${certInfo}
     </div>`;
     ev.target.reset(); renderDomainInputs();
-    toast(d.pass ? '✓ Passed — certificate issued' : 'Recorded — did not pass');
+    toast(d.pass ? '✓ Passed — certificate issued with your signature' : 'Recorded — did not pass');
   } catch(err){
     r.innerHTML = `<div class="alert error" style="margin-top:16px">${esc(err.message)}</div>`;
   } finally { btn.disabled = false; btn.innerHTML = orig; }
@@ -1325,17 +1305,15 @@ async function loadCerts(){
     const el = $('#certs-list');
     if(!d.certificates.length){ el.innerHTML = `<div class="empty"><div class="icon">🎓</div>No certificates yet.</div>`; return; }
     el.innerHTML = `<div class="tbl-scroll"><table>
-      <thead><tr><th>Name</th><th>Email</th><th>Score</th><th>Code</th><th>Issued</th><th>Valid until</th></tr></thead>
+      <thead><tr><th>Name</th><th>Email</th><th>Score</th><th>Code</th><th>Signed by</th><th>Issued</th></tr></thead>
       <tbody>${d.certificates.map(c=>`<tr>
         <td><b>${esc(c.Name)}</b></td><td>${esc(c.Email)}</td><td>${esc(c.Percentage)}%</td>
-        <td><code>${esc(c.CertCode)}</code></td><td>${fmt(c.IssuedAt)}</td><td>${fmt(c.ValidUntil)}</td>
+        <td><code>${esc(c.CertCode)}</code></td><td>${esc(c.AssessorName || '—')}</td><td>${fmt(c.IssuedAt)}</td>
       </tr>`).join('')}</tbody></table></div>`;
   } catch(e){ $('#certs-list').innerHTML = `<div class="alert error">${esc(e.message)}</div>`; }
 }
 
-/* ============================================================
-   ADMIN: Users & Audit
-   ============================================================ */
+/* ---------- ADMIN: Users & Audit ---------- */
 function viewUsers(){
   return `<div class="card"><h2>👥 User Management</h2>
     <p>Approve pending accounts, edit roles and statuses, or delete users.</p>
@@ -1384,9 +1362,7 @@ async function loadAudit(){
   } catch(e){ $('#audit-list').innerHTML = `<div class="alert error">${esc(e.message)}</div>`; }
 }
 
-/* ============================================================
-   BOOT
-   ============================================================ */
+/* ---------- BOOT ---------- */
 (function boot(){
   const s = getSession();
   if(s?.token && s?.user){
@@ -1398,9 +1374,7 @@ async function loadAudit(){
     api('me', { token: s.token })
       .then(d => { setSession({ token: s.token, user: d.user }); render(); })
       .catch(() => { clearSession(); render(); });
-  } else {
-    render();
-  }
+  } else { render(); }
 })();
 
 Object.assign(window, {
@@ -1409,7 +1383,7 @@ Object.assign(window, {
   openLessonEditor, saveLesson, deleteLesson,
   openQuizEditor, saveQuiz, deleteQuiz,
   cmOpen, cmBack,
-  openCpModule, openCpLesson, openCpQuiz, submitQuizAttempt,
+  openCpModule, openCpLesson, openCpQuizGroup, submitQuizGroup,
   updateScore, submitOsce, renderDomainInputs,
   changeRole, changeStatus, deleteUser, downloadCertificate
 });
