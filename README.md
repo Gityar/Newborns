@@ -1,2 +1,2 @@
 # Newborns
-A learning management app/website that provides user registration, and accessing quality newborn health care content and knowledge checks.
+A learning management app/website that provides user registration and access to quality newborn health care content and knowledge checks.
