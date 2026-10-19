@@ -24,6 +24,13 @@ button{font-family:inherit}
 .hidden{display:none!important}
 code{background:#eef6f6;padding:2px 6px;border-radius:4px;font-family:ui-monospace,Menlo,monospace;font-size:.92em}
 
+/* Skeleton */
+.sk{background:linear-gradient(90deg,#eef6f6 25%,#dbe8ea 50%,#eef6f6 75%);background-size:200% 100%;animation:shimmer 1.4s infinite;border-radius:8px}
+@keyframes shimmer{0%{background-position:200% 0}100%{background-position:-200% 0}}
+.sk-row{height:64px;margin-bottom:10px}
+.sk-line{height:14px;margin-bottom:8px}
+.sk-line.w50{width:50%}.sk-line.w70{width:70%}.sk-line.w90{width:90%}
+
 /* Top bar */
 .topbar{position:sticky;top:0;z-index:50;display:flex;align-items:center;gap:16px;padding:14px 22px;background:linear-gradient(100deg,#0b2f38,#0d4551 55%,#0d7d76);color:#eaf6f6;box-shadow:0 3px 14px rgba(11,47,56,.28)}
 .brand{display:flex;align-items:center;gap:12px}
@@ -33,7 +40,7 @@ code{background:#eef6f6;padding:2px 6px;border-radius:4px;font-family:ui-monospa
 .spacer{flex:1}
 .user-chip{display:flex;align-items:center;gap:10px;background:rgba(255,255,255,.12);padding:7px 14px;border-radius:99px;font-size:.9rem;color:#fff}
 .user-chip b{font-weight:700}
-.btn{border:0;border-radius:10px;padding:11px 20px;font-weight:700;font-size:.95rem;cursor:pointer;transition:.15s;display:inline-flex;align-items:center;gap:6px}
+.btn{border:0;border-radius:10px;padding:11px 20px;font-weight:700;font-size:.95rem;cursor:pointer;transition:.15s;display:inline-flex;align-items:center;gap:6px;justify-content:center}
 .btn.primary{background:var(--brand);color:#fff}
 .btn.primary:hover{background:var(--brand-600)}
 .btn.ghost{background:#eef6f6;color:var(--brand-600);border:1px solid var(--line)}
@@ -41,8 +48,9 @@ code{background:#eef6f6;padding:2px 6px;border-radius:4px;font-family:ui-monospa
 .btn.small{padding:8px 14px;font-size:.85rem}
 .btn.danger{background:var(--bad);color:#fff}
 .btn.danger:hover{background:#991b1b}
-.btn.ok{background:var(--ok);color:#fff}
 .btn[disabled]{opacity:.5;cursor:not-allowed}
+.spinner{width:16px;height:16px;border:2px solid rgba(255,255,255,.35);border-top-color:#fff;border-radius:50%;animation:spin .7s linear infinite;display:inline-block}
+@keyframes spin{to{transform:rotate(360deg)}}
 
 /* Layout */
 .container{max-width:1200px;margin:0 auto;padding:26px 20px 60px}
@@ -56,26 +64,33 @@ code{background:#eef6f6;padding:2px 6px;border-radius:4px;font-family:ui-monospa
 
 /* Auth */
 .auth-wrap{min-height:calc(100vh - 70px);display:grid;place-items:center;padding:30px 18px}
-.auth-card{width:100%;max-width:480px}
+.auth-card{width:100%;max-width:500px}
 .auth-card .logo-lg{width:64px;height:64px;margin:0 auto 14px;display:grid;place-items:center;background:var(--brand-50);border-radius:18px;font-size:32px}
 .auth-card h2{text-align:center;margin-bottom:4px}
 .auth-card .sub{text-align:center;color:var(--muted);margin-bottom:22px;font-size:.95rem}
-.field{margin-bottom:14px}
+.field{margin-bottom:14px;position:relative}
 .field label{display:block;font-weight:600;font-size:.9rem;margin-bottom:6px;color:var(--ink-soft)}
-.field input,.field select,.field textarea{width:100%;padding:12px 14px;font-size:1rem;font-family:inherit;border:2px solid var(--line);border-radius:10px;background:#fff}
+.field input,.field select,.field textarea{width:100%;padding:12px 14px;font-size:1rem;font-family:inherit;border:2px solid var(--line);border-radius:10px;background:#fff;transition:.15s}
 .field textarea{min-height:120px;resize:vertical;line-height:1.6}
 .field input:focus,.field select:focus,.field textarea:focus{outline:none;border-color:var(--brand);box-shadow:0 0 0 3px var(--brand-100)}
+.field .hint{font-size:.8rem;color:var(--muted);margin-top:4px}
 .auth-links{display:flex;justify-content:space-between;margin-top:14px;font-size:.9rem;flex-wrap:wrap;gap:8px}
 .auth-links a{color:var(--brand-600);text-decoration:none;font-weight:600}
 .auth-links a:hover{text-decoration:underline}
 .tab-switch{display:flex;gap:6px;margin-bottom:18px;background:#f1f7f7;padding:5px;border-radius:12px;flex-wrap:wrap}
-.tab-switch button{flex:1;min-width:80px;border:0;background:transparent;padding:9px;border-radius:8px;font-weight:700;font-size:.85rem;cursor:pointer;color:var(--muted)}
+.tab-switch button{flex:1;min-width:70px;border:0;background:transparent;padding:9px 8px;border-radius:8px;font-weight:700;font-size:.82rem;cursor:pointer;color:var(--muted);transition:.15s}
 .tab-switch button.active{background:#fff;color:var(--brand-600);box-shadow:0 1px 3px rgba(0,0,0,.08)}
-.alert{padding:12px 16px;border-radius:10px;margin-bottom:14px;font-size:.92rem;border-left:4px solid}
+.alert{padding:12px 16px;border-radius:10px;margin-bottom:14px;font-size:.92rem;border-left:4px solid;animation:slideIn .3s}
+@keyframes slideIn{from{opacity:0;transform:translateY(-4px)}to{opacity:1;transform:none}}
 .alert.error{background:var(--bad-50);border-color:var(--bad);color:var(--bad)}
 .alert.success{background:var(--ok-50);border-color:var(--ok);color:var(--ok)}
 .alert.info{background:var(--brand-50);border-color:var(--brand);color:var(--brand-600)}
 .alert code{background:rgba(255,255,255,.7);padding:4px 8px;border-radius:4px;font-size:1.1em;font-weight:700}
+details.code-block{margin-top:12px;font-size:.85rem;background:#fff;border:1px solid var(--line);border-radius:10px;padding:10px 14px}
+details.code-block summary{cursor:pointer;font-weight:600;color:var(--muted);outline:none}
+details.code-block summary:hover{color:var(--brand-600)}
+details.code-block .code-inner{margin-top:10px;display:flex;align-items:center;gap:10px}
+details.code-block .code-inner code{font-size:1.4rem;letter-spacing:.3em;font-weight:800;color:var(--brand-600);background:var(--brand-50);padding:8px 16px;border-radius:8px;flex:1;text-align:center}
 
 /* Dashboard */
 .hero{background:linear-gradient(135deg,#0b2f38,#0d7d76);color:#fff;padding:30px;border-radius:var(--radius);margin-bottom:20px}
@@ -86,7 +101,8 @@ code{background:#eef6f6;padding:2px 6px;border-radius:4px;font-family:ui-monospa
 .stat .n{font-size:2rem;font-weight:800;color:var(--brand-600);line-height:1}
 .stat .l{font-size:.85rem;color:var(--muted);margin-top:6px;text-transform:uppercase;letter-spacing:.04em}
 .nav-tabs{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:18px;background:#fff;padding:6px;border-radius:12px;border:1px solid var(--line)}
-.nav-tabs button{border:0;background:transparent;padding:10px 16px;border-radius:8px;font-weight:700;font-size:.9rem;cursor:pointer;color:var(--muted)}
+.nav-tabs button{border:0;background:transparent;padding:10px 16px;border-radius:8px;font-weight:700;font-size:.9rem;cursor:pointer;color:var(--muted);transition:.15s}
+.nav-tabs button:hover{background:var(--brand-50)}
 .nav-tabs button.active{background:var(--brand);color:#fff}
 
 /* Tables */
@@ -111,7 +127,7 @@ select.inline{padding:6px 10px;font-size:.85rem;border:1px solid var(--line);bor
 .module-card h4{margin:0 0 4px;font-size:1.1rem}
 .module-card .desc{color:var(--muted);font-size:.92rem;margin:0 0 10px}
 .module-card .meta{font-size:.8rem;color:var(--muted);margin-bottom:10px}
-.lesson-row,.quiz-row{display:flex;gap:12px;align-items:center;justify-content:space-between;padding:12px 14px;border:1px solid var(--line);border-radius:10px;margin-bottom:8px;background:#fbfefe}
+.lesson-row,.quiz-row{display:flex;gap:12px;align-items:center;justify-content:space-between;padding:12px 14px;border:1px solid var(--line);border-radius:10px;margin-bottom:8px;background:#fbfefe;flex-wrap:wrap}
 .lesson-row .info,.quiz-row .info{flex:1;min-width:0}
 .lesson-row .info h5,.quiz-row .info h5{margin:0 0 4px;font-size:.98rem}
 .lesson-row .info small,.quiz-row .info small{color:var(--muted);font-size:.82rem}
@@ -122,7 +138,7 @@ select.inline{padding:6px 10px;font-size:.85rem;border:1px solid var(--line);bor
 .player-grid{display:grid;grid-template-columns:280px 1fr;gap:20px}
 .player-side{background:#fff;border:1px solid var(--line);border-radius:var(--radius-sm);padding:14px;position:sticky;top:90px;max-height:calc(100vh - 110px);overflow-y:auto}
 .player-side h3{font-size:.9rem;text-transform:uppercase;letter-spacing:.05em;color:var(--muted);margin:0 0 10px}
-.mod-link{display:block;padding:10px 12px;border-radius:8px;text-decoration:none;color:var(--ink);font-size:.92rem;margin-bottom:2px;border-left:3px solid transparent}
+.mod-link{display:block;padding:10px 12px;border-radius:8px;text-decoration:none;color:var(--ink);font-size:.92rem;margin-bottom:2px;border-left:3px solid transparent;transition:.15s}
 .mod-link:hover{background:var(--brand-50)}
 .mod-link.active{background:var(--brand-50);border-left-color:var(--brand);color:var(--brand-600);font-weight:700}
 .lesson-link,.quiz-link{display:block;padding:8px 12px 8px 24px;border-radius:6px;text-decoration:none;color:var(--ink-soft);font-size:.86rem;margin-bottom:1px}
@@ -139,7 +155,7 @@ select.inline{padding:6px 10px;font-size:.85rem;border:1px solid var(--line);bor
 .quiz-take{background:#fbfefe;border:1px solid var(--line);border-radius:12px;padding:22px}
 .quiz-take .qtext{font-weight:600;font-size:1.1rem;margin-bottom:16px}
 .quiz-take .option{display:flex;gap:14px;align-items:flex-start;padding:14px 16px;border:2px solid var(--line);border-radius:10px;margin-bottom:10px;cursor:pointer;background:#fff;transition:.15s;width:100%;text-align:left;font-size:1rem;color:var(--ink)}
-.quiz-take .option:hover:not(:disabled){border-color:var(--brand);background:var(--brand-50)}
+.quiz-take .option:hover:not(:disabled){border-color:var(--brand);background:var(--brand-50);transform:translateX(3px)}
 .quiz-take .option .key{flex:0 0 28px;height:28px;display:grid;place-items:center;background:#eef6f6;color:var(--brand-600);font-weight:800;border-radius:8px;font-size:.9rem}
 .quiz-take .option.correct{border-color:var(--ok);background:var(--ok-50)}
 .quiz-take .option.correct .key{background:var(--ok);color:#fff}
@@ -147,7 +163,7 @@ select.inline{padding:6px 10px;font-size:.85rem;border:1px solid var(--line);bor
 .quiz-take .option.wrong .key{background:var(--bad);color:#fff}
 .quiz-take .option:disabled{cursor:default;opacity:1}
 .quiz-take .option.dim{opacity:.5}
-.quiz-feedback{margin-top:16px;padding:14px 18px;border-radius:10px;border-left:4px solid var(--brand);background:var(--brand-50);font-size:.98rem}
+.quiz-feedback{margin-top:16px;padding:14px 18px;border-radius:10px;border-left:4px solid var(--brand);background:var(--brand-50);font-size:.98rem;animation:slideIn .3s}
 .quiz-feedback.good{border-left-color:var(--ok);background:var(--ok-50)}
 .quiz-feedback.bad{border-left-color:var(--bad);background:var(--bad-50)}
 .quiz-feedback strong{display:block;margin-bottom:4px}
@@ -157,7 +173,7 @@ select.inline{padding:6px 10px;font-size:.85rem;border:1px solid var(--line);bor
 .form-grid .full{grid-column:1 / -1}
 @media (max-width:720px){.form-grid{grid-template-columns:1fr}}
 .radio-row{display:flex;gap:8px;flex-wrap:wrap}
-.radio-row label{display:flex;align-items:center;gap:6px;padding:9px 16px;border:2px solid var(--line);border-radius:8px;cursor:pointer;font-weight:600;background:#fff}
+.radio-row label{display:flex;align-items:center;gap:6px;padding:9px 16px;border:2px solid var(--line);border-radius:8px;cursor:pointer;font-weight:600;background:#fff;transition:.15s}
 .radio-row label:has(input:checked){border-color:var(--brand);background:var(--brand-50);color:var(--brand-600)}
 .radio-row input{accent-color:var(--brand)}
 
@@ -167,7 +183,7 @@ select.inline{padding:6px 10px;font-size:.85rem;border:1px solid var(--line);bor
 .osce-domain .radios{display:flex;gap:6px}
 .osce-domain .radios label{display:flex;align-items:center;gap:4px;padding:7px 12px;border:2px solid var(--line);border-radius:8px;cursor:pointer;font-size:.85rem;font-weight:600;background:#fff;min-width:52px;justify-content:center}
 .osce-domain .radios label:has(input:checked){border-color:var(--brand);background:var(--brand-50);color:var(--brand-600)}
-.score-banner{padding:14px 20px;border-radius:12px;font-weight:700;text-align:center;font-size:1.1rem;margin:14px 0}
+.score-banner{padding:14px 20px;border-radius:12px;font-weight:700;text-align:center;font-size:1.1rem;margin:14px 0;transition:.2s}
 .score-banner.pass{background:var(--ok-50);color:var(--ok)}
 .score-banner.fail{background:var(--bad-50);color:var(--bad)}
 
@@ -183,14 +199,14 @@ select.inline{padding:6px 10px;font-size:.85rem;border:1px solid var(--line);bor
 .cert .meta div{background:#fff;border:1px solid var(--line);border-radius:8px;padding:8px 14px}
 .cert .meta b{display:block;color:var(--brand-600);font-size:.92rem;margin-top:2px}
 
-/* Toast / Misc */
+/* Toast */
 .toast{position:fixed;left:50%;bottom:26px;transform:translate(-50%,26px);background:#0b2f38;color:#e8f5f5;padding:14px 24px;border-radius:99px;font-size:.92rem;font-weight:600;box-shadow:var(--shadow);opacity:0;pointer-events:none;transition:.28s;z-index:90}
 .toast.show{opacity:1;transform:translate(-50%,0)}
 .empty{text-align:center;padding:40px 20px;color:var(--muted)}
 .empty .icon{font-size:2.6rem;margin-bottom:8px;opacity:.5}
 @media (max-width:900px){.player-grid{grid-template-columns:1fr}.player-side{position:static;max-height:none}}
 @media (max-width:600px){.topbar{padding:12px 14px;gap:10px}.brand h1{font-size:.95rem}.brand small{display:none}.user-chip{font-size:.78rem;padding:6px 10px}.container{padding:18px 12px 40px}.card{padding:18px}.osce-domain{grid-template-columns:1fr}}
-@media print{.topbar,.nav-tabs,.btn,footer,.player-side{display:none!important}body{background:#fff}.card,.player-main{box-shadow:none;border:0;padding:0}.cert{box-shadow:none}}
+@media print{.topbar,.nav-tabs,.btn,footer,.player-side,.toast{display:none!important}body{background:#fff}.card,.player-main{box-shadow:none;border:0;padding:0}.cert{box-shadow:none}}
 </style>
 </head>
 <body>
@@ -203,41 +219,80 @@ select.inline{padding:6px 10px;font-size:.85rem;border:1px solid var(--line);bor
    ============================================================ */
 const API = window.LMS_CONFIG?.API_URL || '';
 const PASS_THRESHOLD = window.LMS_CONFIG?.PASS_THRESHOLD || 80;
-
-if (!API || API.includes('PASTE')) {
-  console.error('[LMS] config.js is missing your Apps Script /exec URL.');
-}
+if (!API || API.includes('PASTE')) console.error('[LMS] config.js missing Apps Script URL.');
 
 const $ = (s, r=document) => r.querySelector(s);
 const $$ = (s, r=document) => Array.from(r.querySelectorAll(s));
 const esc = s => String(s ?? '').replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 const fmt = d => d ? new Date(d).toLocaleString() : '—';
 
-function toast(msg, ms=2400){
-  const t = $('#toast'); t.textContent = msg; t.classList.add('show');
-  clearTimeout(t._t); t._t = setTimeout(()=>t.classList.remove('show'), ms);
+let toastQueue = [];
+let toastTimer = null;
+function toast(msg){
+  toastQueue.push(msg);
+  if(toastTimer) return;
+  flushToast();
+}
+function flushToast(){
+  const t = $('#toast');
+  if(!toastQueue.length){ t.classList.remove('show'); toastTimer = null; return; }
+  t.textContent = toastQueue.shift();
+  t.classList.add('show');
+  toastTimer = setTimeout(() => {
+    t.classList.remove('show');
+    setTimeout(() => { toastTimer = null; flushToast(); }, 300);
+  }, 1800);
 }
 
 async function api(action, payload={}){
   if(!API || API.includes('PASTE')) throw new Error('config.js is missing your Apps Script URL.');
   const res = await fetch(API, {
-    method:'POST', headers:{'Content-Type':'text/plain;charset=utf-8'},
+    method:'POST',
+    headers:{'Content-Type':'text/plain;charset=utf-8'},
     body: JSON.stringify(Object.assign({action}, payload))
   });
   const data = await res.json();
-  if(!data.ok) throw new Error(data.error || 'Request failed');
+  if(!data.ok){
+    if(data.code === 401){
+      clearSession();
+      render();
+      throw new Error('Session expired. Please log in again.');
+    }
+    throw new Error(data.error || 'Request failed');
+  }
   return data.data;
 }
 
 /* ============================================================
    SESSION
    ============================================================ */
-const SK = 'nn_lms_session_v2';
+const SK = 'nn_lms_session_v3';
 const getSession = () => { try { return JSON.parse(localStorage.getItem(SK)); } catch { return null; } };
 const setSession = s => localStorage.setItem(SK, JSON.stringify(s));
 const clearSession = () => localStorage.removeItem(SK);
 const currentUser = () => getSession()?.user || null;
 const currentToken = () => getSession()?.token || '';
+
+/* ============================================================
+   CONTENT CACHE (client)
+   ============================================================ */
+const CK = 'nn_lms_content_v3';
+const CK_EXP = 'nn_lms_content_exp_v3';
+function getCachedContent(){
+  try {
+    if(Number(localStorage.getItem(CK_EXP)||0) < Date.now()) return null;
+    return JSON.parse(localStorage.getItem(CK)||'null');
+  } catch { return null; }
+}
+function setCachedContent(c){
+  try {
+    localStorage.setItem(CK, JSON.stringify(c));
+    localStorage.setItem(CK_EXP, String(Date.now() + 3*60*1000));
+  } catch {}
+}
+function clearCachedContent(){
+  try { localStorage.removeItem(CK); localStorage.removeItem(CK_EXP); } catch {}
+}
 
 /* ============================================================
    STATE
@@ -247,14 +302,15 @@ const STATE = {
   authEmail: '',
   view: 'overview',
   content: null,
+  contentFresh: false,
   cpModuleId: null,
   cpLessonId: null,
   cpQuizId: null,
   cmModuleId: null,
-  editingLesson: null,  // {lessonId?, moduleId, title, content, sortOrder}
-  editingQuiz: null,    // {quizId?, moduleId, question, OptionA-D, correctIndex, explanation}
-  editingModule: null,  // {moduleId?, title, description, sortOrder}
-  scorePreview: 0
+  editingLesson: null,
+  editingQuiz: null,
+  editingModule: null,
+  resetInfo: null  // { email, code, emailed }
 };
 
 /* ============================================================
@@ -275,7 +331,7 @@ function renderAuth(){
     ['login','Login'],
     ['register','Register'],
     ['forgot','Forgot'],
-    ['reset','Reset code']
+    ['reset','Reset']
   ];
   $('#app').innerHTML = `
     <div class="auth-wrap">
@@ -302,7 +358,7 @@ function authLoginForm(){
     <form id="auth-form" data-mode="login">
       <div class="field"><label>Email</label><input type="email" name="email" required autocomplete="username" value="${esc(STATE.authEmail)}"></div>
       <div class="field"><label>Password</label><input type="password" name="password" required autocomplete="current-password"></div>
-      <button type="submit" class="btn primary" style="width:100%;margin-top:6px;justify-content:center">Sign in</button>
+      <button type="submit" class="btn primary" style="width:100%;margin-top:6px">Sign in</button>
       <div class="auth-links">
         <a href="#" onclick="switchAuth('register');return false">Create account</a>
         <a href="#" onclick="switchAuth('forgot');return false">Forgot password?</a>
@@ -325,9 +381,9 @@ function authRegisterForm(){
         </select>
       </div>
       <p style="font-size:.82rem;color:var(--muted);margin:0 0 12px">
-        Instructor and admin accounts require approval by an existing administrator before they can log in.
+        Instructor and admin accounts require approval by an existing administrator.
       </p>
-      <button type="submit" class="btn primary" style="width:100%;justify-content:center">Create account</button>
+      <button type="submit" class="btn primary" style="width:100%">Create account</button>
     </form>
   `;
 }
@@ -335,28 +391,62 @@ function authRegisterForm(){
 function authForgotForm(){
   return `
     <form id="auth-form" data-mode="forgot">
-      <div class="field"><label>Email address</label><input type="email" name="email" required value="${esc(STATE.authEmail)}"></div>
-      <p style="font-size:.85rem;color:var(--muted);margin:0 0 12px">We'll send a 6-digit code to this email. It expires in 15 minutes.</p>
-      <button type="submit" class="btn primary" style="width:100%;justify-content:center">Send reset code</button>
+      <div class="field">
+        <label>Email address</label>
+        <input type="email" name="email" required value="${esc(STATE.authEmail)}" autocomplete="email">
+        <div class="hint">We'll send a 6-digit code. It expires in 30 minutes.</div>
+      </div>
+      <button type="submit" class="btn primary" style="width:100%">Send reset code</button>
       <div class="auth-links"><a href="#" onclick="switchAuth('login');return false">← Back to login</a></div>
     </form>
   `;
 }
 
 function authResetForm(){
+  const info = STATE.resetInfo;
+  const initialCode = info?.code || '';
+  const showCodeBlock = info?.code
+    ? `<details class="code-block" ${!info.emailed ? 'open' : ''}>
+         <summary>${info.emailed ? 'Having trouble receiving the email? Show code' : 'Email service unavailable — use this code'}</summary>
+         <div class="code-inner">
+           <code id="reset-code-display">${esc(info.code)}</code>
+           <button type="button" class="btn ghost small" onclick="copyText('${esc(info.code)}')">Copy</button>
+         </div>
+       </details>`
+    : '';
   return `
     <form id="auth-form" data-mode="reset">
-      <div class="field"><label>Email address</label><input type="email" name="email" required value="${esc(STATE.authEmail)}"></div>
-      <div class="field"><label>6-digit reset code</label><input type="text" name="code" required pattern="[0-9]{6}" maxlength="6" inputmode="numeric" autocomplete="one-time-code" placeholder="123456"></div>
-      <div class="field"><label>New password (min 8 chars)</label><input type="password" name="password" required minlength="8" autocomplete="new-password"></div>
-      <button type="submit" class="btn primary" style="width:100%;justify-content:center">Reset password</button>
-      <div class="auth-links"><a href="#" onclick="switchAuth('forgot');return false">Resend code</a><a href="#" onclick="switchAuth('login');return false">← Back to login</a></div>
+      <div class="field">
+        <label>Email address</label>
+        <input type="email" name="email" required value="${esc(info?.email || STATE.authEmail)}" autocomplete="email">
+      </div>
+      <div class="field">
+        <label>6-digit reset code</label>
+        <input type="text" name="code" required pattern="[0-9]{6}" maxlength="6" inputmode="numeric"
+               autocomplete="one-time-code" placeholder="123456" value="${esc(initialCode)}">
+        ${info ? `<div class="hint">Code expires in ${info.expiresInMinutes || 30} minutes.</div>` : ''}
+      </div>
+      <div class="field">
+        <label>New password (min 8 chars)</label>
+        <input type="password" name="password" required minlength="8" autocomplete="new-password">
+      </div>
+      <button type="submit" class="btn primary" style="width:100%">Reset password</button>
+      ${showCodeBlock}
+      <div class="auth-links">
+        <a href="#" onclick="resendCode();return false">Resend code</a>
+        <a href="#" onclick="switchAuth('login');return false">← Back to login</a>
+      </div>
     </form>
   `;
 }
 
+function copyText(txt){
+  navigator.clipboard?.writeText(txt).then(() => toast('Copied')).catch(() => toast('Copy failed'));
+}
+
 function switchAuth(tab){
   STATE.authTab = tab;
+  if(tab !== 'reset') STATE.resetInfo = null;
   renderAuth();
 }
 
@@ -366,14 +456,18 @@ async function handleAuthSubmit(e){
   const form = new FormData(e.target);
   const alert = $('#auth-alert');
   alert.innerHTML = '';
+  const btn = e.target.querySelector('button[type=submit]');
+  const orig = btn.innerHTML;
+  btn.disabled = true;
+  btn.innerHTML = '<span class="spinner"></span> Please wait…';
 
   try {
     if(mode === 'login'){
       const email = String(form.get('email') || '').trim().toLowerCase();
       STATE.authEmail = email;
       const d = await api('login', { email, password: form.get('password') });
-      setSession({ token: d.token, user: d.user });
-      toast('Welcome, ' + d.user.name);
+      setSession({ token: d.token, user: d.user, issued: Date.now() });
+      toast('Welcome back, ' + d.user.name);
       STATE.view = 'overview';
       render();
     }
@@ -389,31 +483,42 @@ async function handleAuthSubmit(e){
       const email = String(form.get('email') || '').trim().toLowerCase();
       STATE.authEmail = email;
       const d = await api('forgot', { email });
-      let html = `<div class="alert info">${esc(d.message)}</div>`;
-      if(d.demoCode){
-        html += `<div class="alert info">Your code: <code>${esc(d.demoCode)}</code></div>`;
-      }
-      alert.innerHTML = html;
-      if(d.emailed || d.demoCode) setTimeout(()=>switchAuth('reset'), 1200);
+      STATE.resetInfo = { email, code: d.code || '', emailed: d.emailed, expiresInMinutes: d.expiresInMinutes || 30 };
+      alert.innerHTML = `<div class="alert info">${esc(d.message)}</div>`;
+      setTimeout(()=>switchAuth('reset'), 900);
     }
     else if(mode === 'reset'){
       const email = String(form.get('email') || '').trim().toLowerCase();
       STATE.authEmail = email;
-      const d = await api('reset', {
-        email, code: form.get('code'), password: form.get('password')
-      });
+      const d = await api('reset', { email, code: form.get('code'), password: form.get('password') });
       alert.innerHTML = `<div class="alert success">${esc(d.message)}</div>`;
-      setTimeout(()=>switchAuth('login'), 1400);
+      STATE.resetInfo = null;
+      setTimeout(()=>switchAuth('login'), 1200);
     }
   } catch(err){
     alert.innerHTML = `<div class="alert error">${esc(err.message)}</div>`;
+  } finally {
+    btn.disabled = false;
+    btn.innerHTML = orig;
   }
+}
+
+async function resendCode(){
+  const email = STATE.resetInfo?.email || STATE.authEmail;
+  if(!email){ toast('Enter your email first'); return; }
+  try {
+    const d = await api('forgot', { email });
+    STATE.resetInfo = { email, code: d.code || '', emailed: d.emailed, expiresInMinutes: d.expiresInMinutes || 30 };
+    toast(d.emailed ? 'New code sent to your email' : 'New code generated');
+    renderAuth();
+  } catch(e){ toast(e.message); }
 }
 
 async function logout(){
   try { await api('logout', { token: currentToken() }); } catch {}
   clearSession();
   STATE.authTab = 'login'; STATE.view = 'overview'; STATE.content = null;
+  STATE.resetInfo = null;
   render();
 }
 
@@ -440,7 +545,6 @@ function renderApp(){
     tabs.push(['users','👥 Users']);
     tabs.push(['audit','📜 Audit']);
   }
-
   $('#app').innerHTML = `
     ${topbar()}
     <div class="container">
@@ -476,7 +580,6 @@ function topbar(){
 
 function setView(v){
   STATE.view = v;
-  if(v === 'course' || v === 'contentMgr') STATE.content = null;
   if(v === 'contentMgr') STATE.cmModuleId = null;
   render();
 }
@@ -502,20 +605,23 @@ function renderView(){
    ============================================================ */
 function viewOverview(){
   const u = currentUser();
+  const c = STATE.content?.modules || getCachedContent()?.modules || [];
+  const totalLessons = c.reduce((a,m)=>a+m.Lessons.length,0);
+  const totalQuizzes = c.reduce((a,m)=>a+m.Quizzes.length,0);
   return `
     <div class="hero">
       <h2>Welcome back, ${esc(u.name)}</h2>
       <p>${u.role === 'learner'
-        ? 'Continue the course, take quizzes, and complete the OSCE assessment to earn your certificate (80% required).'
+        ? 'Continue the course, take quizzes, and complete the OSCE to earn your certificate (80% required).'
         : u.role === 'instructor'
         ? 'Manage course content, score OSCE assessments, and track learner progress.'
         : 'Full administrative access: manage users, content, assessments, certificates, and audit logs.'}</p>
     </div>
     <div class="stat-grid">
-      <div class="stat"><div class="n">6</div><div class="l">Modules</div></div>
-      <div class="stat"><div class="n">10</div><div class="l">OSCE Domains</div></div>
-      <div class="stat"><div class="n">${PASS_THRESHOLD}%</div><div class="l">Pass Mark</div></div>
-      <div class="stat"><div class="n">160h</div><div class="l">Practicum</div></div>
+      <div class="stat"><div class="n">${c.length}</div><div class="l">Modules</div></div>
+      <div class="stat"><div class="n">${totalLessons}</div><div class="l">Lessons</div></div>
+      <div class="stat"><div class="n">${totalQuizzes}</div><div class="l">Quizzes</div></div>
+      <div class="stat"><div class="n">${PASS_THRESHOLD}%</div><div class="l">OSCE Pass Mark</div></div>
     </div>
     <div class="card">
       <h2>Quick actions</h2>
@@ -531,7 +637,7 @@ function viewOverview(){
 }
 
 /* ============================================================
-   COURSE PLAYER (all roles)
+   COURSE PLAYER
    ============================================================ */
 function viewCourse(){
   return `
@@ -541,9 +647,13 @@ function viewCourse(){
           <h2 style="margin:0">📚 Course Player</h2>
           <p style="margin:4px 0 0;color:var(--muted);font-size:.92rem">Browse modules, read lessons, answer quizzes.</p>
         </div>
-        <button class="btn ghost small" onclick="loadContent('course')">↻ Refresh</button>
+        <button class="btn ghost small" onclick="loadContent('course', true)">↻ Refresh</button>
       </div>
-      <div id="course-body"><div class="empty"><div class="icon">⏳</div>Loading content…</div></div>
+      <div id="course-body">
+        <div class="sk sk-row"></div>
+        <div class="sk sk-row"></div>
+        <div class="sk sk-row"></div>
+      </div>
     </div>
   `;
 }
@@ -553,11 +663,16 @@ function renderCourseBody(){
   if(!body || !STATE.content) return;
   const mods = STATE.content.modules;
   if(!mods.length){
-    body.innerHTML = `<div class="empty"><div class="icon">📭</div>No modules yet. ${currentUser().role !== 'learner' ? 'Add them in the Content Manager.' : 'Check back soon.'}</div>`;
+    body.innerHTML = `<div class="empty">
+      <div class="icon">📭</div>
+      <p>No modules yet.</p>
+      <p style="font-size:.9rem">${currentUser().role !== 'learner'
+        ? 'Create the first module in the <a href="#" onclick="setView(\'contentMgr\');return false">Content Manager</a>.'
+        : 'Check back soon — your instructor is preparing content.'}</p>
+    </div>`;
     return;
   }
   const curMod = STATE.cpModuleId ? mods.find(m => m.ModuleID === STATE.cpModuleId) : null;
-
   body.innerHTML = `
     <div class="player-grid">
       <aside class="player-side">
@@ -572,48 +687,38 @@ function renderCourseBody(){
           ` : ''}
         `).join('')}
       </aside>
-      <section class="player-main">
-        ${renderPlayerMain(curMod)}
-      </section>
+      <section class="player-main">${renderPlayerMain(curMod)}</section>
     </div>
   `;
 }
 
 function renderPlayerMain(mod){
   if(!mod) return `<div class="empty"><div class="icon">👈</div>Select a module from the left to begin.</div>`;
-
   if(STATE.cpLessonId){
     const lesson = mod.Lessons.find(l => l.LessonID === STATE.cpLessonId);
     if(lesson){
-      return `
-        <h2>${esc(lesson.Title)}</h2>
-        <div class="prose-content">${lesson.ContentHTML || '<p><em>No content yet.</em></p>'}</div>
-      `;
+      return `<h2>${esc(lesson.Title)}</h2>
+        <div class="prose-content">${lesson.ContentHTML || '<p><em>No content yet.</em></p>'}</div>`;
     }
   }
   if(STATE.cpQuizId){
     const quiz = mod.Quizzes.find(q => q.QuizID === STATE.cpQuizId);
     if(quiz) return renderQuizTake(quiz);
   }
-
   return `
     <h2>${esc(mod.Title)}</h2>
     <p style="color:var(--muted)">${esc(mod.Description || '')}</p>
     <h3>Lessons (${mod.Lessons.length})</h3>
     ${mod.Lessons.length ? mod.Lessons.map(l => `
       <div class="lesson-row">
-        <div class="info">
-          <h5>📖 ${esc(l.Title)}</h5>
-        </div>
+        <div class="info"><h5>📖 ${esc(l.Title)}</h5></div>
         <button class="btn ghost small" onclick="openCpLesson('${esc(l.LessonID)}')">Read</button>
       </div>
     `).join('') : '<p><em>No lessons in this module yet.</em></p>'}
     <h3>Quizzes (${mod.Quizzes.length})</h3>
     ${mod.Quizzes.length ? mod.Quizzes.map((q,i) => `
       <div class="quiz-row">
-        <div class="info">
-          <h5>📝 Quiz ${i+1}: ${esc(q.Question)}</h5>
-        </div>
+        <div class="info"><h5>📝 Quiz ${i+1}: ${esc(q.Question)}</h5></div>
         <button class="btn ghost small" onclick="openCpQuiz('${esc(q.QuizID)}')">Take</button>
       </div>
     `).join('') : '<p><em>No quizzes in this module yet.</em></p>'}
@@ -621,9 +726,7 @@ function renderPlayerMain(mod){
 }
 
 function renderQuizTake(quiz){
-  const opts = ['A','B','C','D'].map((k,i) => ({
-    key: k, text: quiz['Option'+k], idx: i
-  }));
+  const opts = ['A','B','C','D'].map((k,i) => ({ key: k, text: quiz['Option'+k], idx: i }));
   return `
     <h2>📝 Knowledge check</h2>
     <div class="quiz-take" data-quiz="${esc(quiz.QuizID)}">
@@ -656,8 +759,7 @@ async function submitQuizAttempt(quizId, idx, btn){
       else if(i === idx) b.classList.add('wrong');
       else b.classList.add('dim');
     });
-    const fb = wrap.querySelector('.feedback-slot');
-    fb.innerHTML = `<div class="quiz-feedback ${d.correct?'good':'bad'}">
+    wrap.querySelector('.feedback-slot').innerHTML = `<div class="quiz-feedback ${d.correct?'good':'bad'}">
       <strong>${d.correct ? '✓ Correct!' : '✗ Not quite'}</strong>
       ${esc(d.explanation || '')}
     </div>`;
@@ -671,20 +773,30 @@ function openCpModule(id){ STATE.cpModuleId = id; STATE.cpLessonId = null; STATE
 function openCpLesson(id){ STATE.cpLessonId = id; STATE.cpQuizId = null; renderCourseBody(); }
 function openCpQuiz(id){ STATE.cpQuizId = id; STATE.cpLessonId = null; renderCourseBody(); }
 
-async function loadContent(mode){
+async function loadContent(mode, force){
+  const cached = getCachedContent();
+  if(cached && !force && STATE.content?.modules !== cached.modules){
+    STATE.content = cached;
+    STATE.contentFresh = false;
+    if(mode === 'course') renderCourseBody();
+    else if(mode === 'cm') renderCmBody();
+  }
   try {
     const d = await api('listContent', { token: currentToken() });
     STATE.content = d;
+    STATE.contentFresh = true;
+    setCachedContent(d);
     if(mode === 'course') renderCourseBody();
     else if(mode === 'cm') renderCmBody();
   } catch(e){
     const el = mode === 'course' ? $('#course-body') : $('#cm-body');
-    if(el) el.innerHTML = `<div class="alert error">${esc(e.message)}</div>`;
+    if(el && !cached) el.innerHTML = `<div class="alert error">${esc(e.message)}</div>`;
+    else if(!cached) toast(e.message);
   }
 }
 
 /* ============================================================
-   CONTENT MANAGER (instructor + admin)
+   CONTENT MANAGER
    ============================================================ */
 function viewContentMgr(){
   return `
@@ -694,9 +806,15 @@ function viewContentMgr(){
           <h2 style="margin:0">✏️ Content Manager</h2>
           <p style="margin:4px 0 0;color:var(--muted);font-size:.92rem">Create, edit, and delete modules, lessons, and quizzes.</p>
         </div>
-        <button class="btn primary" onclick="openModuleEditor()">+ New Module</button>
+        <div class="row">
+          <button class="btn ghost small" onclick="loadContent('cm', true)">↻ Refresh</button>
+          <button class="btn primary" onclick="openModuleEditor()">+ New Module</button>
+        </div>
       </div>
-      <div id="cm-body"><div class="empty"><div class="icon">⏳</div>Loading content…</div></div>
+      <div id="cm-body">
+        <div class="sk sk-row"></div>
+        <div class="sk sk-row"></div>
+      </div>
     </div>
   `;
 }
@@ -706,18 +824,9 @@ function renderCmBody(){
   if(!body || !STATE.content) return;
   const mods = STATE.content.modules;
 
-  if(STATE.editingModule){
-    body.innerHTML = renderModuleEditor();
-    return;
-  }
-  if(STATE.editingLesson){
-    body.innerHTML = renderLessonEditor();
-    return;
-  }
-  if(STATE.editingQuiz){
-    body.innerHTML = renderQuizEditor();
-    return;
-  }
+  if(STATE.editingModule){ body.innerHTML = renderModuleEditor(); return; }
+  if(STATE.editingLesson){ body.innerHTML = renderLessonEditor(); return; }
+  if(STATE.editingQuiz){ body.innerHTML = renderQuizEditor(); return; }
 
   if(STATE.cmModuleId){
     const m = mods.find(x => x.ModuleID === STATE.cmModuleId);
@@ -734,7 +843,6 @@ function renderCmBody(){
           <button class="btn danger small" onclick="deleteModule('${esc(m.ModuleID)}')">Delete module</button>
         </div>
       </div>
-
       <div class="between" style="margin-top:20px">
         <h4 style="margin:0">Lessons (${m.Lessons.length})</h4>
         <button class="btn primary small" onclick="openLessonEditor(null, '${esc(m.ModuleID)}')">+ Add Lesson</button>
@@ -753,7 +861,6 @@ function renderCmBody(){
           </div>
         `).join('') : '<p><em>No lessons yet.</em></p>'}
       </div>
-
       <div class="between" style="margin-top:24px">
         <h4 style="margin:0">Quizzes (${m.Quizzes.length})</h4>
         <button class="btn primary small" onclick="openQuizEditor(null, '${esc(m.ModuleID)}')">+ Add Quiz</button>
@@ -795,19 +902,19 @@ function renderCmBody(){
           </div>
         </div>
       `).join('')
-    : `<div class="empty"><div class="icon">📭</div>No modules yet. Click "+ New Module" to start.</div>`;
+    : `<div class="empty"><div class="icon">📭</div>
+        <p>No modules yet. Click "+ New Module" to start.</p>
+        <p style="font-size:.9rem;color:var(--muted)">Tip: you can also run <code>seedExampleContent()</code> in Apps Script to add a demo module.</p>
+      </div>`;
 }
 
 function cmOpen(id){ STATE.cmModuleId = id; renderCmBody(); }
 function cmBack(){ STATE.cmModuleId = null; STATE.editingModule = null; STATE.editingLesson = null; STATE.editingQuiz = null; renderCmBody(); }
 
-/* ----- Module editor ----- */
 function openModuleEditor(id){
   if(id && STATE.content){
     const m = STATE.content.modules.find(x => x.ModuleID === id);
-    STATE.editingModule = m
-      ? { moduleId: id, title: m.Title, description: m.Description || '', sortOrder: m.SortOrder || 0 }
-      : null;
+    STATE.editingModule = m ? { moduleId: id, title: m.Title, description: m.Description || '', sortOrder: m.SortOrder || 0 } : null;
   } else {
     STATE.editingModule = { moduleId: null, title: '', description: '', sortOrder: 0 };
   }
@@ -819,7 +926,7 @@ function renderModuleEditor(){
   return `
     <button class="btn ghost small" onclick="STATE.editingModule=null;renderCmBody()">← Cancel</button>
     <h3 style="margin-top:16px">${e.moduleId ? 'Edit module' : 'New module'}</h3>
-    <form id="module-form" onsubmit="saveModule(event)">
+    <form onsubmit="saveModule(event)">
       <div class="form-grid">
         <div class="field full"><label>Title *</label><input name="title" required value="${esc(e.title)}"></div>
         <div class="field full"><label>Description</label><input name="description" value="${esc(e.description)}"></div>
@@ -839,16 +946,15 @@ async function saveModule(ev){
   const e = STATE.editingModule;
   try {
     if(e.moduleId){
-      await api('updateModule', { token: currentToken(), moduleId: e.moduleId,
-        title: f.get('title'), description: f.get('description'), sortOrder: Number(f.get('sortOrder'))||0 });
+      await api('updateModule', { token: currentToken(), moduleId: e.moduleId, title: f.get('title'), description: f.get('description'), sortOrder: Number(f.get('sortOrder'))||0 });
       toast('Module updated');
     } else {
-      const d = await api('createModule', { token: currentToken(),
-        title: f.get('title'), description: f.get('description'), sortOrder: Number(f.get('sortOrder'))||0 });
+      const d = await api('createModule', { token: currentToken(), title: f.get('title'), description: f.get('description'), sortOrder: Number(f.get('sortOrder'))||0 });
       toast('Module created');
       STATE.cmModuleId = d.ModuleID;
     }
     STATE.editingModule = null;
+    clearCachedContent();
     STATE.content = null;
     await loadContent('cm');
   } catch(e){ toast(e.message); }
@@ -860,18 +966,17 @@ async function deleteModule(id){
     await api('deleteModule', { token: currentToken(), moduleId: id });
     toast('Module deleted');
     if(STATE.cmModuleId === id) STATE.cmModuleId = null;
-    STATE.content = null; await loadContent('cm');
+    clearCachedContent();
+    STATE.content = null;
+    await loadContent('cm');
   } catch(e){ toast(e.message); }
 }
 
-/* ----- Lesson editor ----- */
 function openLessonEditor(lessonId, moduleId){
   const mod = STATE.content.modules.find(m => m.ModuleID === moduleId);
   if(lessonId){
     const l = mod.Lessons.find(x => x.LessonID === lessonId);
-    STATE.editingLesson = l
-      ? { lessonId, moduleId, title: l.Title, content: l.ContentHTML || '', sortOrder: l.SortOrder || 0 }
-      : null;
+    STATE.editingLesson = l ? { lessonId, moduleId, title: l.Title, content: l.ContentHTML || '', sortOrder: l.SortOrder || 0 } : null;
   } else {
     STATE.editingLesson = { lessonId: null, moduleId, title: '', content: '', sortOrder: mod.Lessons.length };
   }
@@ -886,7 +991,11 @@ function renderLessonEditor(){
     <form onsubmit="saveLesson(event)">
       <div class="form-grid">
         <div class="field full"><label>Title *</label><input name="title" required value="${esc(e.title)}"></div>
-        <div class="field full"><label>Content (HTML allowed)</label><textarea name="content" rows="12">${esc(e.content)}</textarea></div>
+        <div class="field full">
+          <label>Content (HTML allowed)</label>
+          <textarea name="content" rows="14">${esc(e.content)}</textarea>
+          <div class="hint">Tip: use &lt;h2&gt;, &lt;p&gt;, &lt;ul&gt;, &lt;strong&gt;, &lt;code&gt; etc.</div>
+        </div>
         <div class="field"><label>Sort order</label><input name="sortOrder" type="number" value="${esc(e.sortOrder)}"></div>
       </div>
       <div class="row" style="margin-top:16px">
@@ -903,16 +1012,16 @@ async function saveLesson(ev){
   const e = STATE.editingLesson;
   try {
     if(e.lessonId){
-      await api('updateLesson', { token: currentToken(), lessonId: e.lessonId,
-        title: f.get('title'), content: f.get('content'), sortOrder: Number(f.get('sortOrder'))||0 });
+      await api('updateLesson', { token: currentToken(), lessonId: e.lessonId, title: f.get('title'), content: f.get('content'), sortOrder: Number(f.get('sortOrder'))||0 });
       toast('Lesson updated');
     } else {
-      await api('createLesson', { token: currentToken(), moduleId: e.moduleId,
-        title: f.get('title'), content: f.get('content'), sortOrder: Number(f.get('sortOrder'))||0 });
+      await api('createLesson', { token: currentToken(), moduleId: e.moduleId, title: f.get('title'), content: f.get('content'), sortOrder: Number(f.get('sortOrder'))||0 });
       toast('Lesson created');
     }
     STATE.editingLesson = null;
-    STATE.content = null; await loadContent('cm');
+    clearCachedContent();
+    STATE.content = null;
+    await loadContent('cm');
   } catch(err){ toast(err.message); }
 }
 
@@ -921,20 +1030,19 @@ async function deleteLesson(id){
   try {
     await api('deleteLesson', { token: currentToken(), lessonId: id });
     toast('Lesson deleted');
-    STATE.content = null; await loadContent('cm');
+    clearCachedContent();
+    STATE.content = null;
+    await loadContent('cm');
   } catch(e){ toast(e.message); }
 }
 
-/* ----- Quiz editor ----- */
 function openQuizEditor(quizId, moduleId){
   const mod = STATE.content.modules.find(m => m.ModuleID === moduleId);
   if(quizId){
     const q = mod.Quizzes.find(x => x.QuizID === quizId);
     STATE.editingQuiz = q ? { quizId, moduleId, ...q } : null;
   } else {
-    STATE.editingQuiz = { quizId: null, moduleId, question: '',
-      OptionA: '', OptionB: '', OptionC: '', OptionD: '',
-      correctIndex: 0, explanation: '' };
+    STATE.editingQuiz = { quizId: null, moduleId, question: '', OptionA: '', OptionB: '', OptionC: '', OptionD: '', correctIndex: 0, explanation: '' };
   }
   renderCmBody();
 }
@@ -989,7 +1097,9 @@ async function saveQuiz(ev){
       toast('Quiz created');
     }
     STATE.editingQuiz = null;
-    STATE.content = null; await loadContent('cm');
+    clearCachedContent();
+    STATE.content = null;
+    await loadContent('cm');
   } catch(err){ toast(err.message); }
 }
 
@@ -998,7 +1108,9 @@ async function deleteQuiz(id){
   try {
     await api('deleteQuiz', { token: currentToken(), quizId: id });
     toast('Quiz deleted');
-    STATE.content = null; await loadContent('cm');
+    clearCachedContent();
+    STATE.content = null;
+    await loadContent('cm');
   } catch(e){ toast(e.message); }
 }
 
@@ -1010,26 +1122,23 @@ function viewMyOsce(){
     <div class="card">
       <h2>🎯 My OSCE Assessment</h2>
       <p>Your OSCE results (10 domains × 2 points = 20). Pass mark: <strong>${PASS_THRESHOLD}%</strong>.</p>
-      <div id="my-osce-list" class="empty"><div class="icon">⏳</div>Loading…</div>
-    </div>
-  `;
+      <div id="my-osce-list"><div class="sk sk-row"></div><div class="sk sk-row"></div></div>
+    </div>`;
 }
 async function loadMyOsce(){
   try {
     const d = await api('listOsce', { token: currentToken() });
     const el = $('#my-osce-list');
     if(!d.records.length){ el.innerHTML = `<div class="empty"><div class="icon">📋</div>No OSCE records yet.</div>`; return; }
-    el.innerHTML = `
-      <div class="tbl-scroll"><table>
-        <thead><tr><th>Date</th><th>Assessor</th><th>Score</th><th>%</th><th>Outcome</th></tr></thead>
-        <tbody>${d.records.map(r=>`
-          <tr>
-            <td>${fmt(r.Timestamp)}</td><td>${esc(r.AssessorEmail)}</td>
-            <td>${esc(r.TotalScore)}/20</td><td><b>${esc(r.Percentage)}%</b></td>
-            <td><span class="badge ${r.Outcome==='PASS'?'active':'suspended'}">${esc(r.Outcome)}</span></td>
-          </tr>`).join('')}</tbody>
-      </table></div>
-    `;
+    el.innerHTML = `<div class="tbl-scroll"><table>
+      <thead><tr><th>Date</th><th>Assessor</th><th>Score</th><th>%</th><th>Outcome</th></tr></thead>
+      <tbody>${d.records.map(r=>`
+        <tr>
+          <td>${fmt(r.Timestamp)}</td><td>${esc(r.AssessorEmail)}</td>
+          <td>${esc(r.TotalScore)}/20</td><td><b>${esc(r.Percentage)}%</b></td>
+          <td><span class="badge ${r.Outcome==='PASS'?'active':'suspended'}">${esc(r.Outcome)}</span></td>
+        </tr>`).join('')}</tbody>
+    </table></div>`;
   } catch(e){ $('#my-osce-list').innerHTML = `<div class="alert error">${esc(e.message)}</div>`; }
 }
 
@@ -1038,9 +1147,8 @@ function viewMyCerts(){
     <div class="card">
       <h2>🏆 My Certificates</h2>
       <p>Certificates are issued automatically when you pass the OSCE at ${PASS_THRESHOLD}% or above.</p>
-      <div id="my-certs-list" class="empty"><div class="icon">⏳</div>Loading…</div>
-    </div>
-  `;
+      <div id="my-certs-list"><div class="sk sk-row"></div></div>
+    </div>`;
 }
 async function loadMyCerts(){
   try {
@@ -1137,11 +1245,10 @@ function viewOsceEntry(){
           <input type="text" name="notes" placeholder="Optional">
         </div>
         <div class="score-banner" id="score-banner">Score: 0 / 20 · 0%</div>
-        <button type="submit" class="btn primary" style="width:100%;justify-content:center">Submit OSCE</button>
+        <button type="submit" class="btn primary" style="width:100%">Submit OSCE</button>
       </form>
       <div id="osce-result"></div>
-    </div>
-  `;
+    </div>`;
 }
 
 function renderDomainInputs(){
@@ -1157,8 +1264,7 @@ function renderDomainInputs(){
             <label><input type="radio" name="d${n}" value="${v}" ${v===0?'checked':''} onchange="updateScore()"> ${v}</label>
           `).join('')}
         </div>
-      </div>
-    `;
+      </div>`;
   }).join('');
   updateScore();
 }
@@ -1175,7 +1281,6 @@ function updateScore(){
   if(!b) return;
   b.className = 'score-banner ' + (pass?'pass':'fail');
   b.textContent = `Score: ${total} / 20 · ${pct}% ${pass?'✓ PASS':'✗ FAIL'}`;
-  STATE.scorePreview = total;
 }
 
 async function submitOsce(ev){
@@ -1184,7 +1289,10 @@ async function submitOsce(ev){
   const payload = { token: currentToken(), learnerEmail: f.get('learnerEmail'), notes: f.get('notes')||'' };
   for(let i=1;i<=10;i++) payload['d'+i] = Number(f.get('d'+i));
   const r = $('#osce-result');
-  r.innerHTML = '<div class="alert info">Submitting…</div>';
+  const btn = ev.target.querySelector('button[type=submit]');
+  const orig = btn.innerHTML;
+  btn.disabled = true; btn.innerHTML = '<span class="spinner"></span> Submitting…';
+  r.innerHTML = '';
   try {
     const d = await api('submitOsce', payload);
     r.innerHTML = `<div class="alert ${d.pass?'success':'error'}" style="margin-top:16px">
@@ -1193,13 +1301,15 @@ async function submitOsce(ev){
     </div>`;
     ev.target.reset();
     renderDomainInputs();
+    toast(d.pass ? '✓ Passed — certificate issued' : 'Recorded — did not pass');
   } catch(err){
     r.innerHTML = `<div class="alert error" style="margin-top:16px">${esc(err.message)}</div>`;
-  }
+  } finally { btn.disabled = false; btn.innerHTML = orig; }
 }
 
 function viewRecords(){
-  return `<div class="card"><h2>📊 OSCE Records</h2><div id="records-list" class="empty"><div class="icon">⏳</div>Loading…</div></div>`;
+  return `<div class="card"><h2>📊 OSCE Records</h2>
+    <div id="records-list"><div class="sk sk-row"></div><div class="sk sk-row"></div></div></div>`;
 }
 async function loadRecords(){
   try {
@@ -1219,7 +1329,8 @@ async function loadRecords(){
 }
 
 function viewCerts(){
-  return `<div class="card"><h2>🏆 Issued Certificates</h2><div id="certs-list" class="empty"><div class="icon">⏳</div>Loading…</div></div>`;
+  return `<div class="card"><h2>🏆 Issued Certificates</h2>
+    <div id="certs-list"><div class="sk sk-row"></div></div></div>`;
 }
 async function loadCerts(){
   try {
@@ -1243,7 +1354,7 @@ async function loadCerts(){
 function viewUsers(){
   return `<div class="card"><h2>👥 User Management</h2>
     <p>Approve pending accounts, edit roles and statuses, or delete users.</p>
-    <div id="users-list" class="empty"><div class="icon">⏳</div>Loading…</div>
+    <div id="users-list"><div class="sk sk-row"></div><div class="sk sk-row"></div></div>
   </div>`;
 }
 async function loadUsers(){
@@ -1289,7 +1400,7 @@ async function deleteUser(email){
 function viewAudit(){
   return `<div class="card"><h2>📜 Audit Log</h2>
     <p>Last 300 actions.</p>
-    <div id="audit-list" class="empty"><div class="icon">⏳</div>Loading…</div>
+    <div id="audit-list"><div class="sk sk-row"></div><div class="sk sk-row"></div></div>
   </div>`;
 }
 async function loadAudit(){
@@ -1307,22 +1418,28 @@ async function loadAudit(){
 }
 
 /* ============================================================
-   BOOT
+   BOOT — instant render from cache, verify in background
    ============================================================ */
-(async function boot(){
+(function boot(){
   const s = getSession();
-  if(s?.token){
-    try {
-      const d = await api('me', { token: s.token });
-      setSession({ token: s.token, user: d.user });
-    } catch { clearSession(); }
+  if(s?.token && s?.user){
+    render(); // instant
+    // background verify
+    api('me', { token: s.token })
+      .then(d => setSession({ token: s.token, user: d.user, issued: s.issued }))
+      .catch(() => { clearSession(); render(); });
+  } else if(s?.token){
+    api('me', { token: s.token })
+      .then(d => { setSession({ token: s.token, user: d.user }); render(); })
+      .catch(() => { clearSession(); render(); });
+  } else {
+    render();
   }
-  render();
 })();
 
 /* Expose to inline handlers */
 Object.assign(window, {
-  switchAuth, setView, logout,
+  switchAuth, setView, logout, resendCode, copyText,
   renderCmBody,
   openModuleEditor, saveModule, deleteModule,
   openLessonEditor, saveLesson, deleteLesson,
