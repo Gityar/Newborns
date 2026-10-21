@@ -77,13 +77,13 @@ code{background:#eef6f6;padding:2px 6px;border-radius:4px;font-family:var(--mono
 .alert.error{background:var(--bad-50);border-color:var(--bad);color:var(--bad)}
 .alert.success{background:var(--ok-50);border-color:var(--ok);color:var(--ok)}
 .alert.info{background:var(--brand-50);border-color:var(--brand);color:var(--brand-600)}
+.alert.warn{background:var(--warn-50);border-color:var(--warn);color:var(--warn)}
 details.code-block{margin-top:12px;font-size:.85rem;background:#fff;border:1px solid var(--line);border-radius:10px;padding:10px 14px}
 details.code-block summary{cursor:pointer;font-weight:600;color:var(--muted);outline:none}
 details.code-block summary:hover{color:var(--brand-600)}
 details.code-block .code-inner{margin-top:10px;display:flex;align-items:center;gap:10px}
 details.code-block .code-inner code{font-size:1.4rem;letter-spacing:.3em;font-weight:800;color:var(--brand-600);background:var(--brand-50);padding:8px 16px;border-radius:8px;flex:1;text-align:center}
 
-/* Dashboard */
 .hero{background:linear-gradient(135deg,#0b2f38,#0d7d76);color:#fff;padding:30px;border-radius:var(--radius);margin-bottom:20px}
 .hero h2{font-size:1.8rem;margin:0 0 6px;color:#fff}
 .hero p{color:#c9e7e7;margin:0;max-width:75ch}
@@ -96,7 +96,6 @@ details.code-block .code-inner code{font-size:1.4rem;letter-spacing:.3em;font-we
 .nav-tabs button:hover{background:var(--brand-50)}
 .nav-tabs button.active{background:var(--brand);color:#fff}
 
-/* Tables */
 .tbl-scroll{overflow-x:auto;border:1px solid var(--line);border-radius:var(--radius-sm)}
 table{border-collapse:collapse;width:100%;font-size:.92rem;min-width:560px}
 th,td{padding:11px 14px;text-align:left;border-bottom:1px solid var(--line-soft);vertical-align:middle}
@@ -110,9 +109,12 @@ tbody tr:hover{background:#f7fbfb}
 .badge.admin{background:#ede9fe;color:#5b21b6}
 .badge.instructor{background:#cffafe;color:#0e7490}
 .badge.learner{background:#f1f7f7;color:var(--muted)}
+.badge.submitted{background:var(--brand-50);color:var(--brand-600)}
+.badge.reviewed{background:#cffafe;color:#0e7490}
+.badge.accepted{background:var(--ok-50);color:var(--ok)}
+.badge.rejected{background:var(--bad-50);color:var(--bad)}
 select.inline{padding:6px 10px;font-size:.85rem;border:1px solid var(--line);border-radius:8px;background:#fff}
 
-/* Content manager */
 .module-card{border:1px solid var(--line);border-radius:var(--radius-sm);padding:16px;margin-bottom:12px;background:#fff;transition:.15s}
 .module-card:hover{border-color:var(--brand-100);box-shadow:var(--shadow-sm)}
 .module-card h4{margin:0 0 4px;font-size:1.1rem}
@@ -125,7 +127,6 @@ select.inline{padding:6px 10px;font-size:.85rem;border:1px solid var(--line);bor
 .quiz-row .opts{font-size:.85rem;color:var(--muted);margin-top:6px;line-height:1.6}
 .quiz-row .opts b{color:var(--ok)}
 
-/* Course player */
 .player-grid{display:grid;grid-template-columns:320px 1fr;gap:20px}
 .player-side{background:#fff;border:1px solid var(--line);border-radius:var(--radius-sm);padding:14px;position:sticky;top:90px;max-height:calc(100vh - 110px);overflow-y:auto}
 .player-side h3{font-size:.9rem;text-transform:uppercase;letter-spacing:.05em;color:var(--muted);margin:0 0 10px}
@@ -151,9 +152,7 @@ select.inline{padding:6px 10px;font-size:.85rem;border:1px solid var(--line);bor
 }
 .player-nav .prev-btn{order:1}
 .player-nav .next-btn{order:3}
-.player-nav .prev-btn,.player-nav .next-btn{
-  flex:1;max-width:220px;min-width:110px;
-}
+.player-nav .prev-btn,.player-nav .next-btn{flex:1;max-width:220px;min-width:110px}
 .player-nav .prev-btn{justify-content:flex-start}
 .player-nav .next-btn{justify-content:flex-end}
 @media (max-width:600px){
@@ -241,12 +240,7 @@ select.inline{padding:6px 10px;font-size:.85rem;border:1px solid var(--line);bor
 .quiz-group{margin-top:20px}
 .quiz-group-head{margin-bottom:20px}
 .quiz-group-head h2{margin-bottom:6px}
-.quiz-previous{
-  display:inline-flex;align-items:center;gap:10px;
-  margin:10px 0 16px;padding:8px 14px;
-  background:var(--brand-50);color:var(--brand-600);
-  border-radius:99px;font-size:.88rem;font-weight:600;
-}
+.quiz-previous{display:inline-flex;align-items:center;gap:10px;margin:10px 0 16px;padding:8px 14px;background:var(--brand-50);color:var(--brand-600);border-radius:99px;font-size:.88rem;font-weight:600}
 .quiz-previous .pct{font-weight:800;font-size:1.05em}
 .quiz-group-list{display:flex;flex-direction:column;gap:16px}
 .quiz-item{border:2px solid var(--line);border-radius:var(--radius-sm);padding:20px;background:#fbfefe;transition:.15s}
@@ -284,6 +278,79 @@ select.inline{padding:6px 10px;font-size:.85rem;border:1px solid var(--line);bor
 .quiz-result-summary.fail{border-color:var(--bad);background:var(--bad-50)}
 .quiz-result-summary.fail h3{color:var(--bad)}
 
+/* Portfolio */
+.portfolio-section{margin-top:36px;padding-top:24px;border-top:2px solid var(--line-soft)}
+.portfolio-section h3{font-size:1.2rem;color:var(--brand-600);margin-bottom:6px}
+.portfolio-section > p{color:var(--muted);margin-bottom:18px;font-size:.94rem}
+.portfolio-uploader{
+  border:2px dashed var(--line);border-radius:var(--radius-sm);
+  padding:20px;background:#fbfefe;margin-bottom:16px;
+}
+.portfolio-uploader.dragover{border-color:var(--brand);background:var(--brand-50)}
+.portfolio-uploader input[type="file"]{
+  display:block;width:100%;padding:14px;font-family:inherit;font-size:.95rem;
+  border:1px solid var(--line);border-radius:10px;background:#fff;cursor:pointer;
+  margin-bottom:12px;
+}
+.portfolio-uploader input[type="file"]:hover{border-color:var(--brand)}
+.portfolio-uploader .file-hint{font-size:.82rem;color:var(--muted);margin-bottom:12px}
+.portfolio-list{display:flex;flex-direction:column;gap:10px;margin-top:16px}
+.portfolio-item{
+  display:flex;gap:14px;align-items:center;justify-content:space-between;
+  padding:14px 18px;border:1px solid var(--line);border-radius:10px;
+  background:#fff;flex-wrap:wrap;
+}
+.portfolio-item .pf-info{flex:1;min-width:200px}
+.portfolio-item .pf-name{font-weight:700;color:var(--ink);word-break:break-all;font-size:.97rem}
+.portfolio-item .pf-meta{font-size:.82rem;color:var(--muted);margin-top:4px;display:flex;gap:12px;flex-wrap:wrap}
+.portfolio-item .pf-actions{display:flex;gap:8px;flex-wrap:wrap}
+
+/* Grades */
+.grade-hero{
+  background:linear-gradient(135deg,#0d7d76,#0a5f5a);color:#fff;
+  padding:30px;border-radius:var(--radius);margin-bottom:22px;text-align:center;
+}
+.grade-hero .label{font-size:.85rem;text-transform:uppercase;letter-spacing:.12em;opacity:.85;margin-bottom:6px}
+.grade-hero .big{font-size:3.4rem;font-weight:800;line-height:1;margin-bottom:6px}
+.grade-hero .sub{opacity:.85;font-size:.9rem}
+.grade-hero .breakdown{
+  display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));
+  gap:12px;margin-top:22px;
+}
+.grade-hero .breakdown .item{
+  background:rgba(255,255,255,.15);padding:14px 18px;border-radius:12px;text-align:left;
+}
+.grade-hero .breakdown .item .k{font-size:.78rem;text-transform:uppercase;letter-spacing:.08em;opacity:.85}
+.grade-hero .breakdown .item .v{font-size:1.5rem;font-weight:800;margin-top:4px}
+.grade-hero .breakdown .item .w{font-size:.75rem;opacity:.8;margin-top:2px}
+
+.grade-section{margin-top:26px}
+.grade-section h3{font-size:1.15rem;color:var(--brand-600);margin-bottom:12px}
+.grade-module-row{
+  display:grid;grid-template-columns:1fr auto auto auto auto;gap:12px;
+  align-items:center;padding:12px 16px;border:1px solid var(--line);
+  border-radius:10px;margin-bottom:6px;background:#fff;
+}
+.grade-module-row .title{font-weight:600;font-size:.96rem}
+.grade-module-row .score{font-size:.9rem;color:var(--muted);font-variant-numeric:tabular-nums}
+.grade-module-row .pct{font-weight:800;color:var(--brand-600);font-variant-numeric:tabular-nums}
+.grade-module-row .pct.pass{color:var(--ok)}
+.grade-module-row .pct.fail{color:var(--muted)}
+.grade-module-row .attempts{font-size:.82rem;color:var(--muted);text-align:right}
+.grade-module-row .attempts.pending{color:var(--bad);font-style:italic}
+@media (max-width:700px){
+  .grade-module-row{grid-template-columns:1fr auto}
+  .grade-module-row .score,.grade-module-row .attempts{display:none}
+}
+
+/* OSCE + grades card */
+.grade-block{
+  border:1px solid var(--line);border-radius:var(--radius-sm);
+  padding:18px 20px;background:#fbfefe;margin-bottom:12px;
+}
+.grade-block h4{margin:0 0 8px;font-size:1rem;color:var(--brand-600)}
+.grade-block .empty-line{color:var(--muted);font-style:italic;font-size:.92rem}
+
 /* OSCE */
 .osce-domain{display:grid;grid-template-columns:1fr auto;gap:12px;align-items:center;padding:12px 14px;border:1px solid var(--line);border-radius:10px;margin-bottom:8px;background:#fbfefe}
 .osce-domain .label{font-weight:600;font-size:.92rem}
@@ -317,7 +384,7 @@ select.inline{padding:6px 10px;font-size:.85rem;border:1px solid var(--line);bor
 .empty .icon{font-size:2.6rem;margin-bottom:8px;opacity:.5}
 
 @media (max-width:900px){.player-grid{grid-template-columns:1fr}.player-side{position:static;max-height:none}}
-@media (max-width:600px){.topbar{padding:12px 14px;gap:10px}.brand h1{font-size:.95rem}.brand small{display:none}.user-chip{font-size:.78rem;padding:6px 10px}.container{padding:18px 12px 40px}.card{padding:18px}.osce-domain{grid-template-columns:1fr}}
+@media (max-width:600px){.topbar{padding:12px 14px;gap:10px}.brand h1{font-size:.95rem}.brand small{display:none}.user-chip{font-size:.78rem;padding:6px 10px}.container{padding:18px 12px 40px}.card{padding:18px}.osce-domain{grid-template-columns:1fr}.grade-hero .big{font-size:2.6rem}}
 @media print{.topbar,.nav-tabs,.btn,footer,.player-side,.toast,.player-nav{display:none!important}body{background:#fff}.card,.player-main{box-shadow:none;border:0;padding:0}.cert{box-shadow:none}}
 </style>
 </head>
@@ -334,6 +401,18 @@ const $ = (s, r=document) => r.querySelector(s);
 const $$ = (s, r=document) => Array.from(r.querySelectorAll(s));
 const esc = s => String(s ?? '').replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 const fmt = d => d ? new Date(d).toLocaleString() : '—';
+const fmtDate = d => d ? new Date(d).toLocaleDateString() : '—';
+const fmtBytes = n => {
+  if (!n) return '—';
+  const k = 1024;
+  if (n < k) return n + ' B';
+  if (n < k*k) return (n/k).toFixed(1) + ' KB';
+  return (n/(k*k)).toFixed(2) + ' MB';
+};
+
+const PORTFOLIO_MAX_BYTES = 10 * 1024 * 1024;
+const PORTFOLIO_EXTS = ['pdf','doc','docx','jpg','jpeg','png'];
+const PORTFOLIO_MIMES = ['application/pdf','application/msword','application/vnd.openxmlformats-officedocument.wordprocessingml.document','image/jpeg','image/png'];
 
 let toastQueue = [], toastTimer = null;
 function toast(msg){ toastQueue.push(msg); if(toastTimer) return; flushToast(); }
@@ -359,23 +438,21 @@ async function api(action, payload={}){
   return data.data;
 }
 
-const SK = 'nn_lms_session_v5';
+const SK = 'nn_lms_session_v6';
 const getSession = () => { try { return JSON.parse(localStorage.getItem(SK)); } catch { return null; } };
 const setSession = s => localStorage.setItem(SK, JSON.stringify(s));
 const clearSession = () => localStorage.removeItem(SK);
 const currentUser = () => getSession()?.user || null;
 const currentToken = () => getSession()?.token || '';
 
-const CK = 'nn_lms_content_v5', CK_EXP = 'nn_lms_content_exp_v5';
+const CK = 'nn_lms_content_v6', CK_EXP = 'nn_lms_content_exp_v6';
 function getCachedContent(){
   try {
     if(Number(localStorage.getItem(CK_EXP)||0) < Date.now()) return null;
     return JSON.parse(localStorage.getItem(CK)||'null');
   } catch { return null; }
 }
-function setCachedContent(c){
-  try { localStorage.setItem(CK, JSON.stringify(c)); localStorage.setItem(CK_EXP, String(Date.now() + 3*60*1000)); } catch {}
-}
+function setCachedContent(c){ try { localStorage.setItem(CK, JSON.stringify(c)); localStorage.setItem(CK_EXP, String(Date.now() + 3*60*1000)); } catch {} }
 function clearCachedContent(){ try { localStorage.removeItem(CK); localStorage.removeItem(CK_EXP); } catch {} }
 
 const STATE = {
@@ -384,11 +461,13 @@ const STATE = {
   cpModuleId: null, cpLessonId: null, cpQuizGroup: null,
   cmModuleId: null, editingLesson: null, editingQuiz: null, editingModule: null,
   resetInfo: null, userData: {},
-  quizScores: {}  // moduleId -> {score,total,percentage,attemptCount,attemptedAt}
+  quizScores: {},
+  myPortfolio: [],
+  myGrade: null
 };
 
 /* ============================================================
-   PLAYLIST — linear content list across all modules
+   PLAYLIST
    ============================================================ */
 function getPlaylist(){
   const list = [];
@@ -409,14 +488,12 @@ function getPlaylist(){
   });
   return list;
 }
-
 function getCurrentPlaylistIndex(){
   const list = getPlaylist();
   if (STATE.cpLessonId) return list.findIndex(x => x.type === 'lesson' && x.lessonId === STATE.cpLessonId);
   if (STATE.cpQuizGroup) return list.findIndex(x => x.type === 'quiz-group' && x.moduleId === STATE.cpQuizGroup);
   return -1;
 }
-
 function openPlaylistPosition(idx){
   const list = getPlaylist();
   if (!list.length) return;
@@ -432,11 +509,9 @@ function openPlaylistPosition(idx){
     STATE.cpLessonId = null;
     STATE.cpQuizGroup = item.moduleId;
     renderCourseBody();
-    // Fetch previous score for this module
     loadQuizGroupScore(item.moduleId);
   }
 }
-
 function cpPrev(){
   const idx = getCurrentPlaylistIndex();
   if (idx > 0) openPlaylistPosition(idx - 1);
@@ -446,26 +521,17 @@ function cpNext(){
   const list = getPlaylist();
   if (idx >= 0 && idx < list.length - 1) openPlaylistPosition(idx + 1);
 }
-
 function renderPlayerNav(){
   const list = getPlaylist();
   const idx = getCurrentPlaylistIndex();
   if (idx < 0 || !list.length) return '';
-
   const prev = idx > 0 ? list[idx - 1] : null;
   const next = idx < list.length - 1 ? list[idx + 1] : null;
-
   return `
     <div class="player-nav">
-      <button class="btn ghost prev-btn" onclick="cpPrev()" ${prev ? '' : 'disabled'}
-        ${prev ? `title="${esc(prev.title)}"` : ''}>
-        ← Previous
-      </button>
+      <button class="btn ghost prev-btn" onclick="cpPrev()" ${prev ? '' : 'disabled'} ${prev ? `title="${esc(prev.title)}"` : ''}>← Previous</button>
       <span class="counter">${idx + 1} of ${list.length}</span>
-      <button class="btn primary next-btn" onclick="cpNext()" ${next ? '' : 'disabled'}
-        ${next ? `title="${esc(next.title)}"` : ''}>
-        Next →
-      </button>
+      <button class="btn primary next-btn" onclick="cpNext()" ${next ? '' : 'disabled'} ${next ? `title="${esc(next.title)}"` : ''}>Next →</button>
     </div>
   `;
 }
@@ -566,6 +632,7 @@ async function handleAuthSubmit(e){
       setSession({ token: d.token, user: d.user, issued: Date.now() });
       toast('Welcome back, ' + d.user.name);
       STATE.view = 'overview'; STATE.userData = {}; STATE.quizScores = {};
+      STATE.myPortfolio = []; STATE.myGrade = null;
       render();
     } else if(mode === 'register'){
       const d = await api('register', { name: form.get('name'), email: form.get('email'), password: form.get('password'), role: form.get('role') });
@@ -605,6 +672,7 @@ async function logout(){
   clearSession();
   STATE.authTab = 'login'; STATE.view = 'overview'; STATE.content = null;
   STATE.resetInfo = null; STATE.userData = {}; STATE.quizScores = {};
+  STATE.myPortfolio = []; STATE.myGrade = null;
   render();
 }
 
@@ -614,10 +682,19 @@ async function logout(){
 function renderApp(){
   const u = currentUser();
   const tabs = [['overview','🏠 Overview'],['course','📚 Course']];
-  if(u.role === 'learner'){ tabs.push(['myOsce','🎯 My OSCE']); tabs.push(['myCerts','🏆 My Certificates']); }
+  if(u.role === 'learner'){
+    tabs.push(['myGrades','📊 My Grades']);
+    tabs.push(['myPortfolio','📄 My Portfolio']);
+    tabs.push(['myOsce','🎯 My OSCE']);
+    tabs.push(['myCerts','🏆 My Certificates']);
+  }
   if(u.role === 'instructor' || u.role === 'admin'){
-    tabs.push(['contentMgr','✏️ Content Manager']); tabs.push(['osceEntry','📝 Score OSCE']);
-    tabs.push(['records','📊 OSCE Records']); tabs.push(['certs','🏆 Certificates']);
+    tabs.push(['contentMgr','✏️ Content Manager']);
+    tabs.push(['gradeSheet','📊 Grade Sheet']);
+    tabs.push(['portfolioReview','📄 Portfolios']);
+    tabs.push(['osceEntry','📝 Score OSCE']);
+    tabs.push(['records','📊 OSCE Records']);
+    tabs.push(['certs','🏆 Certificates']);
   }
   if(u.role === 'admin'){ tabs.push(['users','👥 Users']); tabs.push(['audit','📜 Audit']); }
   $('#app').innerHTML = `
@@ -639,20 +716,28 @@ function topbar(){
     <button class="btn ghost small" onclick="logout()">Logout</button>
   </header>`;
 }
-function setView(v){ STATE.view = v; if(v === 'contentMgr') STATE.cmModuleId = null; render(); }
+function setView(v){
+  STATE.view = v;
+  if(v === 'contentMgr') STATE.cmModuleId = null;
+  render();
+}
 function renderView(){
   const root = $('#view-root');
   switch(STATE.view){
-    case 'overview':   root.innerHTML = viewOverview(); break;
-    case 'course':     root.innerHTML = viewCourse(); loadContent('course'); break;
-    case 'contentMgr': root.innerHTML = viewContentMgr(); loadContent('cm'); break;
-    case 'myOsce':     root.innerHTML = viewMyOsce(); loadMyOsce(); break;
-    case 'myCerts':    root.innerHTML = viewMyCerts(); loadMyCerts(); break;
-    case 'osceEntry':  root.innerHTML = viewOsceEntry(); renderDomainInputs(); break;
-    case 'records':    root.innerHTML = viewRecords(); loadRecords(); break;
-    case 'certs':      root.innerHTML = viewCerts(); loadCerts(); break;
-    case 'users':      root.innerHTML = viewUsers(); loadUsers(); break;
-    case 'audit':      root.innerHTML = viewAudit(); loadAudit(); break;
+    case 'overview':        root.innerHTML = viewOverview(); break;
+    case 'course':          root.innerHTML = viewCourse(); loadContent('course'); break;
+    case 'contentMgr':      root.innerHTML = viewContentMgr(); loadContent('cm'); break;
+    case 'myGrades':        root.innerHTML = viewMyGrades(); loadMyGrades(); break;
+    case 'myPortfolio':     root.innerHTML = viewMyPortfolio(); loadMyPortfolio(); break;
+    case 'myOsce':          root.innerHTML = viewMyOsce(); loadMyOsce(); break;
+    case 'myCerts':         root.innerHTML = viewMyCerts(); loadMyCerts(); break;
+    case 'gradeSheet':      root.innerHTML = viewGradeSheet(); loadGradeSheet(); break;
+    case 'portfolioReview': root.innerHTML = viewPortfolioReview(); loadPortfolioReview(); break;
+    case 'osceEntry':       root.innerHTML = viewOsceEntry(); renderDomainInputs(); break;
+    case 'records':         root.innerHTML = viewRecords(); loadRecords(); break;
+    case 'certs':           root.innerHTML = viewCerts(); loadCerts(); break;
+    case 'users':           root.innerHTML = viewUsers(); loadUsers(); break;
+    case 'audit':           root.innerHTML = viewAudit(); loadAudit(); break;
   }
 }
 
@@ -663,9 +748,9 @@ function viewOverview(){
   const totalQuizzes = c.reduce((a,m)=>a+m.Quizzes.length,0);
   return `<div class="hero">
     <h2>Welcome back, ${esc(u.name)}</h2>
-    <p>${u.role === 'learner' ? 'Continue the course, take grouped module quizzes, and complete the OSCE to earn your certificate (80% required).' :
-      u.role === 'instructor' ? 'Manage course content, score OSCE assessments, and track learner progress.' :
-      'Full administrative access: manage users, content, assessments, certificates, and audit logs.'}</p>
+    <p>${u.role === 'learner' ? 'Continue the course, take grouped module quizzes, upload your reflective portfolio, and complete the OSCE to earn your certificate (80% required).' :
+      u.role === 'instructor' ? 'Manage course content, review portfolios, score OSCE assessments, and track learner grades.' :
+      'Full administrative access: manage users, content, assessments, portfolios, certificates, and audit logs.'}</p>
   </div>
   <div class="stat-grid">
     <div class="stat"><div class="n">${c.length}</div><div class="l">Modules</div></div>
@@ -677,10 +762,11 @@ function viewOverview(){
     <h2>Quick actions</h2>
     <div class="row" style="margin-top:12px">
       <button class="btn primary" onclick="setView('course')">📚 Open Course</button>
-      ${u.role==='learner' ? `<button class="btn ghost" onclick="setView('myCerts')">🏆 My Certificates</button>` : ''}
+      ${u.role==='learner' ? `<button class="btn ghost" onclick="setView('myGrades')">📊 My Grades</button>` : ''}
+      ${u.role==='learner' ? `<button class="btn ghost" onclick="setView('myPortfolio')">📄 My Portfolio</button>` : ''}
+      ${(u.role==='instructor'||u.role==='admin') ? `<button class="btn ghost" onclick="setView('gradeSheet')">📊 Grade Sheet</button>` : ''}
+      ${(u.role==='instructor'||u.role==='admin') ? `<button class="btn ghost" onclick="setView('portfolioReview')">📄 Portfolios</button>` : ''}
       ${(u.role==='instructor'||u.role==='admin') ? `<button class="btn ghost" onclick="setView('contentMgr')">✏️ Content Manager</button>` : ''}
-      ${(u.role==='instructor'||u.role==='admin') ? `<button class="btn ghost" onclick="setView('osceEntry')">📝 Score OSCE</button>` : ''}
-      ${u.role==='admin' ? `<button class="btn ghost" onclick="setView('users')">👥 Manage Users</button>` : ''}
     </div>
   </div>`;
 }
@@ -701,19 +787,20 @@ function viewCourse(){
   </div>`;
 }
 
+function isPortfolioModule(mod){
+  if (!mod) return false;
+  const t = String(mod.Title || '').toLowerCase();
+  return t.indexOf('clinical practice') !== -1 || t.indexOf('practicum') !== -1 || t.indexOf('clinical rotation') !== -1;
+}
+
 function renderCourseBody(){
   const body = $('#course-body');
   if(!body || !STATE.content) return;
   const mods = STATE.content.modules;
   if(!mods.length){
-    body.innerHTML = `<div class="empty"><div class="icon">📭</div>
-      <p>No modules yet.</p>
-      <p style="font-size:.9rem">${currentUser().role !== 'learner'
-        ? 'Add them in the <a href="#" onclick="setView(\'contentMgr\');return false">Content Manager</a>, or run <code>seedCourseContent()</code> in Apps Script.'
-        : 'Check back soon — your instructor is preparing content.'}</p></div>`;
+    body.innerHTML = `<div class="empty"><div class="icon">📭</div><p>No modules yet.</p></div>`;
     return;
   }
-
   const curMod = STATE.cpModuleId ? mods.find(m => m.ModuleID === STATE.cpModuleId) : null;
 
   body.innerHTML = `
@@ -725,12 +812,8 @@ function renderCourseBody(){
           return `
             <a class="mod-link ${isActiveMod?'active':''}" onclick="openCpModule('${esc(m.ModuleID)}');return false">${esc(m.Title)}</a>
             ${isActiveMod ? `
-              ${m.Lessons.map(l => `
-                <a class="lesson-link ${l.LessonID===STATE.cpLessonId?'active':''}" onclick="openCpLesson('${esc(l.LessonID)}');return false">📖 ${esc(l.Title)}</a>
-              `).join('')}
-              ${m.Quizzes.length ? `
-                <a class="quiz-link ${STATE.cpQuizGroup===m.ModuleID?'active':''}" onclick="openCpQuizGroup('${esc(m.ModuleID)}');return false">📝 Module Quiz (${m.Quizzes.length} questions)</a>
-              ` : ''}
+              ${m.Lessons.map(l => `<a class="lesson-link ${l.LessonID===STATE.cpLessonId?'active':''}" onclick="openCpLesson('${esc(l.LessonID)}');return false">📖 ${esc(l.Title)}</a>`).join('')}
+              ${m.Quizzes.length ? `<a class="quiz-link ${STATE.cpQuizGroup===m.ModuleID?'active':''}" onclick="openCpQuizGroup('${esc(m.ModuleID)}');return false">📝 Module Quiz (${m.Quizzes.length})</a>` : ''}
             ` : ''}
           `;
         }).join('')}
@@ -748,6 +831,9 @@ function renderCourseBody(){
       setTimeout(() => { bindLessonInteractions(lesson.LessonID); loadUserDataForLesson(lesson.LessonID); }, 0);
     }
   }
+  if(curMod && !STATE.cpLessonId && !STATE.cpQuizGroup && isPortfolioModule(curMod)){
+    setTimeout(() => loadPortfolioSectionForModule(curMod.ModuleID), 0);
+  }
 }
 
 function renderPlayerMain(mod){
@@ -763,7 +849,8 @@ function renderPlayerMain(mod){
         <div class="lesson-content">${lesson.ContentHTML || '<p><em>No content yet.</em></p>'}</div>`;
     }
   }
-  return `<h2>${esc(mod.Title)}</h2>
+
+  let html = `<h2>${esc(mod.Title)}</h2>
     <p style="color:var(--muted)">${esc(mod.Description || '')}</p>
     <h3>Lessons (${mod.Lessons.length})</h3>
     ${mod.Lessons.length ? mod.Lessons.map(l => `<div class="lesson-row">
@@ -778,272 +865,448 @@ function renderPlayerMain(mod){
       </div>
       <button class="btn primary small" onclick="openCpQuizGroup('${esc(mod.ModuleID)}')">Start Module Quiz</button>
     </div>` : '<p><em>No quizzes yet.</em></p>'}`;
+
+  if (isPortfolioModule(mod)) {
+    html += renderPortfolioSection(mod.ModuleID);
+  }
+  return html;
 }
 
 /* ============================================================
-   QUIZ GROUP
+   PORTFOLIO (in-module section + My Portfolio tab)
    ============================================================ */
-function renderQuizGroup(mod){
-  const previous = STATE.quizScores[mod.ModuleID];
-  const previousHtml = previous
-    ? `<div class="quiz-previous">
-        📊 Previous best: <span class="pct">${previous.percentage}%</span> (${previous.score}/${previous.total})
-        — attempted ${previous.attemptCount} time${previous.attemptCount === 1 ? '' : 's'} · last on ${fmt(previous.attemptedAt)}
-      </div>`
-    : '';
-
-  return `<div class="quiz-group-head">
-    <h2>📝 ${esc(mod.Title)} — Module Quiz</h2>
-    <p style="color:var(--muted)">Answer all <strong>${mod.Quizzes.length}</strong> questions below, then click <strong>Submit all answers</strong> to see your score, correct answers, and explanations.</p>
-    ${previousHtml}
-  </div>
-  <div class="quiz-group" data-module-id="${esc(mod.ModuleID)}">
-    <div class="quiz-group-list">
-      ${mod.Quizzes.map((q, i) => `
-        <div class="quiz-item" data-quiz-id="${esc(q.QuizID)}">
-          <div class="quiz-num">Question ${i+1} of ${mod.Quizzes.length}</div>
-          <div class="quiz-q">${esc(q.Question)}</div>
-          <div class="quiz-options">
-            ${['A','B','C','D'].map((k, oi) => `
-              <label class="quiz-opt">
-                <input type="radio" name="q_${esc(q.QuizID)}" value="${oi}">
-                <span class="key">${k}</span>
-                <span class="opt-text">${esc(q['Option'+k])}</span>
-              </label>
-            `).join('')}
-          </div>
-        </div>
-      `).join('')}
+function renderPortfolioSection(moduleId){
+  return `<div class="portfolio-section" id="portfolio-section" data-module-id="${esc(moduleId)}">
+    <h3>📄 Reflective Portfolio Submission</h3>
+    <p>Upload your reflective portfolio for this clinical practice module. Accepted formats: <strong>PDF, DOC, DOCX, JPG, JPEG, PNG</strong> — max <strong>10 MB</strong>.</p>
+    <div class="portfolio-uploader" id="portfolio-uploader">
+      <input type="file" id="portfolio-file" accept=".pdf,.doc,.docx,.jpg,.jpeg,.png">
+      <div class="file-hint">Choose a file, then click Upload.</div>
+      <button class="btn primary" id="portfolio-submit-btn" onclick="handlePortfolioUpload('${esc(moduleId)}')">Upload Portfolio</button>
     </div>
-    <div class="quiz-group-actions">
-      <button class="btn primary" id="quizSubmitBtn" type="button" onclick="submitQuizGroup('${esc(mod.ModuleID)}')">Submit all answers</button>
+    <div class="portfolio-list" id="portfolio-list">
+      <div class="empty" style="padding:20px"><div class="icon">⏳</div>Loading submissions…</div>
     </div>
-    <div class="quiz-group-results" hidden></div>
   </div>`;
 }
 
-async function loadQuizGroupScore(moduleId){
+async function loadPortfolioSectionForModule(moduleId){
+  const listEl = document.getElementById('portfolio-list');
+  if (!listEl) return;
   try {
-    const d = await api('getQuizGroupScore', { token: currentToken(), moduleId });
-    if(d.attempt) STATE.quizScores[moduleId] = d.attempt;
-  } catch(e) { /* silent */ }
+    const d = await api('listMyPortfolio', { token: currentToken() });
+    const mySubs = (d.submissions || []).filter(s => String(s.ModuleID) === String(moduleId));
+    renderPortfolioListInto(listEl, mySubs);
+  } catch(e) {
+    listEl.innerHTML = `<div class="alert error">${esc(e.message)}</div>`;
+  }
 }
 
-async function submitQuizGroup(moduleId){
-  const group = $('.quiz-group');
-  if(!group) return;
-  const items = group.querySelectorAll('.quiz-item');
-  const answers = [];
-  let firstUnanswered = null;
-
-  items.forEach(item => {
-    const quizId = item.dataset.quizId;
-    const checked = item.querySelector('input[type="radio"]:checked');
-    if(!checked){
-      if(!firstUnanswered) firstUnanswered = item;
-    } else {
-      answers.push({ quizId, chosenIndex: Number(checked.value) });
-    }
-  });
-
-  if(firstUnanswered){
-    toast('Please answer all questions first');
-    firstUnanswered.scrollIntoView({behavior:'smooth', block:'center'});
+function renderPortfolioListInto(el, subs){
+  if (!subs.length) {
+    el.innerHTML = `<div class="empty" style="padding:20px"><div class="icon">📄</div>No portfolio uploads yet for this module.</div>`;
     return;
   }
+  el.innerHTML = subs.map(s => `
+    <div class="portfolio-item">
+      <div class="pf-info">
+        <div class="pf-name">📎 ${esc(s.FileName)}</div>
+        <div class="pf-meta">
+          <span>Uploaded: ${fmt(s.UploadedAt)}</span>
+          <span>Size: ${fmtBytes(s.FileSizeBytes)}</span>
+          <span>Status: <span class="badge ${esc(s.Status)}">${esc(s.Status)}</span></span>
+        </div>
+        ${s.ReviewerNotes ? `<div class="pf-meta" style="margin-top:6px;color:var(--ink-soft)"><em>Reviewer: ${esc(s.ReviewerNotes)}</em></div>` : ''}
+      </div>
+      <div class="pf-actions">
+        <a class="btn ghost small" href="${esc(s.DriveURL)}" target="_blank" rel="noopener">View</a>
+      </div>
+    </div>
+  `).join('');
+}
 
-  const btn = $('#quizSubmitBtn');
+function readFileAsBase64(file){
+  return new Promise((resolve, reject) => {
+    const reader = new FileReader();
+    reader.onload = () => {
+      const result = reader.result;
+      const base64 = result.split(',')[1];
+      resolve(base64);
+    };
+    reader.onerror = reject;
+    reader.readAsDataURL(file);
+  });
+}
+
+async function handlePortfolioUpload(moduleId){
+  const input = document.getElementById('portfolio-file');
+  const btn = document.getElementById('portfolio-submit-btn');
+  if (!input || !input.files || !input.files[0]) { toast('Please choose a file first'); return; }
+  const file = input.files[0];
+
+  const ext = file.name.split('.').pop().toLowerCase();
+  if (PORTFOLIO_EXTS.indexOf(ext) === -1) { toast('File type .' + ext + ' not allowed'); return; }
+  if (file.size > PORTFOLIO_MAX_BYTES) { toast('File too large (max 10 MB)'); return; }
+
   const orig = btn.innerHTML;
   btn.disabled = true;
-  btn.innerHTML = '<span class="spinner"></span> Grading…';
+  btn.innerHTML = '<span class="spinner"></span> Uploading…';
 
   try {
-    const d = await api('submitQuizGroup', { token: currentToken(), moduleId, answers });
-
-    // Save score for previous-score display
-    STATE.quizScores[moduleId] = {
-      score: d.score, total: d.total, percentage: d.percentage,
-      attemptCount: d.attemptCount, attemptedAt: d.attemptedAt
-    };
-
-    renderQuizGroupResults(d);
-    toast('Score saved: ' + d.score + '/' + d.total + ' (' + d.percentage + '%)');
+    const base64 = await readFileAsBase64(file);
+    const d = await api('submitPortfolio', {
+      token: currentToken(),
+      moduleId,
+      fileName: file.name,
+      fileType: file.type || 'application/octet-stream',
+      fileSizeBytes: file.size,
+      fileBase64: base64
+    });
+    toast('Portfolio uploaded: ' + file.name);
+    input.value = '';
+    loadPortfolioSectionForModule(moduleId);
   } catch(e){
     toast(e.message);
+  } finally {
     btn.disabled = false;
     btn.innerHTML = orig;
   }
 }
 
-function renderQuizGroupResults(d){
-  const group = $('.quiz-group');
-  if(!group) return;
-
-  group.querySelectorAll('.quiz-item').forEach((item, idx) => {
-    const r = d.results[idx];
-    if(!r) return;
-
-    item.classList.add('graded');
-    item.classList.add(r.correct ? 'correct' : 'wrong');
-
-    item.querySelectorAll('.quiz-opt').forEach((opt, oi) => {
-      opt.classList.add('locked');
-      const radio = opt.querySelector('input[type="radio"]');
-      if(radio) radio.disabled = true;
-
-      if(oi === r.correctIndex) opt.classList.add('correct-answer');
-      if(oi === r.chosenIndex && !r.correct){
-        opt.classList.add('wrong-answer');
-        opt.classList.add('chosen-wrong');
-      }
-    });
-
-    if(r.explanation){
-      const ex = document.createElement('div');
-      ex.className = 'quiz-explanation';
-      ex.innerHTML = `<strong>Explanation</strong>${esc(r.explanation)}`;
-      item.appendChild(ex);
-    }
-  });
-
-  const pass = d.percentage >= 60;
-  const resultsEl = group.querySelector('.quiz-group-results');
-  resultsEl.hidden = false;
-  resultsEl.innerHTML = `<div class="quiz-result-summary ${pass ? 'pass' : 'fail'}">
-    <h3>Your Score: ${d.score} / ${d.total} (${d.percentage}%)</h3>
-    <p>${pass
-      ? '✓ Well done — review the explanations above to consolidate your learning.'
-      : 'Review the explanations above and retake when ready.'}</p>
-    <p style="margin-top:8px;font-size:.85rem;color:var(--muted)">Attempt ${d.attemptCount} · Saved to your record</p>
+function viewMyPortfolio(){
+  return `<div class="card">
+    <h2>📄 My Reflective Portfolio</h2>
+    <p>Upload your reflective portfolio for clinical practice modules. Only Module 5 (Clinical Practice) accepts submissions.</p>
+    <div id="my-portfolio-body"><div class="empty"><div class="icon">⏳</div>Loading…</div></div>
   </div>`;
-
-  const actionsEl = group.querySelector('.quiz-group-actions');
-  if(actionsEl){
-    actionsEl.innerHTML = `<button class="btn ghost" type="button" onclick="openCpQuizGroup('${esc(STATE.cpQuizGroup)}')">↻ Retake quiz</button>`;
-  }
-
-  resultsEl.scrollIntoView({behavior:'smooth', block:'start'});
 }
-
-/* ============================================================
-   NAVIGATION CALLBACKS
-   ============================================================ */
-function openCpModule(moduleId){
-  const m = STATE.content?.modules.find(x => x.ModuleID === moduleId);
-  if (!m) return;
-  if (m.Lessons.length) openCpLesson(m.Lessons[0].LessonID);
-  else if (m.Quizzes.length) openCpQuizGroup(moduleId);
-  else {
-    STATE.cpModuleId = moduleId; STATE.cpLessonId = null; STATE.cpQuizGroup = null;
-    renderCourseBody();
-  }
-}
-function openCpLesson(lessonId){
-  const list = getPlaylist();
-  const idx = list.findIndex(x => x.type === 'lesson' && x.lessonId === lessonId);
-  if (idx >= 0) openPlaylistPosition(idx);
-}
-function openCpQuizGroup(moduleId){
-  const list = getPlaylist();
-  const idx = list.findIndex(x => x.type === 'quiz-group' && x.moduleId === moduleId);
-  if (idx >= 0) openPlaylistPosition(idx);
-}
-
-async function loadContent(mode, force){
-  const cached = getCachedContent();
-  if(cached && !force && (!STATE.content || STATE.content.modules !== cached.modules)){
-    STATE.content = cached;
-    if(mode === 'course') renderCourseBody();
-    else if(mode === 'cm') renderCmBody();
-  }
+async function loadMyPortfolio(){
   try {
-    const d = await api('listContent', { token: currentToken() });
-    STATE.content = d;
-    setCachedContent(d);
-    if(mode === 'course') renderCourseBody();
-    else if(mode === 'cm') renderCmBody();
+    const d = await api('listMyPortfolio', { token: currentToken() });
+    STATE.myPortfolio = d.submissions || [];
+    const el = $('#my-portfolio-body');
+    if (!el) return;
+    if (!STATE.myPortfolio.length){
+      el.innerHTML = `<div class="empty"><div class="icon">📄</div>
+        <p>No portfolio submissions yet.</p>
+        <p style="font-size:.9rem">Open Module 5 in the <a href="#" onclick="setView('course');return false">Course</a> to upload your reflective portfolio.</p>
+      </div>`;
+      return;
+    }
+    el.innerHTML = `<div class="portfolio-list">
+      ${STATE.myPortfolio.map(s => `
+        <div class="portfolio-item">
+          <div class="pf-info">
+            <div class="pf-name">📎 ${esc(s.FileName)}</div>
+            <div class="pf-meta">
+              <span><strong>${esc(s.ModuleTitle)}</strong></span>
+              <span>Uploaded: ${fmt(s.UploadedAt)}</span>
+              <span>Size: ${fmtBytes(s.FileSizeBytes)}</span>
+              <span>Status: <span class="badge ${esc(s.Status)}">${esc(s.Status)}</span></span>
+            </div>
+            ${s.ReviewerNotes ? `<div class="pf-meta" style="margin-top:6px;color:var(--ink-soft)"><em>Reviewer: ${esc(s.ReviewerNotes)}</em></div>` : ''}
+          </div>
+          <div class="pf-actions">
+            <a class="btn ghost small" href="${esc(s.DriveURL)}" target="_blank" rel="noopener">View</a>
+          </div>
+        </div>
+      `).join('')}
+    </div>`;
   } catch(e){
-    const el = mode === 'course' ? $('#course-body') : $('#cm-body');
-    if(el && !cached) el.innerHTML = `<div class="alert error">${esc(e.message)}</div>`;
-    else if(!cached) toast(e.message);
+    $('#my-portfolio-body').innerHTML = `<div class="alert error">${esc(e.message)}</div>`;
   }
 }
 
 /* ============================================================
-   LESSON INTERACTIONS
+   MY GRADES (learner)
    ============================================================ */
-function bindLessonInteractions(lessonId){
-  const root = $('.lesson-content');
-  if(!root) return;
-
-  root.querySelectorAll('.lesson-calc').forEach(box => {
-    const btn = box.querySelector('[data-calc-check]');
-    if(!btn || btn.dataset.bound) return;
-    btn.dataset.bound = '1';
-    btn.addEventListener('click', () => {
-      const input = box.querySelector('input');
-      const fb = box.querySelector('.calc-feedback');
-      const answer = parseFloat(box.dataset.answer);
-      const tol = parseFloat(box.dataset.tol || '0.01');
-      const solution = box.dataset.solution || '';
-      const val = parseFloat(input.value);
-      fb.hidden = false;
-      if(isNaN(val)){
-        fb.className = 'calc-feedback bad';
-        fb.innerHTML = '<strong>Enter a number</strong>Please type your calculated answer.';
-        return;
-      }
-      const ok = Math.abs(val - answer) <= tol;
-      fb.className = 'calc-feedback ' + (ok ? 'good' : 'bad');
-      fb.innerHTML = `<strong>${ok ? '✓ Correct' : '✗ Try again'}</strong>` +
-        (ok ? solution : 'Recheck your units and order of operations.');
-    });
-  });
-
-  root.querySelectorAll('textarea[data-note-key]').forEach(ta => {
-    if(ta.dataset.bound) return;
-    ta.dataset.bound = '1';
-    let timer = null;
-    ta.addEventListener('input', () => {
-      const key = ta.dataset.noteKey;
-      STATE.userData[key] = ta.value;
-      const status = document.querySelector(`[data-note-status="${key}"]`);
-      if(status) status.textContent = 'Saving…';
-      clearTimeout(timer);
-      timer = setTimeout(async () => {
-        try {
-          await api('saveUserData', { token: currentToken(), dataType: 'note', dataKey: key, dataValue: ta.value });
-          if(status) status.textContent = '✓ Saved';
-        } catch(e){ if(status) status.textContent = '⚠ Could not save'; }
-      }, 700);
-    });
-  });
-
-  root.querySelectorAll('input[data-check-key]').forEach(cb => {
-    if(cb.dataset.bound) return;
-    cb.dataset.bound = '1';
-    cb.addEventListener('change', async () => {
-      const key = cb.dataset.checkKey;
-      STATE.userData[key] = cb.checked ? 'true' : 'false';
-      try { await api('saveUserData', { token: currentToken(), dataType: 'checklist', dataKey: key, dataValue: cb.checked ? 'true' : 'false' }); } catch(e){}
-    });
-  });
+function viewMyGrades(){
+  return `<div class="card">
+    <h2>📊 My Total Grade</h2>
+    <p>Combined from all module quizzes (50%) and OSCE assessment (50%).</p>
+    <div id="my-grades-body"><div class="empty"><div class="icon">⏳</div>Loading…</div></div>
+  </div>`;
 }
-async function loadUserDataForLesson(lessonId){
+async function loadMyGrades(){
   try {
-    const d = await api('getUserData', { token: currentToken(), prefix: lessonId + ':' });
-    Object.entries(d.data || {}).forEach(([key, value]) => {
-      STATE.userData[key] = value;
-      const ta = document.querySelector(`textarea[data-note-key="${key}"]`);
-      if(ta){ ta.value = value; const s = document.querySelector(`[data-note-status="${key}"]`); if(s) s.textContent = '✓ Saved'; }
-      const cb = document.querySelector(`input[data-check-key="${key}"]`);
-      if(cb) cb.checked = value === 'true';
-    });
-  } catch(e){}
+    const d = await api('computeLearnerGrade', { token: currentToken() });
+    STATE.myGrade = d.grade;
+    renderMyGrades(d.grade);
+  } catch(e){
+    $('#my-grades-body').innerHTML = `<div class="alert error">${esc(e.message)}</div>`;
+  }
+}
+function renderMyGrades(g){
+  const el = $('#my-grades-body');
+  if (!el) return;
+  const hasAnything = g.quizAverage > 0 || (g.osce && g.osce.percentage > 0);
+  const gradeClass = g.finalPercentage >= PASS_THRESHOLD ? 'pass' : '';
+
+  el.innerHTML = `
+    <div class="grade-hero">
+      <div class="label">Final Grade</div>
+      <div class="big">${g.finalPercentage}%</div>
+      <div class="sub">${hasAnything ? 'Weighted: 50% Quiz · 50% OSCE' : 'No quiz or OSCE attempts yet'}</div>
+      <div class="breakdown">
+        <div class="item">
+          <div class="k">Quiz Average</div>
+          <div class="v">${g.quizAverage}%</div>
+          <div class="w">${g.quizWeighted} pts × 50%</div>
+        </div>
+        <div class="item">
+          <div class="k">OSCE</div>
+          <div class="v">${g.osce ? g.osce.percentage + '%' : '—'}</div>
+          <div class="w">${g.osce ? g.osce.weighted + ' pts × 50%' : 'Not taken'}</div>
+        </div>
+        <div class="item">
+          <div class="k">Portfolio</div>
+          <div class="v">${g.portfolio.submitted ? '✓' : '—'}</div>
+          <div class="w">${g.portfolio.submitted ? g.portfolio.count + ' upload' + (g.portfolio.count > 1 ? 's' : '') : 'Not uploaded'}</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="grade-section">
+      <h3>Module Quiz Breakdown</h3>
+      ${g.modules.length ? g.modules.map(m => `
+        <div class="grade-module-row">
+          <div class="title">${esc(m.moduleTitle)}</div>
+          <div class="score">${m.attempted ? m.score + '/' + m.total : '—'}</div>
+          <div class="pct ${m.attempted && m.percentage >= PASS_THRESHOLD ? 'pass' : (m.attempted ? 'fail' : '')}">
+            ${m.attempted ? m.percentage + '%' : 'Not taken'}
+          </div>
+          <div class="attempts ${m.attempted ? '' : 'pending'}">
+            ${m.attempted ? m.attemptCount + '× · ' + fmtDate(m.attemptedAt) : ''}
+          </div>
+          <div>${m.attempted ? '' : `<button class="btn ghost small" onclick="setView('course');setTimeout(()=>openCpQuizGroup('${esc(m.moduleId)}'),200)">Take</button>`}</div>
+        </div>
+      `).join('') : '<p class="empty-line">No modules yet.</p>'}
+    </div>
+
+    <div class="grade-section">
+      <h3>OSCE Assessment</h3>
+      <div class="grade-block">
+        ${g.osce ? `
+          <h4>Best passing score: ${g.osce.percentage}% (${g.osce.score}/${g.osce.total})</h4>
+          <p style="color:var(--muted);font-size:.9rem;margin:0">Outcome: <span class="badge ${g.osce.outcome === 'PASS' ? 'active' : 'suspended'}">${esc(g.osce.outcome)}</span>
+            · ${g.osce.attempts} passing attempt${g.osce.attempts > 1 ? 's' : ''} · Last: ${fmt(g.osce.timestamp)}</p>
+        ` : `<p class="empty-line">No passing OSCE on record yet. Your instructor will score your OSCE station.</p>`}
+      </div>
+    </div>
+
+    <div class="grade-section">
+      <h3>Reflective Portfolio</h3>
+      <div class="grade-block">
+        ${g.portfolio.submitted ? `
+          <h4>${g.portfolio.count} submission${g.portfolio.count > 1 ? 's' : ''}</h4>
+          <p style="margin:0;color:var(--ink-soft);font-size:.9rem">
+            Latest: ${esc(g.portfolio.latestFileName || '')} — uploaded ${fmt(g.portfolio.latestUploadedAt)}
+            · Status: <span class="badge ${esc(g.portfolio.latestStatus || 'submitted')}">${esc(g.portfolio.latestStatus || 'submitted')}</span>
+          </p>
+        ` : `<p class="empty-line">No portfolio uploaded yet. Upload in Module 5.</p>
+          <button class="btn primary small" style="margin-top:8px" onclick="setView('course');setTimeout(()=>{const m=STATE.content.modules.find(x=>isPortfolioModule(x));if(m)openCpModule(m.ModuleID);},200)">Go to Module 5</button>`}
+      </div>
+    </div>
+  `;
 }
 
 /* ============================================================
-   CONTENT MANAGER
+   GRADE SHEET (instructor/admin)
+   ============================================================ */
+function viewGradeSheet(){
+  return `<div class="card">
+    <div class="between" style="margin-bottom:12px">
+      <div>
+        <h2 style="margin:0">📊 Class Grade Sheet</h2>
+        <p style="margin:4px 0 0;color:var(--muted);font-size:.92rem">Combined quiz + OSCE grade for every learner. Portfolio shown as a badge.</p>
+      </div>
+      <button class="btn ghost small" onclick="loadGradeSheet()">↻ Refresh</button>
+    </div>
+    <div id="grade-sheet-body"><div class="empty"><div class="icon">⏳</div>Loading…</div></div>
+  </div>`;
+}
+async function loadGradeSheet(){
+  const el = $('#grade-sheet-body');
+  try {
+    const d = await api('listAllGrades', { token: currentToken() });
+    const grades = d.grades || [];
+    if (!grades.length){ el.innerHTML = `<div class="empty"><div class="icon">📊</div>No learner accounts yet.</div>`; return; }
+
+    el.innerHTML = `<div class="tbl-scroll"><table>
+      <thead><tr>
+        <th>Learner</th>
+        <th>Quiz Avg</th>
+        <th>OSCE</th>
+        <th>Portfolio</th>
+        <th>Final</th>
+        <th>Detail</th>
+      </tr></thead>
+      <tbody>
+        ${grades.map(g => `
+          <tr>
+            <td>
+              <b>${esc(g.learnerName)}</b>
+              <div style="font-size:.8rem;color:var(--muted)">${esc(g.learnerEmail)}</div>
+            </td>
+            <td>
+              <b>${g.quizAverage}%</b>
+              <div style="font-size:.78rem;color:var(--muted)">${g.modulesAttempted}/${g.modulesTotal} modules</div>
+            </td>
+            <td>
+              ${g.osce ? `<b>${g.osce.percentage}%</b>
+                <div style="font-size:.78rem;color:var(--muted)">${g.osce.score}/${g.osce.total}</div>` :
+                '<span style="color:var(--muted)">—</span>'}
+            </td>
+            <td>
+              ${g.portfolio.submitted
+                ? `<span class="badge ${esc(g.portfolio.latestStatus || 'submitted')}">${esc(g.portfolio.latestStatus || 'submitted')}</span>
+                   <div style="font-size:.78rem;color:var(--muted)">${g.portfolio.count} file${g.portfolio.count > 1 ? 's' : ''}</div>`
+                : '<span class="badge suspended">missing</span>'}
+            </td>
+            <td>
+              <b style="font-size:1.15em;color:${g.finalPercentage >= PASS_THRESHOLD ? 'var(--ok)' : 'var(--brand-600)'}">
+                ${g.finalPercentage}%
+              </b>
+            </td>
+            <td>
+              <button class="btn ghost small" onclick="showLearnerGrade('${esc(g.learnerEmail)}')">View</button>
+            </td>
+          </tr>
+        `).join('')}
+      </tbody>
+    </table></div>
+  `;
+  } catch(e){
+    el.innerHTML = `<div class="alert error">${esc(e.message)}</div>`;
+  }
+}
+
+async function showLearnerGrade(email){
+  try {
+    const d = await api('computeLearnerGrade', { token: currentToken(), email });
+    const g = d.grade;
+    const overlay = document.createElement('div');
+    overlay.style.cssText = 'position:fixed;inset:0;background:rgba(11,47,56,.55);z-index:200;display:flex;align-items:flex-start;justify-content:center;padding:40px 20px;overflow-y:auto';
+    overlay.onclick = (e) => { if (e.target === overlay) document.body.removeChild(overlay); };
+    overlay.innerHTML = `<div style="background:#fff;border-radius:16px;padding:26px;max-width:800px;width:100%;box-shadow:0 20px 60px rgba(0,0,0,.3)">
+      <div class="between" style="margin-bottom:16px">
+        <h2 style="margin:0">${esc(g.learnerName)}</h2>
+        <button class="btn ghost small" onclick="this.closest('div').parentNode.parentNode.remove()">Close</button>
+      </div>
+      <p style="color:var(--muted);margin:0 0 16px">${esc(g.learnerEmail)}</p>
+      <div class="grade-hero" style="padding:20px">
+        <div class="label">Final Grade</div>
+        <div class="big" style="font-size:2.8rem">${g.finalPercentage}%</div>
+        <div class="sub">Quiz ${g.quizAverage}% × 50% + OSCE ${g.osce ? g.osce.percentage + '%' : '—'} × 50%</div>
+      </div>
+      <div class="grade-section" style="margin-top:20px">
+        <h3>Modules</h3>
+        ${g.modules.map(m => `
+          <div class="grade-module-row">
+            <div class="title">${esc(m.moduleTitle)}</div>
+            <div class="score">${m.attempted ? m.score + '/' + m.total : '—'}</div>
+            <div class="pct ${m.attempted && m.percentage >= PASS_THRESHOLD ? 'pass' : (m.attempted ? 'fail' : '')}">
+              ${m.attempted ? m.percentage + '%' : 'Not taken'}
+            </div>
+            <div class="attempts">${m.attempted ? m.attemptCount + '×' : ''}</div>
+            <div></div>
+          </div>
+        `).join('')}
+      </div>
+      <div class="grade-section">
+        <h3>OSCE</h3>
+        <div class="grade-block">
+          ${g.osce ? `<h4>${g.osce.percentage}% (${g.osce.score}/${g.osce.total}) — ${esc(g.osce.outcome)}</h4>
+            <p style="color:var(--muted);margin:0;font-size:.9rem">Attempts: ${g.osce.attempts} · Last: ${fmt(g.osce.timestamp)}</p>` :
+            '<p class="empty-line">No passing OSCE on record.</p>'}
+        </div>
+      </div>
+      <div class="grade-section">
+        <h3>Portfolio</h3>
+        <div class="grade-block">
+          ${g.portfolio.submitted ?
+            `<h4>${g.portfolio.count} submission${g.portfolio.count > 1 ? 's' : ''}</h4>
+             <p style="color:var(--muted);margin:0;font-size:.9rem">Latest: ${esc(g.portfolio.latestFileName)} · ${fmt(g.portfolio.latestUploadedAt)} · ${esc(g.portfolio.latestStatus || 'submitted')}</p>` :
+            '<p class="empty-line">No portfolio uploaded.</p>'}
+        </div>
+      </div>
+    </div>`;
+    document.body.appendChild(overlay);
+  } catch(e){ toast(e.message); }
+}
+
+/* ============================================================
+   PORTFOLIO REVIEW (instructor/admin)
+   ============================================================ */
+function viewPortfolioReview(){
+  return `<div class="card">
+    <div class="between" style="margin-bottom:12px">
+      <div>
+        <h2 style="margin:0">📄 Portfolio Submissions</h2>
+        <p style="margin:4px 0 0;color:var(--muted);font-size:.92rem">Review, download, and set status on learner portfolios.</p>
+      </div>
+      <button class="btn ghost small" onclick="loadPortfolioReview()">↻ Refresh</button>
+    </div>
+    <div id="portfolio-review-body"><div class="empty"><div class="icon">⏳</div>Loading…</div></div>
+  </div>`;
+}
+async function loadPortfolioReview(){
+  const el = $('#portfolio-review-body');
+  try {
+    const d = await api('listAllPortfolios', { token: currentToken() });
+    const subs = d.submissions || [];
+    if (!subs.length){ el.innerHTML = `<div class="empty"><div class="icon">📄</div>No portfolio submissions yet.</div>`; return; }
+
+    el.innerHTML = `<div class="portfolio-list">
+      ${subs.map(s => `
+        <div class="portfolio-item" data-sub-id="${esc(s.SubmissionID)}">
+          <div class="pf-info">
+            <div class="pf-name">📎 ${esc(s.FileName)}</div>
+            <div class="pf-meta">
+              <span><strong>${esc(s.LearnerName)}</strong> · ${esc(s.Email)}</span>
+              <span>${esc(s.ModuleTitle)}</span>
+              <span>${fmt(s.UploadedAt)}</span>
+              <span>${fmtBytes(s.FileSizeBytes)}</span>
+            </div>
+            ${s.ReviewerNotes ? `<div class="pf-meta" style="margin-top:6px;color:var(--ink-soft)"><em>Reviewer: ${esc(s.ReviewerNotes)}</em></div>` : ''}
+          </div>
+          <div class="pf-actions">
+            <a class="btn ghost small" href="${esc(s.DriveURL)}" target="_blank" rel="noopener">Download</a>
+            <select class="inline" onchange="updatePortfolioStatus('${esc(s.SubmissionID)}', this.value)">
+              ${['submitted','reviewed','accepted','rejected'].map(st =>
+                `<option value="${st}" ${s.Status === st ? 'selected' : ''}>${st}</option>`).join('')}
+            </select>
+            <button class="btn ghost small" onclick="promptPortfolioNotes('${esc(s.SubmissionID)}', '${esc(s.ReviewerNotes || '')}')">Notes</button>
+          </div>
+        </div>
+      `).join('')}
+    </div>`;
+  } catch(e){
+    el.innerHTML = `<div class="alert error">${esc(e.message)}</div>`;
+  }
+}
+async function updatePortfolioStatus(submissionId, status){
+  try {
+    await api('updatePortfolioStatus', { token: currentToken(), submissionId, status, notes: '' });
+    toast('Status set to ' + status);
+    loadPortfolioReview();
+  } catch(e){ toast(e.message); }
+}
+async function promptPortfolioNotes(submissionId, current){
+  const notes = prompt('Reviewer notes for this submission:', current || '');
+  if (notes === null) return;
+  try {
+    await api('updatePortfolioStatus', {
+      token: currentToken(), submissionId,
+      status: 'reviewed', notes
+    });
+    toast('Notes saved');
+    loadPortfolioReview();
+  } catch(e){ toast(e.message); }
+}
+
+/* ============================================================
+   Content Manager (unchanged structure)
    ============================================================ */
 function viewContentMgr(){
   return `<div class="card">
@@ -1057,7 +1320,6 @@ function viewContentMgr(){
     <div id="cm-body"><div class="empty"><div class="icon">⏳</div>Loading…</div></div>
   </div>`;
 }
-
 function renderCmBody(){
   const body = $('#cm-body');
   if(!body || !STATE.content) return;
@@ -1094,7 +1356,7 @@ function renderCmBody(){
         <h4 style="margin:0">Quiz Questions (${m.Quizzes.length})</h4>
         <button class="btn primary small" onclick="openQuizEditor(null, '${esc(m.ModuleID)}')">+ Add Question</button>
       </div>
-      <p style="color:var(--muted);font-size:.85rem;margin:6px 0 0">All questions appear together for learners as one grouped module quiz.</p>
+      <p style="color:var(--muted);font-size:.85rem;margin:6px 0 0">${isPortfolioModule(m) ? '⚠️ This is a clinical practice module — learners can upload portfolios here.' : 'All questions appear together for learners as one grouped module quiz.'}</p>
       <div style="margin-top:10px">
         ${m.Quizzes.length ? m.Quizzes.map((q,i) => `<div class="quiz-row">
           <div class="info">
@@ -1113,7 +1375,7 @@ function renderCmBody(){
     ? mods.map(m => `<div class="module-card">
         <div class="between">
           <div style="flex:1;min-width:0">
-            <h4>${esc(m.Title)}</h4>
+            <h4>${esc(m.Title)} ${isPortfolioModule(m) ? '<span class="badge submitted" style="font-size:.7em;vertical-align:middle">portfolio</span>' : ''}</h4>
             <p class="desc">${esc(m.Description || '')}</p>
             <div class="meta">${m.Lessons.length} lessons · ${m.Quizzes.length} quiz questions</div>
           </div>
@@ -1124,9 +1386,8 @@ function renderCmBody(){
           </div>
         </div>
       </div>`).join('')
-    : `<div class="empty"><div class="icon">📭</div><p>No modules yet. Click "+ New Module" or run <code>seedCourseContent()</code> in Apps Script.</p></div>`;
+    : `<div class="empty"><div class="icon">📭</div><p>No modules yet. Click "+ New Module" or run <code>seedCourseContent()</code>.</p></div>`;
 }
-
 function cmOpen(id){ STATE.cmModuleId = id; renderCmBody(); }
 function cmBack(){ STATE.cmModuleId = null; STATE.editingModule = null; STATE.editingLesson = null; STATE.editingQuiz = null; renderCmBody(); }
 
@@ -1178,7 +1439,6 @@ async function deleteModule(id){
     clearCachedContent(); STATE.content = null; await loadContent('cm');
   } catch(e){ toast(e.message); }
 }
-
 function openLessonEditor(lessonId, moduleId){
   const mod = STATE.content.modules.find(m => m.ModuleID === moduleId);
   if(lessonId){
@@ -1194,7 +1454,7 @@ function renderLessonEditor(){
     <form onsubmit="saveLesson(event)">
       <div style="display:grid;grid-template-columns:1fr 1fr;gap:14px">
         <div class="field" style="grid-column:1/-1"><label>Title *</label><input name="title" required value="${esc(e.title)}"></div>
-        <div class="field" style="grid-column:1/-1"><label>Content (HTML allowed)</label><textarea name="content" rows="16">${esc(e.content)}</textarea><div class="hint">Use &lt;h2&gt;, &lt;p&gt;, &lt;ul&gt;, &lt;table&gt;, &lt;aside class="lesson-callout"&gt;, &lt;div class="lesson-calc"&gt;, &lt;div class="lesson-discuss"&gt;, &lt;div class="lesson-checklist"&gt;.</div></div>
+        <div class="field" style="grid-column:1/-1"><label>Content (HTML allowed)</label><textarea name="content" rows="16">${esc(e.content)}</textarea></div>
         <div class="field"><label>Sort order</label><input name="sortOrder" type="number" value="${esc(e.sortOrder)}"></div>
       </div>
       <div class="row" style="margin-top:16px">
@@ -1226,7 +1486,6 @@ async function deleteLesson(id){
     clearCachedContent(); STATE.content = null; await loadContent('cm');
   } catch(e){ toast(e.message); }
 }
-
 function openQuizEditor(quizId, moduleId){
   const mod = STATE.content.modules.find(m => m.ModuleID === moduleId);
   if(quizId){
@@ -1284,7 +1543,8 @@ async function deleteQuiz(id){
 }
 
 /* ============================================================
-   LEARNER: My OSCE / My Certificates
+   OSCE + Records + Certs + Users + Audit + MyOsce + MyCerts
+   (unchanged from previous version)
    ============================================================ */
 function viewMyOsce(){
   return `<div class="card"><h2>🎯 My OSCE Assessment</h2>
@@ -1318,7 +1578,6 @@ async function loadMyCerts(){
     el.innerHTML = d.certificates.map(c => renderCertificate(c)).join('');
   } catch(e){ $('#my-certs-list').innerHTML = `<div class="alert error">${esc(e.message)}</div>`; }
 }
-
 function renderCertificate(c){
   const assessorName = c.AssessorName || 'OSCE Assessor';
   return `<div class="cert" style="margin-bottom:18px">
@@ -1343,7 +1602,6 @@ function renderCertificate(c){
     </div>
   </div>`;
 }
-
 function downloadCertificate(c){
   const assessorName = c.AssessorName || 'OSCE Assessor';
   const html = `<!DOCTYPE html><html><head><meta charset="utf-8"><title>Certificate</title>
@@ -1387,9 +1645,6 @@ function downloadCertificate(c){
   w.document.write(html); w.document.close();
 }
 
-/* ============================================================
-   INSTRUCTOR/ADMIN: OSCE entry, records, certs
-   ============================================================ */
 const OSCE_DOMAINS = [
   'Domain 1 — Preparation & Infection Control',
   'Domain 2 — Initial Thermal & Airway Management',
@@ -1464,7 +1719,6 @@ async function submitOsce(ev){
     r.innerHTML = `<div class="alert error" style="margin-top:16px">${esc(err.message)}</div>`;
   } finally { btn.disabled = false; btn.innerHTML = orig; }
 }
-
 function viewRecords(){ return `<div class="card"><h2>📊 OSCE Records</h2><div id="records-list"><div class="empty"><div class="icon">⏳</div>Loading…</div></div></div>`; }
 async function loadRecords(){
   try {
@@ -1494,10 +1748,6 @@ async function loadCerts(){
       </tr>`).join('')}</tbody></table></div>`;
   } catch(e){ $('#certs-list').innerHTML = `<div class="alert error">${esc(e.message)}</div>`; }
 }
-
-/* ============================================================
-   ADMIN: Users & Audit
-   ============================================================ */
 function viewUsers(){
   return `<div class="card"><h2>👥 User Management</h2>
     <p>Approve pending accounts, edit roles and statuses, or delete users.</p>
@@ -1572,7 +1822,9 @@ Object.assign(window, {
   openCpModule, openCpLesson, openCpQuizGroup, submitQuizGroup,
   cpPrev, cpNext,
   updateScore, submitOsce, renderDomainInputs,
-  changeRole, changeStatus, deleteUser, downloadCertificate
+  changeRole, changeStatus, deleteUser, downloadCertificate,
+  handlePortfolioUpload, updatePortfolioStatus, promptPortfolioNotes,
+  showLearnerGrade
 });
 </script>
 </body>
