@@ -41,7 +41,7 @@ code{background:#eef6f6;padding:2px 6px;border-radius:4px;font-family:var(--mono
 .btn.small{padding:8px 14px;font-size:.85rem}
 .btn.danger{background:var(--bad);color:#fff}
 .btn.danger:hover{background:#991b1b}
-.btn[disabled]{opacity:.5;cursor:not-allowed}
+.btn[disabled]{opacity:.45;cursor:not-allowed}
 .spinner{width:16px;height:16px;border:2px solid rgba(255,255,255,.35);border-top-color:#fff;border-radius:50%;animation:spin .7s linear infinite;display:inline-block}
 @keyframes spin{to{transform:rotate(360deg)}}
 
@@ -54,6 +54,7 @@ code{background:#eef6f6;padding:2px 6px;border-radius:4px;font-family:var(--mono
 .row{display:flex;gap:12px;flex-wrap:wrap;align-items:center}
 .between{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap}
 
+/* Auth */
 .auth-wrap{min-height:calc(100vh - 70px);display:grid;place-items:center;padding:30px 18px}
 .auth-card{width:100%;max-width:500px}
 .auth-card .logo-lg{width:64px;height:64px;margin:0 auto 14px;display:grid;place-items:center;background:var(--brand-50);border-radius:18px;font-size:32px}
@@ -76,13 +77,13 @@ code{background:#eef6f6;padding:2px 6px;border-radius:4px;font-family:var(--mono
 .alert.error{background:var(--bad-50);border-color:var(--bad);color:var(--bad)}
 .alert.success{background:var(--ok-50);border-color:var(--ok);color:var(--ok)}
 .alert.info{background:var(--brand-50);border-color:var(--brand);color:var(--brand-600)}
-.alert code{background:rgba(255,255,255,.7);padding:4px 8px;border-radius:4px;font-size:1.1em;font-weight:700}
 details.code-block{margin-top:12px;font-size:.85rem;background:#fff;border:1px solid var(--line);border-radius:10px;padding:10px 14px}
 details.code-block summary{cursor:pointer;font-weight:600;color:var(--muted);outline:none}
 details.code-block summary:hover{color:var(--brand-600)}
 details.code-block .code-inner{margin-top:10px;display:flex;align-items:center;gap:10px}
 details.code-block .code-inner code{font-size:1.4rem;letter-spacing:.3em;font-weight:800;color:var(--brand-600);background:var(--brand-50);padding:8px 16px;border-radius:8px;flex:1;text-align:center}
 
+/* Dashboard */
 .hero{background:linear-gradient(135deg,#0b2f38,#0d7d76);color:#fff;padding:30px;border-radius:var(--radius);margin-bottom:20px}
 .hero h2{font-size:1.8rem;margin:0 0 6px;color:#fff}
 .hero p{color:#c9e7e7;margin:0;max-width:75ch}
@@ -95,6 +96,7 @@ details.code-block .code-inner code{font-size:1.4rem;letter-spacing:.3em;font-we
 .nav-tabs button:hover{background:var(--brand-50)}
 .nav-tabs button.active{background:var(--brand);color:#fff}
 
+/* Tables */
 .tbl-scroll{overflow-x:auto;border:1px solid var(--line);border-radius:var(--radius-sm)}
 table{border-collapse:collapse;width:100%;font-size:.92rem;min-width:560px}
 th,td{padding:11px 14px;text-align:left;border-bottom:1px solid var(--line-soft);vertical-align:middle}
@@ -110,6 +112,7 @@ tbody tr:hover{background:#f7fbfb}
 .badge.learner{background:#f1f7f7;color:var(--muted)}
 select.inline{padding:6px 10px;font-size:.85rem;border:1px solid var(--line);border-radius:8px;background:#fff}
 
+/* Content manager */
 .module-card{border:1px solid var(--line);border-radius:var(--radius-sm);padding:16px;margin-bottom:12px;background:#fff;transition:.15s}
 .module-card:hover{border-color:var(--brand-100);box-shadow:var(--shadow-sm)}
 .module-card h4{margin:0 0 4px;font-size:1.1rem}
@@ -122,19 +125,43 @@ select.inline{padding:6px 10px;font-size:.85rem;border:1px solid var(--line);bor
 .quiz-row .opts{font-size:.85rem;color:var(--muted);margin-top:6px;line-height:1.6}
 .quiz-row .opts b{color:var(--ok)}
 
+/* Course player */
 .player-grid{display:grid;grid-template-columns:320px 1fr;gap:20px}
 .player-side{background:#fff;border:1px solid var(--line);border-radius:var(--radius-sm);padding:14px;position:sticky;top:90px;max-height:calc(100vh - 110px);overflow-y:auto}
 .player-side h3{font-size:.9rem;text-transform:uppercase;letter-spacing:.05em;color:var(--muted);margin:0 0 10px}
-.mod-link{display:block;padding:10px 12px;border-radius:8px;text-decoration:none;color:var(--ink);font-size:.92rem;margin-bottom:2px;border-left:3px solid transparent;transition:.15s}
+.mod-link{display:block;padding:10px 12px;border-radius:8px;text-decoration:none;color:var(--ink);font-size:.92rem;margin-bottom:2px;border-left:3px solid transparent;transition:.15s;cursor:pointer}
 .mod-link:hover{background:var(--brand-50)}
 .mod-link.active{background:var(--brand-50);border-left-color:var(--brand);color:var(--brand-600);font-weight:700}
 .lesson-link,.quiz-link{display:block;padding:8px 12px 8px 24px;border-radius:6px;text-decoration:none;color:var(--ink-soft);font-size:.86rem;margin-bottom:1px;cursor:pointer}
 .lesson-link:hover,.quiz-link:hover{background:var(--brand-50)}
 .lesson-link.active,.quiz-link.active{background:var(--brand-100);color:var(--brand-600);font-weight:600}
-.player-main{background:#fff;border:1px solid var(--line);border-radius:var(--radius-sm);padding:28px;min-height:400px}
+.player-main{background:#fff;border:1px solid var(--line);border-radius:var(--radius-sm);padding:28px;min-height:500px;display:flex;flex-direction:column}
+.player-content{flex:1}
 .player-main h2{font-size:1.6rem;margin-bottom:10px}
 
-/* ---- Lesson Content ---- */
+/* Prev/Next nav bar */
+.player-nav{
+  margin-top:32px;padding-top:20px;border-top:2px solid var(--line-soft);
+  display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;
+}
+.player-nav .counter{
+  font-weight:700;color:var(--muted);font-size:.85rem;
+  padding:6px 14px;background:#f1f7f7;border-radius:99px;
+  order:2;flex:0 0 auto;
+}
+.player-nav .prev-btn{order:1}
+.player-nav .next-btn{order:3}
+.player-nav .prev-btn,.player-nav .next-btn{
+  flex:1;max-width:220px;min-width:110px;
+}
+.player-nav .prev-btn{justify-content:flex-start}
+.player-nav .next-btn{justify-content:flex-end}
+@media (max-width:600px){
+  .player-nav .counter{order:1;width:100%;text-align:center;margin-bottom:8px}
+  .player-nav .prev-btn,.player-nav .next-btn{max-width:none}
+}
+
+/* Lesson content */
 .lesson-content{font-size:1rem;line-height:1.7;color:var(--ink)}
 .lesson-content h2{font-size:1.35rem;color:var(--brand-600);margin-top:1.4em}
 .lesson-content h3{font-size:1.15rem;color:var(--brand-600);margin-top:1.4em}
@@ -210,10 +237,17 @@ select.inline{padding:6px 10px;font-size:.85rem;border:1px solid var(--line);bor
 .lesson-content .lesson-checklist input{width:20px;height:20px;margin-top:1px;accent-color:var(--brand);flex:0 0 auto;cursor:pointer}
 .lesson-content .lesson-checklist input:checked + span{color:var(--muted);text-decoration:line-through}
 
-/* ---- Quiz Group ---- */
+/* Quiz group */
 .quiz-group{margin-top:20px}
 .quiz-group-head{margin-bottom:20px}
 .quiz-group-head h2{margin-bottom:6px}
+.quiz-previous{
+  display:inline-flex;align-items:center;gap:10px;
+  margin:10px 0 16px;padding:8px 14px;
+  background:var(--brand-50);color:var(--brand-600);
+  border-radius:99px;font-size:.88rem;font-weight:600;
+}
+.quiz-previous .pct{font-weight:800;font-size:1.05em}
 .quiz-group-list{display:flex;flex-direction:column;gap:16px}
 .quiz-item{border:2px solid var(--line);border-radius:var(--radius-sm);padding:20px;background:#fbfefe;transition:.15s}
 .quiz-item.correct{border-color:var(--ok);background:linear-gradient(180deg,#fff,var(--ok-50))}
@@ -223,34 +257,23 @@ select.inline{padding:6px 10px;font-size:.85rem;border:1px solid var(--line);bor
 .quiz-item.wrong .quiz-num{color:var(--bad)}
 .quiz-q{font-weight:600;font-size:1.08rem;margin-bottom:16px;line-height:1.6;color:var(--ink)}
 .quiz-options{display:grid;gap:10px}
-.quiz-opt{
-  display:flex;align-items:flex-start;gap:14px;padding:14px 16px;
-  border:2px solid var(--line);border-radius:10px;background:#fff;
-  cursor:pointer;transition:.15s;width:100%;text-align:left;font-size:1rem;color:var(--ink);
-}
+.quiz-opt{display:flex;align-items:flex-start;gap:14px;padding:14px 16px;border:2px solid var(--line);border-radius:10px;background:#fff;cursor:pointer;transition:.15s;width:100%;text-align:left;font-size:1rem;color:var(--ink)}
 .quiz-opt:hover{border-color:var(--brand);background:var(--brand-50)}
 .quiz-opt input[type="radio"]{display:none}
 .quiz-opt:has(input:checked){border-color:var(--brand);background:var(--brand-50)}
 .quiz-opt:has(input:checked) .key{background:var(--brand);color:#fff}
-.quiz-opt .key{
-  flex:0 0 30px;height:30px;display:grid;place-items:center;
-  background:#eef6f6;color:var(--brand-600);font-weight:800;
-  border-radius:8px;font-size:.9rem;transition:.15s;
-}
+.quiz-opt .key{flex:0 0 30px;height:30px;display:grid;place-items:center;background:#eef6f6;color:var(--brand-600);font-weight:800;border-radius:8px;font-size:.9rem;transition:.15s}
 .quiz-opt .opt-text{flex:1;line-height:1.5}
-
-/* Locked / graded states */
 .quiz-item.graded .quiz-opt{cursor:default}
 .quiz-item.graded .quiz-opt:hover{border-color:var(--line);background:#fff}
 .quiz-item.graded .quiz-opt.correct-answer{border-color:var(--ok);background:var(--ok-50);font-weight:600}
 .quiz-item.graded .quiz-opt.correct-answer .key{background:var(--ok);color:#fff}
 .quiz-item.graded .quiz-opt.wrong-answer{border-color:var(--bad);background:var(--bad-50)}
 .quiz-item.graded .quiz-opt.wrong-answer .key{background:var(--bad);color:#fff}
-.quiz-item.graded .quiz-opt.chosen-wrong{opacity:.8}
+.quiz-item.graded .quiz-opt.chosen-wrong{opacity:.85}
 .quiz-explanation{margin-top:14px;padding:14px 18px;border-radius:10px;background:var(--brand-50);border-left:4px solid var(--brand);font-size:.96rem;line-height:1.6}
 .quiz-explanation strong{display:block;margin-bottom:4px;color:var(--brand-600)}
-
-.quiz-group-actions{margin-top:24px;display:flex;justify-content:center}
+.quiz-group-actions{margin-top:24px;display:flex;justify-content:center;gap:12px;flex-wrap:wrap}
 .quiz-group-actions .btn{padding:14px 32px;font-size:1.02rem}
 .quiz-group-results{margin-top:24px}
 .quiz-result-summary{padding:24px;border-radius:var(--radius-sm);text-align:center;border:2px solid var(--brand);background:var(--brand-50)}
@@ -261,7 +284,7 @@ select.inline{padding:6px 10px;font-size:.85rem;border:1px solid var(--line);bor
 .quiz-result-summary.fail{border-color:var(--bad);background:var(--bad-50)}
 .quiz-result-summary.fail h3{color:var(--bad)}
 
-/* ---- OSCE ---- */
+/* OSCE */
 .osce-domain{display:grid;grid-template-columns:1fr auto;gap:12px;align-items:center;padding:12px 14px;border:1px solid var(--line);border-radius:10px;margin-bottom:8px;background:#fbfefe}
 .osce-domain .label{font-weight:600;font-size:.92rem}
 .osce-domain .radios{display:flex;gap:6px}
@@ -271,7 +294,7 @@ select.inline{padding:6px 10px;font-size:.85rem;border:1px solid var(--line);bor
 .score-banner.pass{background:var(--ok-50);color:var(--ok)}
 .score-banner.fail{background:var(--bad-50);color:var(--bad)}
 
-/* ---- Certificate (with signature) ---- */
+/* Certificate */
 .cert{background:linear-gradient(135deg,#fff,#f1f9f8);border:3px solid var(--brand);border-radius:18px;padding:40px 34px;text-align:center;position:relative;box-shadow:var(--shadow)}
 .cert::before{content:"";position:absolute;inset:10px;border:2px solid var(--brand-100);border-radius:12px;pointer-events:none}
 .cert .seal{width:80px;height:80px;margin:0 auto 14px;background:var(--brand);color:#fff;border-radius:50%;display:grid;place-items:center;font-size:34px}
@@ -287,6 +310,7 @@ select.inline{padding:6px 10px;font-size:.85rem;border:1px solid var(--line);bor
 .cert .meta div{background:#fff;border:1px solid var(--line);border-radius:8px;padding:8px 14px}
 .cert .meta b{display:block;color:var(--brand-600);font-size:.92rem;margin-top:2px}
 
+/* Toast */
 .toast{position:fixed;left:50%;bottom:26px;transform:translate(-50%,26px);background:#0b2f38;color:#e8f5f5;padding:14px 24px;border-radius:99px;font-size:.92rem;font-weight:600;box-shadow:var(--shadow);opacity:0;pointer-events:none;transition:.28s;z-index:90}
 .toast.show{opacity:1;transform:translate(-50%,0)}
 .empty{text-align:center;padding:40px 20px;color:var(--muted)}
@@ -294,7 +318,7 @@ select.inline{padding:6px 10px;font-size:.85rem;border:1px solid var(--line);bor
 
 @media (max-width:900px){.player-grid{grid-template-columns:1fr}.player-side{position:static;max-height:none}}
 @media (max-width:600px){.topbar{padding:12px 14px;gap:10px}.brand h1{font-size:.95rem}.brand small{display:none}.user-chip{font-size:.78rem;padding:6px 10px}.container{padding:18px 12px 40px}.card{padding:18px}.osce-domain{grid-template-columns:1fr}}
-@media print{.topbar,.nav-tabs,.btn,footer,.player-side,.toast{display:none!important}body{background:#fff}.card,.player-main{box-shadow:none;border:0;padding:0}.cert{box-shadow:none}}
+@media print{.topbar,.nav-tabs,.btn,footer,.player-side,.toast,.player-nav{display:none!important}body{background:#fff}.card,.player-main{box-shadow:none;border:0;padding:0}.cert{box-shadow:none}}
 </style>
 </head>
 <body>
@@ -335,34 +359,125 @@ async function api(action, payload={}){
   return data.data;
 }
 
-const SK = 'nn_lms_session_v4';
+const SK = 'nn_lms_session_v5';
 const getSession = () => { try { return JSON.parse(localStorage.getItem(SK)); } catch { return null; } };
 const setSession = s => localStorage.setItem(SK, JSON.stringify(s));
 const clearSession = () => localStorage.removeItem(SK);
 const currentUser = () => getSession()?.user || null;
 const currentToken = () => getSession()?.token || '';
 
-const CK = 'nn_lms_content_v4', CK_EXP = 'nn_lms_content_exp_v4';
+const CK = 'nn_lms_content_v5', CK_EXP = 'nn_lms_content_exp_v5';
 function getCachedContent(){
   try {
     if(Number(localStorage.getItem(CK_EXP)||0) < Date.now()) return null;
     return JSON.parse(localStorage.getItem(CK)||'null');
   } catch { return null; }
 }
-function setCachedContent(c){ try { localStorage.setItem(CK, JSON.stringify(c)); localStorage.setItem(CK_EXP, String(Date.now() + 3*60*1000)); } catch {} }
+function setCachedContent(c){
+  try { localStorage.setItem(CK, JSON.stringify(c)); localStorage.setItem(CK_EXP, String(Date.now() + 3*60*1000)); } catch {}
+}
 function clearCachedContent(){ try { localStorage.removeItem(CK); localStorage.removeItem(CK_EXP); } catch {} }
 
 const STATE = {
   authTab: 'login', authEmail: '', view: 'overview',
-  content: null, contentFresh: false,
+  content: null,
   cpModuleId: null, cpLessonId: null, cpQuizGroup: null,
   cmModuleId: null, editingLesson: null, editingQuiz: null, editingModule: null,
-  resetInfo: null, userData: {}
+  resetInfo: null, userData: {},
+  quizScores: {}  // moduleId -> {score,total,percentage,attemptCount,attemptedAt}
 };
 
+/* ============================================================
+   PLAYLIST — linear content list across all modules
+   ============================================================ */
+function getPlaylist(){
+  const list = [];
+  const mods = STATE.content?.modules || [];
+  mods.forEach(m => {
+    m.Lessons.forEach(l => {
+      list.push({
+        type: 'lesson', moduleId: m.ModuleID, moduleTitle: m.Title,
+        lessonId: l.LessonID, title: l.Title
+      });
+    });
+    if (m.Quizzes.length) {
+      list.push({
+        type: 'quiz-group', moduleId: m.ModuleID, moduleTitle: m.Title,
+        title: 'Module Quiz — ' + m.Title
+      });
+    }
+  });
+  return list;
+}
+
+function getCurrentPlaylistIndex(){
+  const list = getPlaylist();
+  if (STATE.cpLessonId) return list.findIndex(x => x.type === 'lesson' && x.lessonId === STATE.cpLessonId);
+  if (STATE.cpQuizGroup) return list.findIndex(x => x.type === 'quiz-group' && x.moduleId === STATE.cpQuizGroup);
+  return -1;
+}
+
+function openPlaylistPosition(idx){
+  const list = getPlaylist();
+  if (!list.length) return;
+  idx = Math.max(0, Math.min(idx, list.length - 1));
+  const item = list[idx];
+  if (item.type === 'lesson'){
+    STATE.cpModuleId = item.moduleId;
+    STATE.cpLessonId = item.lessonId;
+    STATE.cpQuizGroup = null;
+    renderCourseBody();
+  } else {
+    STATE.cpModuleId = item.moduleId;
+    STATE.cpLessonId = null;
+    STATE.cpQuizGroup = item.moduleId;
+    renderCourseBody();
+    // Fetch previous score for this module
+    loadQuizGroupScore(item.moduleId);
+  }
+}
+
+function cpPrev(){
+  const idx = getCurrentPlaylistIndex();
+  if (idx > 0) openPlaylistPosition(idx - 1);
+}
+function cpNext(){
+  const idx = getCurrentPlaylistIndex();
+  const list = getPlaylist();
+  if (idx >= 0 && idx < list.length - 1) openPlaylistPosition(idx + 1);
+}
+
+function renderPlayerNav(){
+  const list = getPlaylist();
+  const idx = getCurrentPlaylistIndex();
+  if (idx < 0 || !list.length) return '';
+
+  const prev = idx > 0 ? list[idx - 1] : null;
+  const next = idx < list.length - 1 ? list[idx + 1] : null;
+
+  return `
+    <div class="player-nav">
+      <button class="btn ghost prev-btn" onclick="cpPrev()" ${prev ? '' : 'disabled'}
+        ${prev ? `title="${esc(prev.title)}"` : ''}>
+        ← Previous
+      </button>
+      <span class="counter">${idx + 1} of ${list.length}</span>
+      <button class="btn primary next-btn" onclick="cpNext()" ${next ? '' : 'disabled'}
+        ${next ? `title="${esc(next.title)}"` : ''}>
+        Next →
+      </button>
+    </div>
+  `;
+}
+
+/* ============================================================
+   ROOT
+   ============================================================ */
 function render(){ const u = currentUser(); if(!u){ renderAuth(); return; } renderApp(); }
 
-/* ---------- AUTH ---------- */
+/* ============================================================
+   AUTH
+   ============================================================ */
 function renderAuth(){
   const t = STATE.authTab;
   const tabs = [['login','Login'],['register','Register'],['forgot','Forgot'],['reset','Reset']];
@@ -409,7 +524,7 @@ function authRegisterForm(){
 }
 function authForgotForm(){
   return `<form id="auth-form" data-mode="forgot">
-    <div class="field"><label>Email address</label><input type="email" name="email" required value="${esc(STATE.authEmail)}" autocomplete="email"><div class="hint">We'll send a 6-digit code. It expires in 30 minutes.</div></div>
+    <div class="field"><label>Email address</label><input type="email" name="email" required value="${esc(STATE.authEmail)}"><div class="hint">We'll send a 6-digit code. It expires in 30 minutes.</div></div>
     <button type="submit" class="btn primary" style="width:100%">Send reset code</button>
     <div class="auth-links"><a href="#" onclick="switchAuth('login');return false">← Back to login</a></div>
   </form>`;
@@ -450,7 +565,7 @@ async function handleAuthSubmit(e){
       const d = await api('login', { email, password: form.get('password') });
       setSession({ token: d.token, user: d.user, issued: Date.now() });
       toast('Welcome back, ' + d.user.name);
-      STATE.view = 'overview'; STATE.userData = {};
+      STATE.view = 'overview'; STATE.userData = {}; STATE.quizScores = {};
       render();
     } else if(mode === 'register'){
       const d = await api('register', { name: form.get('name'), email: form.get('email'), password: form.get('password'), role: form.get('role') });
@@ -489,11 +604,13 @@ async function logout(){
   try { await api('logout', { token: currentToken() }); } catch {}
   clearSession();
   STATE.authTab = 'login'; STATE.view = 'overview'; STATE.content = null;
-  STATE.resetInfo = null; STATE.userData = {};
+  STATE.resetInfo = null; STATE.userData = {}; STATE.quizScores = {};
   render();
 }
 
-/* ---------- APP SHELL ---------- */
+/* ============================================================
+   APP SHELL
+   ============================================================ */
 function renderApp(){
   const u = currentUser();
   const tabs = [['overview','🏠 Overview'],['course','📚 Course']];
@@ -546,7 +663,7 @@ function viewOverview(){
   const totalQuizzes = c.reduce((a,m)=>a+m.Quizzes.length,0);
   return `<div class="hero">
     <h2>Welcome back, ${esc(u.name)}</h2>
-    <p>${u.role === 'learner' ? 'Continue the course, take grouped quizzes, and complete the OSCE to earn your certificate (80% required).' :
+    <p>${u.role === 'learner' ? 'Continue the course, take grouped module quizzes, and complete the OSCE to earn your certificate (80% required).' :
       u.role === 'instructor' ? 'Manage course content, score OSCE assessments, and track learner progress.' :
       'Full administrative access: manage users, content, assessments, certificates, and audit logs.'}</p>
   </div>
@@ -568,13 +685,15 @@ function viewOverview(){
   </div>`;
 }
 
-/* ---------- COURSE PLAYER ---------- */
+/* ============================================================
+   COURSE PLAYER
+   ============================================================ */
 function viewCourse(){
   return `<div class="card">
     <div class="between" style="margin-bottom:18px">
       <div>
         <h2 style="margin:0">📚 Course Player</h2>
-        <p style="margin:4px 0 0;color:var(--muted);font-size:.92rem">Browse modules, read lessons, take grouped module quizzes.</p>
+        <p style="margin:4px 0 0;color:var(--muted);font-size:.92rem">Navigate lessons and quizzes with the Previous / Next buttons.</p>
       </div>
       <button class="btn ghost small" onclick="loadContent('course', true)">↻ Refresh</button>
     </div>
@@ -594,20 +713,32 @@ function renderCourseBody(){
         : 'Check back soon — your instructor is preparing content.'}</p></div>`;
     return;
   }
+
   const curMod = STATE.cpModuleId ? mods.find(m => m.ModuleID === STATE.cpModuleId) : null;
+
   body.innerHTML = `
     <div class="player-grid">
       <aside class="player-side">
         <h3>Modules</h3>
-        ${mods.map(m => `
-          <a href="#" class="mod-link ${m.ModuleID===STATE.cpModuleId?'active':''}" onclick="openCpModule('${esc(m.ModuleID)}');return false">${esc(m.Title)}</a>
-          ${m.ModuleID===STATE.cpModuleId ? `
-            ${m.Lessons.map(l => `<a class="lesson-link ${l.LessonID===STATE.cpLessonId?'active':''}" onclick="openCpLesson('${esc(l.LessonID)}');return false">📖 ${esc(l.Title)}</a>`).join('')}
-            ${m.Quizzes.length ? `<a class="quiz-link ${STATE.cpQuizGroup===m.ModuleID?'active':''}" onclick="openCpQuizGroup('${esc(m.ModuleID)}');return false">📝 Module Quizzes (${m.Quizzes.length})</a>` : ''}
-          ` : ''}
-        `).join('')}
+        ${mods.map(m => {
+          const isActiveMod = m.ModuleID === STATE.cpModuleId;
+          return `
+            <a class="mod-link ${isActiveMod?'active':''}" onclick="openCpModule('${esc(m.ModuleID)}');return false">${esc(m.Title)}</a>
+            ${isActiveMod ? `
+              ${m.Lessons.map(l => `
+                <a class="lesson-link ${l.LessonID===STATE.cpLessonId?'active':''}" onclick="openCpLesson('${esc(l.LessonID)}');return false">📖 ${esc(l.Title)}</a>
+              `).join('')}
+              ${m.Quizzes.length ? `
+                <a class="quiz-link ${STATE.cpQuizGroup===m.ModuleID?'active':''}" onclick="openCpQuizGroup('${esc(m.ModuleID)}');return false">📝 Module Quiz (${m.Quizzes.length} questions)</a>
+              ` : ''}
+            ` : ''}
+          `;
+        }).join('')}
       </aside>
-      <section class="player-main">${renderPlayerMain(curMod)}</section>
+      <section class="player-main">
+        <div class="player-content">${renderPlayerMain(curMod)}</div>
+        ${renderPlayerNav()}
+      </section>
     </div>
   `;
 
@@ -632,7 +763,6 @@ function renderPlayerMain(mod){
         <div class="lesson-content">${lesson.ContentHTML || '<p><em>No content yet.</em></p>'}</div>`;
     }
   }
-
   return `<h2>${esc(mod.Title)}</h2>
     <p style="color:var(--muted)">${esc(mod.Description || '')}</p>
     <h3>Lessons (${mod.Lessons.length})</h3>
@@ -650,33 +780,53 @@ function renderPlayerMain(mod){
     </div>` : '<p><em>No quizzes yet.</em></p>'}`;
 }
 
-/* ---------- QUIZ GROUP ---------- */
+/* ============================================================
+   QUIZ GROUP
+   ============================================================ */
 function renderQuizGroup(mod){
-  return `<h2>📝 ${esc(mod.Title)} — Module Quiz</h2>
-    <p style="color:var(--muted);margin-bottom:20px">Answer all <strong>${mod.Quizzes.length}</strong> questions below, then click <strong>Submit all answers</strong> to see your score, correct answers, and explanations.</p>
-    <div class="quiz-group" data-module-id="${esc(mod.ModuleID)}">
-      <div class="quiz-group-list">
-        ${mod.Quizzes.map((q, i) => `
-          <div class="quiz-item" data-quiz-id="${esc(q.QuizID)}">
-            <div class="quiz-num">Question ${i+1} of ${mod.Quizzes.length}</div>
-            <div class="quiz-q">${esc(q.Question)}</div>
-            <div class="quiz-options">
-              ${['A','B','C','D'].map((k, oi) => `
-                <label class="quiz-opt">
-                  <input type="radio" name="q_${esc(q.QuizID)}" value="${oi}">
-                  <span class="key">${k}</span>
-                  <span class="opt-text">${esc(q['Option'+k])}</span>
-                </label>
-              `).join('')}
-            </div>
+  const previous = STATE.quizScores[mod.ModuleID];
+  const previousHtml = previous
+    ? `<div class="quiz-previous">
+        📊 Previous best: <span class="pct">${previous.percentage}%</span> (${previous.score}/${previous.total})
+        — attempted ${previous.attemptCount} time${previous.attemptCount === 1 ? '' : 's'} · last on ${fmt(previous.attemptedAt)}
+      </div>`
+    : '';
+
+  return `<div class="quiz-group-head">
+    <h2>📝 ${esc(mod.Title)} — Module Quiz</h2>
+    <p style="color:var(--muted)">Answer all <strong>${mod.Quizzes.length}</strong> questions below, then click <strong>Submit all answers</strong> to see your score, correct answers, and explanations.</p>
+    ${previousHtml}
+  </div>
+  <div class="quiz-group" data-module-id="${esc(mod.ModuleID)}">
+    <div class="quiz-group-list">
+      ${mod.Quizzes.map((q, i) => `
+        <div class="quiz-item" data-quiz-id="${esc(q.QuizID)}">
+          <div class="quiz-num">Question ${i+1} of ${mod.Quizzes.length}</div>
+          <div class="quiz-q">${esc(q.Question)}</div>
+          <div class="quiz-options">
+            ${['A','B','C','D'].map((k, oi) => `
+              <label class="quiz-opt">
+                <input type="radio" name="q_${esc(q.QuizID)}" value="${oi}">
+                <span class="key">${k}</span>
+                <span class="opt-text">${esc(q['Option'+k])}</span>
+              </label>
+            `).join('')}
           </div>
-        `).join('')}
-      </div>
-      <div class="quiz-group-actions">
-        <button class="btn primary" id="quizSubmitBtn" type="button" onclick="submitQuizGroup('${esc(mod.ModuleID)}')">Submit all answers</button>
-      </div>
-      <div class="quiz-group-results" hidden></div>
-    </div>`;
+        </div>
+      `).join('')}
+    </div>
+    <div class="quiz-group-actions">
+      <button class="btn primary" id="quizSubmitBtn" type="button" onclick="submitQuizGroup('${esc(mod.ModuleID)}')">Submit all answers</button>
+    </div>
+    <div class="quiz-group-results" hidden></div>
+  </div>`;
+}
+
+async function loadQuizGroupScore(moduleId){
+  try {
+    const d = await api('getQuizGroupScore', { token: currentToken(), moduleId });
+    if(d.attempt) STATE.quizScores[moduleId] = d.attempt;
+  } catch(e) { /* silent */ }
 }
 
 async function submitQuizGroup(moduleId){
@@ -698,7 +848,7 @@ async function submitQuizGroup(moduleId){
 
   if(firstUnanswered){
     toast('Please answer all questions first');
-    firstUnanswered.scrollIntoView({behavior: 'smooth', block: 'center'});
+    firstUnanswered.scrollIntoView({behavior:'smooth', block:'center'});
     return;
   }
 
@@ -709,10 +859,17 @@ async function submitQuizGroup(moduleId){
 
   try {
     const d = await api('submitQuizGroup', { token: currentToken(), moduleId, answers });
+
+    // Save score for previous-score display
+    STATE.quizScores[moduleId] = {
+      score: d.score, total: d.total, percentage: d.percentage,
+      attemptCount: d.attemptCount, attemptedAt: d.attemptedAt
+    };
+
     renderQuizGroupResults(d);
+    toast('Score saved: ' + d.score + '/' + d.total + ' (' + d.percentage + '%)');
   } catch(e){
     toast(e.message);
-  } finally {
     btn.disabled = false;
     btn.innerHTML = orig;
   }
@@ -722,7 +879,6 @@ function renderQuizGroupResults(d){
   const group = $('.quiz-group');
   if(!group) return;
 
-  // Apply graded state per quiz
   group.querySelectorAll('.quiz-item').forEach((item, idx) => {
     const r = d.results[idx];
     if(!r) return;
@@ -730,10 +886,8 @@ function renderQuizGroupResults(d){
     item.classList.add('graded');
     item.classList.add(r.correct ? 'correct' : 'wrong');
 
-    const options = item.querySelectorAll('.quiz-opt');
-    options.forEach((opt, oi) => {
+    item.querySelectorAll('.quiz-opt').forEach((opt, oi) => {
       opt.classList.add('locked');
-      // Disable radios
       const radio = opt.querySelector('input[type="radio"]');
       if(radio) radio.disabled = true;
 
@@ -752,28 +906,48 @@ function renderQuizGroupResults(d){
     }
   });
 
-  // Summary banner
   const pass = d.percentage >= 60;
   const resultsEl = group.querySelector('.quiz-group-results');
   resultsEl.hidden = false;
   resultsEl.innerHTML = `<div class="quiz-result-summary ${pass ? 'pass' : 'fail'}">
     <h3>Your Score: ${d.score} / ${d.total} (${d.percentage}%)</h3>
-    <p>${pass ? '✓ Well done — review the explanations below to consolidate your learning.' : 'Review the explanations below and retake when ready.'}</p>
+    <p>${pass
+      ? '✓ Well done — review the explanations above to consolidate your learning.'
+      : 'Review the explanations above and retake when ready.'}</p>
+    <p style="margin-top:8px;font-size:.85rem;color:var(--muted)">Attempt ${d.attemptCount} · Saved to your record</p>
   </div>`;
 
-  // Replace submit button with retake option
   const actionsEl = group.querySelector('.quiz-group-actions');
-  if(actionsEl) {
+  if(actionsEl){
     actionsEl.innerHTML = `<button class="btn ghost" type="button" onclick="openCpQuizGroup('${esc(STATE.cpQuizGroup)}')">↻ Retake quiz</button>`;
   }
 
-  // Scroll to top of results
-  resultsEl.scrollIntoView({behavior: 'smooth', block: 'start'});
+  resultsEl.scrollIntoView({behavior:'smooth', block:'start'});
 }
 
-function openCpModule(id){ STATE.cpModuleId = id; STATE.cpLessonId = null; STATE.cpQuizGroup = null; renderCourseBody(); }
-function openCpLesson(id){ STATE.cpLessonId = id; STATE.cpQuizGroup = null; renderCourseBody(); }
-function openCpQuizGroup(moduleId){ STATE.cpModuleId = moduleId; STATE.cpLessonId = null; STATE.cpQuizGroup = moduleId; renderCourseBody(); }
+/* ============================================================
+   NAVIGATION CALLBACKS
+   ============================================================ */
+function openCpModule(moduleId){
+  const m = STATE.content?.modules.find(x => x.ModuleID === moduleId);
+  if (!m) return;
+  if (m.Lessons.length) openCpLesson(m.Lessons[0].LessonID);
+  else if (m.Quizzes.length) openCpQuizGroup(moduleId);
+  else {
+    STATE.cpModuleId = moduleId; STATE.cpLessonId = null; STATE.cpQuizGroup = null;
+    renderCourseBody();
+  }
+}
+function openCpLesson(lessonId){
+  const list = getPlaylist();
+  const idx = list.findIndex(x => x.type === 'lesson' && x.lessonId === lessonId);
+  if (idx >= 0) openPlaylistPosition(idx);
+}
+function openCpQuizGroup(moduleId){
+  const list = getPlaylist();
+  const idx = list.findIndex(x => x.type === 'quiz-group' && x.moduleId === moduleId);
+  if (idx >= 0) openPlaylistPosition(idx);
+}
 
 async function loadContent(mode, force){
   const cached = getCachedContent();
@@ -795,7 +969,9 @@ async function loadContent(mode, force){
   }
 }
 
-/* ---------- LESSON INTERACTIONS ---------- */
+/* ============================================================
+   LESSON INTERACTIONS
+   ============================================================ */
 function bindLessonInteractions(lessonId){
   const root = $('.lesson-content');
   if(!root) return;
@@ -866,7 +1042,9 @@ async function loadUserDataForLesson(lessonId){
   } catch(e){}
 }
 
-/* ---------- CONTENT MANAGER ---------- */
+/* ============================================================
+   CONTENT MANAGER
+   ============================================================ */
 function viewContentMgr(){
   return `<div class="card">
     <div class="between" style="margin-bottom:18px">
@@ -964,7 +1142,7 @@ function renderModuleEditor(){
   return `<button class="btn ghost small" onclick="STATE.editingModule=null;renderCmBody()">← Cancel</button>
     <h3 style="margin-top:16px">${e.moduleId ? 'Edit module' : 'New module'}</h3>
     <form onsubmit="saveModule(event)">
-      <div class="form-grid" style="display:grid;grid-template-columns:1fr 1fr;gap:14px">
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:14px">
         <div class="field" style="grid-column:1/-1"><label>Title *</label><input name="title" required value="${esc(e.title)}"></div>
         <div class="field" style="grid-column:1/-1"><label>Description</label><input name="description" value="${esc(e.description)}"></div>
         <div class="field"><label>Sort order</label><input name="sortOrder" type="number" value="${esc(e.sortOrder)}"></div>
@@ -1014,9 +1192,9 @@ function renderLessonEditor(){
   return `<button class="btn ghost small" onclick="STATE.editingLesson=null;renderCmBody()">← Cancel</button>
     <h3 style="margin-top:16px">${e.lessonId ? 'Edit lesson' : 'New lesson'}</h3>
     <form onsubmit="saveLesson(event)">
-      <div class="form-grid" style="display:grid;grid-template-columns:1fr 1fr;gap:14px">
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:14px">
         <div class="field" style="grid-column:1/-1"><label>Title *</label><input name="title" required value="${esc(e.title)}"></div>
-        <div class="field" style="grid-column:1/-1"><label>Content (HTML allowed)</label><textarea name="content" rows="16">${esc(e.content)}</textarea><div class="hint">Tip: use &lt;h2&gt;, &lt;p&gt;, &lt;ul&gt;, &lt;table&gt;, &lt;aside class="lesson-callout"&gt;, &lt;div class="lesson-calc"&gt;, &lt;div class="lesson-discuss"&gt;, &lt;div class="lesson-checklist"&gt;.</div></div>
+        <div class="field" style="grid-column:1/-1"><label>Content (HTML allowed)</label><textarea name="content" rows="16">${esc(e.content)}</textarea><div class="hint">Use &lt;h2&gt;, &lt;p&gt;, &lt;ul&gt;, &lt;table&gt;, &lt;aside class="lesson-callout"&gt;, &lt;div class="lesson-calc"&gt;, &lt;div class="lesson-discuss"&gt;, &lt;div class="lesson-checklist"&gt;.</div></div>
         <div class="field"><label>Sort order</label><input name="sortOrder" type="number" value="${esc(e.sortOrder)}"></div>
       </div>
       <div class="row" style="margin-top:16px">
@@ -1065,12 +1243,12 @@ function renderQuizEditor(){
     <h3 style="margin-top:16px">${e.quizId ? 'Edit quiz question' : 'New quiz question'}</h3>
     <form onsubmit="saveQuiz(event)">
       <div class="field"><label>Question *</label><input name="question" required value="${esc(e.question)}"></div>
-      <div class="form-grid" style="display:grid;grid-template-columns:1fr 1fr;gap:14px">
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:14px">
         ${['A','B','C','D'].map(k => `<div class="field"><label>Option ${k} *</label><input name="Option${k}" required value="${esc(e['Option'+k])}"></div>`).join('')}
       </div>
       <div class="field">
         <label>Correct answer</label>
-        <div class="radio-row" style="display:flex;gap:8px;flex-wrap:wrap">
+        <div style="display:flex;gap:8px;flex-wrap:wrap">
           ${['A','B','C','D'].map((k,i) => `<label style="display:flex;align-items:center;gap:6px;padding:9px 16px;border:2px solid var(--line);border-radius:8px;cursor:pointer;font-weight:600;background:#fff"><input type="radio" name="correctIndex" value="${i}" ${e.correctIndex===i?'checked':''}> ${k}</label>`).join('')}
         </div>
       </div>
@@ -1105,7 +1283,9 @@ async function deleteQuiz(id){
   } catch(e){ toast(e.message); }
 }
 
-/* ---------- LEARNER: My OSCE / My Certs ---------- */
+/* ============================================================
+   LEARNER: My OSCE / My Certificates
+   ============================================================ */
 function viewMyOsce(){
   return `<div class="card"><h2>🎯 My OSCE Assessment</h2>
     <p>Your OSCE results (10 domains × 2 points = 20). Pass mark: <strong>${PASS_THRESHOLD}%</strong>.</p>
@@ -1207,7 +1387,9 @@ function downloadCertificate(c){
   w.document.write(html); w.document.close();
 }
 
-/* ---------- INSTRUCTOR/ADMIN: OSCE, Records, Certs ---------- */
+/* ============================================================
+   INSTRUCTOR/ADMIN: OSCE entry, records, certs
+   ============================================================ */
 const OSCE_DOMAINS = [
   'Domain 1 — Preparation & Infection Control',
   'Domain 2 — Initial Thermal & Airway Management',
@@ -1313,7 +1495,9 @@ async function loadCerts(){
   } catch(e){ $('#certs-list').innerHTML = `<div class="alert error">${esc(e.message)}</div>`; }
 }
 
-/* ---------- ADMIN: Users & Audit ---------- */
+/* ============================================================
+   ADMIN: Users & Audit
+   ============================================================ */
 function viewUsers(){
   return `<div class="card"><h2>👥 User Management</h2>
     <p>Approve pending accounts, edit roles and statuses, or delete users.</p>
@@ -1362,7 +1546,9 @@ async function loadAudit(){
   } catch(e){ $('#audit-list').innerHTML = `<div class="alert error">${esc(e.message)}</div>`; }
 }
 
-/* ---------- BOOT ---------- */
+/* ============================================================
+   BOOT
+   ============================================================ */
 (function boot(){
   const s = getSession();
   if(s?.token && s?.user){
@@ -1384,6 +1570,7 @@ Object.assign(window, {
   openQuizEditor, saveQuiz, deleteQuiz,
   cmOpen, cmBack,
   openCpModule, openCpLesson, openCpQuizGroup, submitQuizGroup,
+  cpPrev, cpNext,
   updateScore, submitOsce, renderDomainInputs,
   changeRole, changeStatus, deleteUser, downloadCertificate
 });
